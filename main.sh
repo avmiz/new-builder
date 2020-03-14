@@ -50,12 +50,13 @@ function makeZip(){
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$GetCommit by ZyCromerZ/g" anykernel.sh
     ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
-    zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/*  >/dev/null 2>&1
+    zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
     else
         sendToSf "$ZipName"
     fi
+    rm -rf "$ZipName"
     cd ..
 
 }
@@ -114,13 +115,14 @@ function build(){
     cp -af out/arch/arm64/boot/Image.gz-dtb AnyKernel
     END=$(date +"%s")
     DIFF=$(($END - $START))
-    makeZip "$2"
+    makeZip "$1" "$2"
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
+    git fetch origin rebase-20200313-rename
     git clone --depth=1 https://github.com/Haseo97/Clang-11.0.0.git -b 11.0.0 Getclang
-    git clone --depth=1 https://github.com/baalajimaestro/aarch64-maestro-linux-android.git -b 05022020 GetGcc
+    git clone --depth=1 https://github.com/baalajimaestro/aarch64-maestro-linux-android.git -b 07032020-9.2.1 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
