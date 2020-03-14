@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 branch="qk/20200313/n"
 folder="qk_normal"
-FolderUpload="X01BD/KERNEL/QK/STABLE/N/$(date +"%Y-%m-%d")"
+FolderUpload="X01BD/KERNEL/QK/STABLE/N"
 spectrumFile="vipn.rc"
 . main.sh "get-kernel"
 
@@ -32,7 +32,7 @@ git reset --hard $MainCommit
 git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 babfe8f4448ebd39aaad806ae3eecd1e05960971
 git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e
 
-FolderUpload="X01BD/KERNEL/DC/STABLE/N/$(date +"%Y-%m-%d")"
+FolderUpload="X01BD/KERNEL/DC/STABLE/N"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
