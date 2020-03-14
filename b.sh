@@ -2,7 +2,7 @@
 branch="qk/20200313/l"
 folder="qk_low"
 FolderUpload="X01BD/KERNEL/QK/STABLE/L"
-spectrumFile="vipn.rc"
+spectrumFile="vipl.rc"
 . main.sh "get-kernel"
 
 GetCommit=$(git log --pretty=format:'%h' -1)
