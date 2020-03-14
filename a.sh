@@ -5,27 +5,17 @@ FolderUpload="X01BD/KERNEL/QK/STABLE/N"
 spectrumFile="vipn.rc"
 . main.sh "get-kernel"
 
-# GetREALlog="$(git log --pretty='format:%C(auto)%h : %s' -1)"
-# Getlog="${GetREALlog/\&/"and"}"
-# GetBranch=$(git rev-parse --abbrev-ref HEAD)
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 MainCommit=$GetCommit
 
-build "" "tele" "$chat_group_id"
-makeZip "" ""
-build "65Hz" "tele" "$chat_group_id"
-makeZip "65Hz" ""
-build "66Hz" "tele" "$chat_group_id"
-makeZip "66Hz" ""
-build "67Hz" "tele" "$chat_group_id"
-makeZip "67Hz" ""
-build "68Hz" "tele" "$chat_group_id"
-makeZip "68Hz" ""
-build "69Hz" "tele" "$chat_group_id"
-makeZip "69Hz" ""
-build "71Hz" "tele" "$chat_group_id"
-makeZip "71Hz" ""
+build "" "" "$chat_group_id"
+build "65Hz" "" "$chat_group_id"
+build "66Hz" "" "$chat_group_id"
+build "67Hz" "" "$chat_group_id"
+build "68Hz" "" "$chat_group_id"
+build "69Hz" "" "$chat_group_id"
+build "71Hz" "" "$chat_group_id"
 
 ## for pie
 git reset --hard $MainCommit
@@ -36,19 +26,26 @@ FolderUpload="X01BD/KERNEL/DC/STABLE/N"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
-build "" "tele" "$chat_group_id"
-makeZip "" ""
-build "65Hz" "tele" "$chat_group_id"
-makeZip "65Hz" ""
-build "66Hz" "tele" "$chat_group_id"
-makeZip "66Hz" ""
-build "67Hz" "tele" "$chat_group_id"
-makeZip "67Hz" ""
-build "68Hz" "tele" "$chat_group_id"
-makeZip "68Hz" ""
-build "69Hz" "tele" "$chat_group_id"
-makeZip "69Hz" ""
-build "71Hz" "tele" "$chat_group_id"
-makeZip "71Hz" ""
+build "" "" "$chat_group_id"
+build "65Hz" "" "$chat_group_id"
+build "66Hz" "" "$chat_group_id"
+build "67Hz" "" "$chat_group_id"
+build "68Hz" "" "$chat_group_id"
+build "69Hz" "" "$chat_group_id"
+build "71Hz" "" "$chat_group_id"
+
+git reset --hard $MainCommit
+git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 823eabfeb72cb96c210fe083008e878b3d7f6b4f 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
+FolderUpload="X01BD/KERNEL/QK/STABLE/N-SAR"
+GetCommit=$(git log --pretty=format:'%h' -1)
+HeadCommit=$GetCommit
+
+build "" "" "$chat_group_id"
+build "65Hz" "" "$chat_group_id"
+build "66Hz" "" "$chat_group_id"
+build "67Hz" "" "$chat_group_id"
+build "68Hz" "" "$chat_group_id"
+build "69Hz" "" "$chat_group_id"
+build "71Hz" "" "$chat_group_id"
 
 echo "done . . ."
