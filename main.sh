@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 function sendToTele(){
+    echo  "send To tele"
     ZIP="$1"
     if [ "$3" != "" ];then
         RefreshRT="$3(oc)"
@@ -21,6 +22,7 @@ Using compiler:
 - <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>" >/dev/null
 }
 function sendToSf(){
+    echo "upload to sf"
     Zip_File="$(pwd)/$1"
     rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" $my_host@frs.sourceforge.net:/home/frs/project/zyc-kernel/$FolderUpload/ >/dev/null
 }
@@ -71,27 +73,33 @@ function build(){
     fi
     if [ ! -z "$1" ];then
         if [[ "$1" == *"65Hz"* ]];then
-            git reset --hard $headCommit && git cherry-pick 19d101e1867d9258e891ce268d4a2ed4060503bf
+            git reset --hard $HeadCommit
+            git cherry-pick 19d101e1867d9258e891ce268d4a2ed4060503bf
         fi
         if [[ "$1" == *"66Hz"* ]];then
-            git reset --hard $headCommit && git cherry-pick d650ba4f383f6ed95eed1d490997017108a49658
+            git reset --hard $HeadCommit
+            git cherry-pick d650ba4f383f6ed95eed1d490997017108a49658
         fi
         if [[ "$1" == *"67Hz"* ]];then
-            git reset --hard $headCommit && git cherry-pick f7978179ccab8ede11e6bf43d1c78ec9817d29f9
+            git reset --hard $HeadCommit
+            git cherry-pick f7978179ccab8ede11e6bf43d1c78ec9817d29f9
         fi
         if [[ "$1" == *"68Hz"* ]];then
-            git reset --hard $headCommit && git cherry-pick f454705ba8de74cbdffd9c3282d606fef9f5aec2
+            git reset --hard $HeadCommit
+            git cherry-pick f454705ba8de74cbdffd9c3282d606fef9f5aec2
         fi
         if [[ "$1" == *"69Hz"* ]];then
-            git reset --hard $headCommit && git cherry-pick d2a0997f1a5ec02a91dcab14014f32ca6ed2daec
+            git reset --hard $HeadCommit
+            git cherry-pick d2a0997f1a5ec02a91dcab14014f32ca6ed2daec
         fi
         if [[ "$1" == *"71Hz"* ]];then
-            git reset --hard $headCommit && git cherry-pick 62dd986b087c9a1f1b2eca5174db071a99dc11fb
+            git reset --hard $HeadCommit
+            git cherry-pick 62dd986b087c9a1f1b2eca5174db071a99dc11fb
         fi
     fi;
     GetCommit=$(git log --pretty=format:'%h' -1)
     GetCore=$(nproc --all)
-    START=
+    START=$(date +"%s")
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
     make -j$(($GetCore+1))  O=out \
                             ARCH=arm64 \
