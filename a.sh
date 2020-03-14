@@ -23,7 +23,8 @@ chat_id="$chat_group_id"
 
 ## for pie
 git reset --hard $MainCommit
-git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 97a48a19482d88311df54eebcb26ab6da6c8f3c6
+git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172
+git cherry-pick 97a48a19482d88311df54eebcb26ab6da6c8f3c6
 git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e
 
 FolderUpload="X01BD/KERNEL/DC/STABLE/N"
@@ -43,7 +44,10 @@ build "71Hz" "" "$chat_group_id"
 sendInfo "build DeadlyCute-N done . . ."
 
 git reset --hard $MainCommit
-git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 823eabfeb72cb96c210fe083008e878b3d7f6b4f 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
+git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 
+git cherry-pick 823eabfeb72cb96c210fe083008e878b3d7f6b4f 
+git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 
+git cherry-pick 4f79d5e3ded55f178b1b4494efe947129268fc60
 FolderUpload="X01BD/KERNEL/QK/STABLE/N-SAR"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
