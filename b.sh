@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-branch="qk/20200313/n"
-folder="qk_normal"
+branch="qk/20200313/l"
+folder="qk_low"
 FolderUpload="X01BD/KERNEL/QK/STABLE/L"
 spectrumFile="vipn.rc"
 . main.sh "get-kernel"
