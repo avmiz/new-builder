@@ -9,17 +9,17 @@ GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 MainCommit=$GetCommit
 chat_id="$chat_group_id"
-sendInfo "starting build QuantumKiller-L . . ."
+# sendInfo "starting build QuantumKiller-L . . ."
 
-build "" "" "$chat_group_id"
-build "65Hz" "" "$chat_group_id"
-build "66Hz" "" "$chat_group_id"
-build "67Hz" "" "$chat_group_id"
-build "68Hz" "" "$chat_group_id"
-build "69Hz" "" "$chat_group_id"
-build "71Hz" "" "$chat_group_id"
+# build "" "" "$chat_group_id"
+# build "65Hz" "" "$chat_group_id"
+# build "66Hz" "" "$chat_group_id"
+# build "67Hz" "" "$chat_group_id"
+# build "68Hz" "" "$chat_group_id"
+# build "69Hz" "" "$chat_group_id"
+# build "71Hz" "" "$chat_group_id"
 
-sendInfo "build QuantumKiller-L done . . ."
+# sendInfo "build QuantumKiller-L done . . ."
 
 ## for pie
 git reset --hard $MainCommit
