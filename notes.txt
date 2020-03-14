@@ -23,3 +23,10 @@ f454705ba8de74cbdffd9c3282d606fef9f5aec2
 d2a0997f1a5ec02a91dcab14014f32ca6ed2daec
 71
 62dd986b087c9a1f1b2eca5174db071a99dc11fb
+
+https://sourceforge.net/projects/zyc-kernel/files/X01BD/KERNEL/DC/STABLE/N/ : http://hinafinea.com/48lk >> http://bit.ly/dc-n-adf
+https://sourceforge.net/projects/zyc-kernel/files/X01BD/KERNEL/QK/STABLE/N/ : http://hinafinea.com/48q4 >> http://bit.ly/qk-n-adf
+https://sourceforge.net/projects/zyc-kernel/files/X01BD/KERNEL/QK/STABLE/N-SAR/ : http://hinafinea.com/48u3 >> http://bit.ly/qk-n-sar-adf
+
+http://bit.ly/39Q7M8j || qk stable
+http://bit.ly/2IILLMH || dc stable

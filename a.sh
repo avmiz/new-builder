@@ -8,22 +8,22 @@ spectrumFile="vipn.rc"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 MainCommit=$GetCommit
+chat_id="$chat_group_id"
+# sendInfo "starting build QuantumKiller-N . . ."
 
-sendInfo "starting build QuantumKiller-N . . ."
+# build "" "" "$chat_group_id"
+# build "65Hz" "" "$chat_group_id"
+# build "66Hz" "" "$chat_group_id"
+# build "67Hz" "" "$chat_group_id"
+# build "68Hz" "" "$chat_group_id"
+# build "69Hz" "" "$chat_group_id"
+# build "71Hz" "" "$chat_group_id"
 
-build "" "" "$chat_group_id"
-build "65Hz" "" "$chat_group_id"
-build "66Hz" "" "$chat_group_id"
-build "67Hz" "" "$chat_group_id"
-build "68Hz" "" "$chat_group_id"
-build "69Hz" "" "$chat_group_id"
-build "71Hz" "" "$chat_group_id"
-
-sendInfo "build QuantumKiller-N done . . ."
+# sendInfo "build QuantumKiller-N done . . ."
 
 ## for pie
 git reset --hard $MainCommit
-git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 babfe8f4448ebd39aaad806ae3eecd1e05960971
+git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 97a48a19482d88311df54eebcb26ab6da6c8f3c6
 git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e
 
 FolderUpload="X01BD/KERNEL/DC/STABLE/N"
