@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+function sendInfo(){
+    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
+        -d chat_id="$chat_id" \
+        -d "disable_web_page_preview=true" \
+        -d "parse_mode=html" \
+        -d text="$1" >/dev/null
+}
 function sendToTele(){
     echo  "send To tele"
     ZIP="$1"
