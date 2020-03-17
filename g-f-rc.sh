@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-branch="eg/20200313/f"
+branch="eg/20200313/f-rc"
 folder="qk_normal"
 FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
 spectrumFile="vipn.rc"
