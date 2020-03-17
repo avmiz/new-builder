@@ -11,7 +11,7 @@ MainCommit=$GetCommit
 chat_id="$chat_group_id"
 sendInfo "starting build QuantumKiller-N . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -33,7 +33,7 @@ HeadCommit=$GetCommit
 
 sendInfo "starting build DeadlyCute-N . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -51,7 +51,7 @@ HeadCommit=$GetCommit
 
 sendInfo "starting build QuantumKiller-N-SAR . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"

@@ -9,9 +9,9 @@ GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 MainCommit=$GetCommit
 chat_id="$chat_group_id"
-sendInfo "starting build QuantumKiller-L . . ."
+sendInfo "starting build QuantumKiller-L RC . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -19,7 +19,7 @@ build "68Hz" "" "$chat_group_id"
 build "69Hz" "" "$chat_group_id"
 build "71Hz" "" "$chat_group_id"
 
-sendInfo "build QuantumKiller-L done . . ."
+sendInfo "build QuantumKiller-L RC done . . ."
 
 ## for pie
 git reset --hard $MainCommit
@@ -31,9 +31,9 @@ FolderUpload="X01BD/KERNEL/DC/Release-Candidate/L"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
-sendInfo "starting build DeadlyCute-L . . ."
+sendInfo "starting build DeadlyCute-L RC . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -41,7 +41,7 @@ build "68Hz" "" "$chat_group_id"
 build "69Hz" "" "$chat_group_id"
 build "71Hz" "" "$chat_group_id"
 
-sendInfo "build DeadlyCute-L done . . ."
+sendInfo "build DeadlyCute-L RC done . . ."
 
 git reset --hard $MainCommit
 git cherry-pick 6471f35a09731d1cefbca7b119d6e5609abbf8ed 7b3452edc8f44535727d40a6af21bafc8fe48493 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
@@ -49,9 +49,9 @@ FolderUpload="X01BD/KERNEL/QK/Release-Candidate/L-SAR"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
-sendInfo "starting build QuantumKiller-L-SAR . . ."
+sendInfo "starting build QuantumKiller-L-SAR RC RC . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -59,4 +59,4 @@ build "68Hz" "" "$chat_group_id"
 build "69Hz" "" "$chat_group_id"
 build "71Hz" "" "$chat_group_id"
 
-sendInfo "build QuantumKiller-L-SAR done . . ."
+sendInfo "build QuantumKiller-L-SAR RC done . . ."

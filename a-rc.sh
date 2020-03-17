@@ -9,9 +9,9 @@ GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 MainCommit=$GetCommit
 chat_id="$chat_group_id"
-sendInfo "starting build QuantumKiller-N . . ."
+sendInfo "starting build QuantumKiller-N RC . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -19,7 +19,7 @@ build "68Hz" "" "$chat_group_id"
 build "69Hz" "" "$chat_group_id"
 build "71Hz" "" "$chat_group_id"
 
-sendInfo "build QuantumKiller-N done . . ."
+sendInfo "build QuantumKiller-N RC done . . ."
 
 ## for pie
 git reset --hard $MainCommit
@@ -31,9 +31,9 @@ FolderUpload="X01BD/KERNEL/DC/Release-Candidate/N"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
-sendInfo "starting build DeadlyCute-N . . ."
+sendInfo "starting build DeadlyCute-N RC . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -41,7 +41,7 @@ build "68Hz" "" "$chat_group_id"
 build "69Hz" "" "$chat_group_id"
 build "71Hz" "" "$chat_group_id"
 
-sendInfo "build DeadlyCute-N done . . ."
+sendInfo "build DeadlyCute-N RC done . . ."
 
 git reset --hard $MainCommit
 git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 823eabfeb72cb96c210fe083008e878b3d7f6b4f 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
@@ -49,9 +49,9 @@ FolderUpload="X01BD/KERNEL/QK/Release-Candidate/N-SAR"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
-sendInfo "starting build QuantumKiller-N-SAR . . ."
+sendInfo "starting build QuantumKiller-N-SAR RC . . ."
 
-build "" "" "$chat_group_id"
+build "60Hz" "" "$chat_group_id"
 build "65Hz" "" "$chat_group_id"
 build "66Hz" "" "$chat_group_id"
 build "67Hz" "" "$chat_group_id"
@@ -59,4 +59,4 @@ build "68Hz" "" "$chat_group_id"
 build "69Hz" "" "$chat_group_id"
 build "71Hz" "" "$chat_group_id"
 
-sendInfo "build QuantumKiller-N-SAR done . . ."
+sendInfo "build QuantumKiller-N-SAR RC done . . ."
