@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 branch="eg/20200313/f"
 folder="qk_normal"
-FolderUpload="X01BD/KERNEL/EG/STABLE/N"
+FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
 spectrumFile="vipn.rc"
 . main.sh "get-kernel"
 

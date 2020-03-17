@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 branch="eg/20200313/f"
 folder="qk_normal"
-FolderUpload="X01BD/KERNEL/EG/STABLE/N"
+FolderUpload="X01BD/KERNEL/EG/STABLE/F"
 spectrumFile="vipn.rc"
 . main.sh "get-kernel"
 
@@ -11,7 +11,7 @@ MainCommit=$GetCommit
 chat_id="$chat_group_id"
 sendInfo "starting build EmptyGlory-F Q . . ."
 
-build "Q" "" "$chat_group_id"
+build "Q60Hz" "" "$chat_group_id"
 build "Q65Hz" "" "$chat_group_id"
 build "Q66Hz" "" "$chat_group_id"
 build "Q67Hz" "" "$chat_group_id"
@@ -32,7 +32,7 @@ HeadCommit=$GetCommit
 
 sendInfo "starting build EmptyGlory-F P . . ."
 
-build "P" "" "$chat_group_id"
+build "P60Hz" "" "$chat_group_id"
 build "P65Hz" "" "$chat_group_id"
 build "P66Hz" "" "$chat_group_id"
 build "P67Hz" "" "$chat_group_id"
@@ -50,7 +50,7 @@ HeadCommit=$GetCommit
 
 sendInfo "starting build EmptyGlory-F Q SAR . . ."
 
-build "QSAR" "" "$chat_group_id"
+build "QSAR60Hz" "" "$chat_group_id"
 build "QSAR65Hz" "" "$chat_group_id"
 build "QSAR66Hz" "" "$chat_group_id"
 build "QSAR67Hz" "" "$chat_group_id"
