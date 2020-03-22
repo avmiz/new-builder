@@ -52,8 +52,8 @@ function makeZip(){
     if [ ! -z "$1" ];then
         Type=$1
         HzNya=${Type/"P"/""}
-        HzNya=${HzNya/"Q"/""}
         HzNya=${HzNya/"QSAR"/""}
+        HzNya=${HzNya/"Q"/""}
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$GetCommit by ZyCromerZ/g" anykernel.sh

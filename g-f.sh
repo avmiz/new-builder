@@ -26,7 +26,7 @@ git reset --hard $MainCommit
 git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
 git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
 
-FolderUpload="X01BD/KERNEL/DC/STABLE/N"
+FolderUpload="X01BD/KERNEL/EG/STABLE/F"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
@@ -44,7 +44,7 @@ sendInfo "build EmptyGlory-F P done . . ."
 
 git reset --hard $MainCommit
 git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-FolderUpload="X01BD/KERNEL/QK/STABLE/N-SAR"
+FolderUpload="X01BD/KERNEL/EG/STABLE/F"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
