@@ -2,7 +2,7 @@
 branch="eg/20200313/f"
 folder="qk_normal"
 FolderUpload="X01BD/KERNEL/EG/STABLE/F"
-spectrumFile="vipn.rc"
+spectrumFile="f.rc"
 . main.sh "get-kernel"
 
 GetCommit=$(git log --pretty=format:'%h' -1)
