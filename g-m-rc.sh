@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 branch="eg/20200313/m-rc"
 folder="qk_normal"
-FolderUpload="X01BD/KERNEL/EG/STABLE/M"
+FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
 spectrumFile="m.rc"
 . main.sh "get-kernel"
 
@@ -26,7 +26,7 @@ git reset --hard $MainCommit
 git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
 git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
 
-FolderUpload="X01BD/KERNEL/EG/STABLE/F"
+#FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
@@ -44,7 +44,7 @@ sendInfo "build EmptyGlory-M-RC P done . . ."
 
 git reset --hard $MainCommit
 git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-FolderUpload="X01BD/KERNEL/EG/STABLE/F"
+#FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
 GetCommit=$(git log --pretty=format:'%h' -1)
 HeadCommit=$GetCommit
 
