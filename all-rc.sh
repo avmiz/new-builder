@@ -10,7 +10,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-N . . ."
+    sendInfo "starting build QuantumKiller-N RC . . ."
 
     build "60Hz" "" "$chat_group_id"
     build "65Hz" "" "$chat_group_id"
@@ -20,7 +20,7 @@
     build "69Hz" "" "$chat_group_id"
     build "71Hz" "" "$chat_group_id"
 
-    sendInfo "build QuantumKiller-N done . . ."
+    sendInfo "build QuantumKiller-N RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -32,7 +32,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-N . . ."
+    sendInfo "starting build DeadlyCute-N RC . . ."
 
     build "60Hz" "" "$chat_group_id"
     build "65Hz" "" "$chat_group_id"
@@ -42,7 +42,7 @@
     build "69Hz" "" "$chat_group_id"
     build "71Hz" "" "$chat_group_id"
 
-    sendInfo "build DeadlyCute-N done . . ."
+    sendInfo "build DeadlyCute-N RC done . . ."
 
     git reset --hard $MainCommit
     git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 823eabfeb72cb96c210fe083008e878b3d7f6b4f 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
@@ -50,7 +50,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build QuantumKiller-N-SAR . . ."
+    sendInfo "starting build QuantumKiller-N-SAR RC . . ."
 
     build "60Hz" "" "$chat_group_id"
     build "65Hz" "" "$chat_group_id"
@@ -60,7 +60,7 @@
     build "69Hz" "" "$chat_group_id"
     build "71Hz" "" "$chat_group_id"
 
-    sendInfo "build QuantumKiller-N-SAR done . . ."
+    sendInfo "build QuantumKiller-N-SAR RC done . . ."
 
 ################################################################################################ QK L RC
 
@@ -74,7 +74,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-L . . ."
+    sendInfo "starting build QuantumKiller-L RC . . ."
 
     build "60Hz" "" "$chat_group_id"
     build "65Hz" "" "$chat_group_id"
@@ -84,7 +84,7 @@
     build "69Hz" "" "$chat_group_id"
     build "71Hz" "" "$chat_group_id"
 
-    sendInfo "build QuantumKiller-L done . . ."
+    sendInfo "build QuantumKiller-L RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -96,7 +96,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-L . . ."
+    sendInfo "starting build DeadlyCute-L RC . . ."
 
     build "60Hz" "" "$chat_group_id"
     build "65Hz" "" "$chat_group_id"
@@ -106,7 +106,7 @@
     build "69Hz" "" "$chat_group_id"
     build "71Hz" "" "$chat_group_id"
 
-    sendInfo "build DeadlyCute-L done . . ."
+    sendInfo "build DeadlyCute-L RC done . . ."
 
     git reset --hard $MainCommit
     git cherry-pick 6471f35a09731d1cefbca7b119d6e5609abbf8ed 7b3452edc8f44535727d40a6af21bafc8fe48493 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
@@ -114,7 +114,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build QuantumKiller-L-SAR . . ."
+    sendInfo "starting build QuantumKiller-L-SAR RC . . ."
 
     build "60Hz" "" "$chat_group_id"
     build "65Hz" "" "$chat_group_id"
@@ -124,7 +124,7 @@
     build "69Hz" "" "$chat_group_id"
     build "71Hz" "" "$chat_group_id"
 
-    sendInfo "build QuantumKiller-L-SAR done . . ."
+    sendInfo "build QuantumKiller-L-SAR RC done . . ."
 
 ################################################################################################ EG F RC
 
@@ -138,7 +138,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-F Q . . ."
+    sendInfo "starting build EmptyGlory-F Q RC . . ."
 
     build "Q60Hz" "" "$chat_group_id"
     build "Q65Hz" "" "$chat_group_id"
@@ -148,7 +148,7 @@
     build "Q69Hz" "" "$chat_group_id"
     build "Q71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-F Q done . . ."
+    sendInfo "build EmptyGlory-F Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -159,7 +159,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-F P . . ."
+    sendInfo "starting build EmptyGlory-F P RC . . ."
 
     build "P60Hz" "" "$chat_group_id"
     build "P65Hz" "" "$chat_group_id"
@@ -169,7 +169,7 @@
     build "P69Hz" "" "$chat_group_id"
     build "P71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-F P done . . ."
+    sendInfo "build EmptyGlory-F P RC done . . ."
 
     git reset --hard $MainCommit
     git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
@@ -177,7 +177,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-F Q SAR . . ."
+    sendInfo "starting build EmptyGlory-F Q SAR RC . . ."
 
     build "QSAR60Hz" "" "$chat_group_id"
     build "QSAR65Hz" "" "$chat_group_id"
@@ -187,7 +187,7 @@
     build "QSAR69Hz" "" "$chat_group_id"
     build "QSAR71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-F Q SAR done . . ."
+    sendInfo "build EmptyGlory-F Q SAR RC done . . ."
 
 ################################################################################################ EG M RC
 
@@ -201,7 +201,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-M Q . . ."
+    sendInfo "starting build EmptyGlory-M Q RC . . ."
 
     build "Q60Hz" "" "$chat_group_id"
     build "Q65Hz" "" "$chat_group_id"
@@ -211,7 +211,7 @@
     build "Q69Hz" "" "$chat_group_id"
     build "Q71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-M Q done . . ."
+    sendInfo "build EmptyGlory-M Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -222,7 +222,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-M P . . ."
+    sendInfo "starting build EmptyGlory-M P RC . . ."
 
     build "P60Hz" "" "$chat_group_id"
     build "P65Hz" "" "$chat_group_id"
@@ -232,7 +232,7 @@
     build "P69Hz" "" "$chat_group_id"
     build "P71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-M P done . . ."
+    sendInfo "build EmptyGlory-M P RC done . . ."
 
     git reset --hard $MainCommit
     git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
@@ -240,7 +240,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-M Q SAR . . ."
+    sendInfo "starting build EmptyGlory-M Q SAR RC . . ."
 
     build "QSAR60Hz" "" "$chat_group_id"
     build "QSAR65Hz" "" "$chat_group_id"
@@ -250,7 +250,7 @@
     build "QSAR69Hz" "" "$chat_group_id"
     build "QSAR71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-M Q SAR done . . ."
+    sendInfo "build EmptyGlory-M Q SAR RC done . . ."
 
 ################################################################################################ EG H RC
 
@@ -264,7 +264,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-H Q . . ."
+    sendInfo "starting build EmptyGlory-H Q RC . . ."
 
     build "Q60Hz" "" "$chat_group_id"
     build "Q65Hz" "" "$chat_group_id"
@@ -274,7 +274,7 @@
     build "Q69Hz" "" "$chat_group_id"
     build "Q71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-H Q done . . ."
+    sendInfo "build EmptyGlory-H Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -285,7 +285,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-H P . . ."
+    sendInfo "starting build EmptyGlory-H P RC . . ."
 
     build "P60Hz" "" "$chat_group_id"
     build "P65Hz" "" "$chat_group_id"
@@ -295,7 +295,7 @@
     build "P69Hz" "" "$chat_group_id"
     build "P71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-H P done . . ."
+    sendInfo "build EmptyGlory-H P RC done . . ."
 
     git reset --hard $MainCommit
     git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
@@ -303,7 +303,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-H Q SAR . . ."
+    sendInfo "starting build EmptyGlory-H Q SAR RC . . ."
 
     build "QSAR60Hz" "" "$chat_group_id"
     build "QSAR65Hz" "" "$chat_group_id"
@@ -313,4 +313,4 @@
     build "QSAR69Hz" "" "$chat_group_id"
     build "QSAR71Hz" "" "$chat_group_id"
 
-    sendInfo "build EmptyGlory-H Q SAR done . . ."
+    sendInfo "build EmptyGlory-H Q SAR RC done . . ."
