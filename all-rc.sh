@@ -2,7 +2,7 @@
 ################################################################################################ QK N RC
     branch="qk/20200313/n-rc"
     folder="qk_normal"
-    FolderUpload="X01BD/KERNEL/QK/STABLE/N"
+    FolderUpload="X01BD/KERNEL/QK/Release-Candidate/N"
     spectrumFile="vipn.rc"
     . main.sh "get-kernel"
 
@@ -28,7 +28,7 @@
     git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
     git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
 
-    FolderUpload="X01BD/KERNEL/DC/STABLE/N"
+    FolderUpload="X01BD/KERNEL/DC/Release-Candidate/N"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -46,7 +46,7 @@
 
     git reset --hard $MainCommit
     git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 823eabfeb72cb96c210fe083008e878b3d7f6b4f 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    FolderUpload="X01BD/KERNEL/QK/STABLE/N-SAR"
+    FolderUpload="X01BD/KERNEL/QK/Release-Candidate/N-SAR"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -66,7 +66,7 @@
 
     branch="qk/20200313/l-rc"
     folder="qk_low"
-    FolderUpload="X01BD/KERNEL/QK/STABLE/L"
+    FolderUpload="X01BD/KERNEL/QK/Release-Candidate/L"
     spectrumFile="vipl.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
 
@@ -92,7 +92,7 @@
     git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
     git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
 
-    FolderUpload="X01BD/KERNEL/DC/STABLE/L"
+    FolderUpload="X01BD/KERNEL/DC/Release-Candidate/L"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -110,7 +110,7 @@
 
     git reset --hard $MainCommit
     git cherry-pick 6471f35a09731d1cefbca7b119d6e5609abbf8ed 7b3452edc8f44535727d40a6af21bafc8fe48493 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    FolderUpload="X01BD/KERNEL/QK/STABLE/L-SAR"
+    FolderUpload="X01BD/KERNEL/QK/Release-Candidate/L-SAR"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -130,7 +130,7 @@
 
     branch="eg/20200313/f-rc"
     folder="qk_normal"
-    FolderUpload="X01BD/KERNEL/EG/STABLE/F"
+    FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     spectrumFile="f.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
 
@@ -155,7 +155,7 @@
     git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
     git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
 
-    #FolderUpload="X01BD/KERNEL/EG/STABLE/F"
+    #FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -173,7 +173,7 @@
 
     git reset --hard $MainCommit
     git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    #FolderUpload="X01BD/KERNEL/EG/STABLE/F"
+    #FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -193,7 +193,7 @@
 
     branch="eg/20200313/m-rc"
     folder="qk_normal"
-    FolderUpload="X01BD/KERNEL/EG/STABLE/M"
+    FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
     spectrumFile="m.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
 
@@ -218,7 +218,7 @@
     git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
     git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
 
-    #FolderUpload="X01BD/KERNEL/EG/STABLE/M"
+    #FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -236,7 +236,7 @@
 
     git reset --hard $MainCommit
     git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    #FolderUpload="X01BD/KERNEL/EG/STABLE/M"
+    #FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -256,7 +256,7 @@
 
     branch="eg/20200313/h-rc"
     folder="qk_normal"
-    FolderUpload="X01BD/KERNEL/EG/STABLE/H"
+    FolderUpload="X01BD/KERNEL/EG/Release-Candidate/H"
     spectrumFile="h.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
 
@@ -281,7 +281,7 @@
     git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
     git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
 
-    # FolderUpload="X01BD/KERNEL/EG/STABLE/H"
+    # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/H"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
@@ -299,7 +299,7 @@
 
     git reset --hard $MainCommit
     git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    # FolderUpload="X01BD/KERNEL/EG/STABLE/H"
+    # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/H"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
