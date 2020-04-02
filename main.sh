@@ -32,6 +32,26 @@ function sendToSf(){
     echo "upload to sf"
     Zip_File="$(pwd)/$1"
     rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" $my_host@frs.sourceforge.net:/home/frs/project/zyc-kernel/$FolderUpload/ >/dev/null
+    createLink=$1
+    createLink=${createLink/"["/"%5B"}
+    createLink=${createLink/"]"/"%5B"}
+    if [ "$3" != "" ];then
+        RefreshRT="$3(oc)"
+    else
+        RefreshRT="60Hz(default)"
+    fi
+    Text="New kernel !!
+Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
+
+- Kernel name : $2
+- Refreshrate : $RefreshRT
+ 
+Using compiler: 
+- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+
+Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+    sendInfo "$Text"
 }
 function makeZip(){
     KERNEL_NAME=$(cat "$(pwd)/arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
@@ -62,7 +82,7 @@ function makeZip(){
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
     else
-        sendToSf "$ZipName"
+        sendToSf "$ZipName" "$KERNEL_NAME" "$HzNya"
     fi
     rm -rf "$ZipName"
     cd ..
