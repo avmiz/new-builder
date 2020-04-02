@@ -13,12 +13,12 @@
     sendInfo "starting build QuantumKiller-N . . ."
 
     build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id"
-    build "66Hz" "" "$chat_group_id"
-    build "67Hz" "" "$chat_group_id"
-    build "68Hz" "" "$chat_group_id"
-    build "69Hz" "" "$chat_group_id"
-    build "71Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build QuantumKiller-N done . . ."
 
@@ -35,12 +35,12 @@
     sendInfo "starting build DeadlyCute-N . . ."
 
     build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id"
-    build "66Hz" "" "$chat_group_id"
-    build "67Hz" "" "$chat_group_id"
-    build "68Hz" "" "$chat_group_id"
-    build "69Hz" "" "$chat_group_id"
-    build "71Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build DeadlyCute-N done . . ."
 
@@ -53,12 +53,12 @@
     sendInfo "starting build QuantumKiller-N-SAR . . ."
 
     build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id"
-    build "66Hz" "" "$chat_group_id"
-    build "67Hz" "" "$chat_group_id"
-    build "68Hz" "" "$chat_group_id"
-    build "69Hz" "" "$chat_group_id"
-    build "71Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build QuantumKiller-N-SAR done . . ."
 
@@ -77,12 +77,12 @@
     sendInfo "starting build QuantumKiller-L . . ."
 
     build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id"
-    build "66Hz" "" "$chat_group_id"
-    build "67Hz" "" "$chat_group_id"
-    build "68Hz" "" "$chat_group_id"
-    build "69Hz" "" "$chat_group_id"
-    build "71Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build QuantumKiller-L done . . ."
 
@@ -99,12 +99,12 @@
     sendInfo "starting build DeadlyCute-L . . ."
 
     build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id"
-    build "66Hz" "" "$chat_group_id"
-    build "67Hz" "" "$chat_group_id"
-    build "68Hz" "" "$chat_group_id"
-    build "69Hz" "" "$chat_group_id"
-    build "71Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build DeadlyCute-L done . . ."
 
@@ -117,12 +117,12 @@
     sendInfo "starting build QuantumKiller-L-SAR . . ."
 
     build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id"
-    build "66Hz" "" "$chat_group_id"
-    build "67Hz" "" "$chat_group_id"
-    build "68Hz" "" "$chat_group_id"
-    build "69Hz" "" "$chat_group_id"
-    build "71Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build QuantumKiller-L-SAR done . . ."
 
@@ -141,12 +141,12 @@
     sendInfo "starting build EmptyGlory-F Q . . ."
 
     build "Q60Hz" "" "$chat_group_id"
-    build "Q65Hz" "" "$chat_group_id"
-    build "Q66Hz" "" "$chat_group_id"
-    build "Q67Hz" "" "$chat_group_id"
-    build "Q68Hz" "" "$chat_group_id"
-    build "Q69Hz" "" "$chat_group_id"
-    build "Q71Hz" "" "$chat_group_id"
+    build "Q65Hz" "" "$chat_group_id" >/dev/null
+    build "Q66Hz" "" "$chat_group_id" >/dev/null
+    build "Q67Hz" "" "$chat_group_id" >/dev/null
+    build "Q68Hz" "" "$chat_group_id" >/dev/null
+    build "Q69Hz" "" "$chat_group_id" >/dev/null
+    build "Q71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-F Q done . . ."
 
@@ -162,12 +162,12 @@
     sendInfo "starting build EmptyGlory-F P . . ."
 
     build "P60Hz" "" "$chat_group_id"
-    build "P65Hz" "" "$chat_group_id"
-    build "P66Hz" "" "$chat_group_id"
-    build "P67Hz" "" "$chat_group_id"
-    build "P68Hz" "" "$chat_group_id"
-    build "P69Hz" "" "$chat_group_id"
-    build "P71Hz" "" "$chat_group_id"
+    build "P65Hz" "" "$chat_group_id" >/dev/null
+    build "P66Hz" "" "$chat_group_id" >/dev/null
+    build "P67Hz" "" "$chat_group_id" >/dev/null
+    build "P68Hz" "" "$chat_group_id" >/dev/null
+    build "P69Hz" "" "$chat_group_id" >/dev/null
+    build "P71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-F P done . . ."
 
@@ -180,12 +180,12 @@
     sendInfo "starting build EmptyGlory-F Q SAR . . ."
 
     build "QSAR60Hz" "" "$chat_group_id"
-    build "QSAR65Hz" "" "$chat_group_id"
-    build "QSAR66Hz" "" "$chat_group_id"
-    build "QSAR67Hz" "" "$chat_group_id"
-    build "QSAR68Hz" "" "$chat_group_id"
-    build "QSAR69Hz" "" "$chat_group_id"
-    build "QSAR71Hz" "" "$chat_group_id"
+    build "QSAR65Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR66Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR67Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR68Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR69Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-F Q SAR done . . ."
 
@@ -204,12 +204,12 @@
     sendInfo "starting build EmptyGlory-M Q . . ."
 
     build "Q60Hz" "" "$chat_group_id"
-    build "Q65Hz" "" "$chat_group_id"
-    build "Q66Hz" "" "$chat_group_id"
-    build "Q67Hz" "" "$chat_group_id"
-    build "Q68Hz" "" "$chat_group_id"
-    build "Q69Hz" "" "$chat_group_id"
-    build "Q71Hz" "" "$chat_group_id"
+    build "Q65Hz" "" "$chat_group_id" >/dev/null
+    build "Q66Hz" "" "$chat_group_id" >/dev/null
+    build "Q67Hz" "" "$chat_group_id" >/dev/null
+    build "Q68Hz" "" "$chat_group_id" >/dev/null
+    build "Q69Hz" "" "$chat_group_id" >/dev/null
+    build "Q71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-M Q done . . ."
 
@@ -225,12 +225,12 @@
     sendInfo "starting build EmptyGlory-M P . . ."
 
     build "P60Hz" "" "$chat_group_id"
-    build "P65Hz" "" "$chat_group_id"
-    build "P66Hz" "" "$chat_group_id"
-    build "P67Hz" "" "$chat_group_id"
-    build "P68Hz" "" "$chat_group_id"
-    build "P69Hz" "" "$chat_group_id"
-    build "P71Hz" "" "$chat_group_id"
+    build "P65Hz" "" "$chat_group_id" >/dev/null
+    build "P66Hz" "" "$chat_group_id" >/dev/null
+    build "P67Hz" "" "$chat_group_id" >/dev/null
+    build "P68Hz" "" "$chat_group_id" >/dev/null
+    build "P69Hz" "" "$chat_group_id" >/dev/null
+    build "P71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-M P done . . ."
 
@@ -243,12 +243,12 @@
     sendInfo "starting build EmptyGlory-M Q SAR . . ."
 
     build "QSAR60Hz" "" "$chat_group_id"
-    build "QSAR65Hz" "" "$chat_group_id"
-    build "QSAR66Hz" "" "$chat_group_id"
-    build "QSAR67Hz" "" "$chat_group_id"
-    build "QSAR68Hz" "" "$chat_group_id"
-    build "QSAR69Hz" "" "$chat_group_id"
-    build "QSAR71Hz" "" "$chat_group_id"
+    build "QSAR65Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR66Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR67Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR68Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR69Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-M Q SAR done . . ."
 
@@ -267,12 +267,12 @@
     sendInfo "starting build EmptyGlory-H Q . . ."
 
     build "Q60Hz" "" "$chat_group_id"
-    build "Q65Hz" "" "$chat_group_id"
-    build "Q66Hz" "" "$chat_group_id"
-    build "Q67Hz" "" "$chat_group_id"
-    build "Q68Hz" "" "$chat_group_id"
-    build "Q69Hz" "" "$chat_group_id"
-    build "Q71Hz" "" "$chat_group_id"
+    build "Q65Hz" "" "$chat_group_id" >/dev/null
+    build "Q66Hz" "" "$chat_group_id" >/dev/null
+    build "Q67Hz" "" "$chat_group_id" >/dev/null
+    build "Q68Hz" "" "$chat_group_id" >/dev/null
+    build "Q69Hz" "" "$chat_group_id" >/dev/null
+    build "Q71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-H Q done . . ."
 
@@ -288,12 +288,12 @@
     sendInfo "starting build EmptyGlory-H P . . ."
 
     build "P60Hz" "" "$chat_group_id"
-    build "P65Hz" "" "$chat_group_id"
-    build "P66Hz" "" "$chat_group_id"
-    build "P67Hz" "" "$chat_group_id"
-    build "P68Hz" "" "$chat_group_id"
-    build "P69Hz" "" "$chat_group_id"
-    build "P71Hz" "" "$chat_group_id"
+    build "P65Hz" "" "$chat_group_id" >/dev/null
+    build "P66Hz" "" "$chat_group_id" >/dev/null
+    build "P67Hz" "" "$chat_group_id" >/dev/null
+    build "P68Hz" "" "$chat_group_id" >/dev/null
+    build "P69Hz" "" "$chat_group_id" >/dev/null
+    build "P71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-H P done . . ."
 
@@ -306,11 +306,11 @@
     sendInfo "starting build EmptyGlory-H Q SAR . . ."
 
     build "QSAR60Hz" "" "$chat_group_id"
-    build "QSAR65Hz" "" "$chat_group_id"
-    build "QSAR66Hz" "" "$chat_group_id"
-    build "QSAR67Hz" "" "$chat_group_id"
-    build "QSAR68Hz" "" "$chat_group_id"
-    build "QSAR69Hz" "" "$chat_group_id"
-    build "QSAR71Hz" "" "$chat_group_id"
+    build "QSAR65Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR66Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR67Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR68Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR69Hz" "" "$chat_group_id" >/dev/null
+    build "QSAR71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-H Q SAR done . . ."
