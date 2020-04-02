@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ################################################################################################ QK N
     branch="qk/20200313/n"
-    folder="qk_normal"
+    folder="all"
     FolderUpload="X01BD/KERNEL/QK/STABLE/N"
     spectrumFile="vipn.rc"
     . main.sh "get-kernel"
@@ -314,3 +314,7 @@
     build "QSAR71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-H Q SAR done . . ."
+
+cd ..
+rm -rf ./$folder
+sendInfo "remove all kernels files done . . . "
