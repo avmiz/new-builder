@@ -35,6 +35,11 @@ function sendToSf(){
     createLink=$1
     createLink=${createLink/"["/"%5B"}
     createLink=${createLink/"]"/"%5B"}
+    if [ "$3" != "" ];then
+        RefreshRT="$3(oc)"
+    else
+        RefreshRT="60Hz(default)"
+    fi
     Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
