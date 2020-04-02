@@ -35,6 +35,11 @@ function sendToSf(){
     createLink=$1
     createLink=${createLink/"["/"%5B"}
     createLink=${createLink/"]"/"%5B"}
+    if [ "$3" != "" ];then
+        RefreshRT="$3(oc)"
+    else
+        RefreshRT="60Hz(default)"
+    fi
     Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
@@ -45,7 +50,7 @@ Using compiler:
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $Zip_File ready!!! </a>"
+Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     sendInfo "$Text"
 }
 function makeZip(){
