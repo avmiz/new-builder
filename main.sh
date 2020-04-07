@@ -55,7 +55,7 @@ Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$Fold
 }
 function makeZip(){
     KERNEL_NAME=$(cat "$(pwd)/arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
-    ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')"
+    ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
     cd AnyKernel || exit 1
     if [ ! -d "spectrum" ];then
         git clone https://$githubKey@github.com/ZyCromerZ/spectrum.git spectrum
