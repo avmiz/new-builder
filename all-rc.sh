@@ -65,7 +65,7 @@
 ################################################################################################ QK L RC
 
     branch="qk/20200313/l-rc"
-    folder="qk_low"
+    # folder="qk_low"
     FolderUpload="X01BD/KERNEL/QK/Release-Candidate/L"
     spectrumFile="vipl.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -129,7 +129,7 @@
 ################################################################################################ EG F RC
 
     branch="eg/20200313/f-rc"
-    folder="qk_normal"
+    # folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     spectrumFile="f.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -192,7 +192,7 @@
 ################################################################################################ EG M RC
 
     branch="eg/20200313/m-rc"
-    folder="qk_normal"
+    # folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
     spectrumFile="m.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -255,7 +255,7 @@
 ################################################################################################ EG H RC
 
     branch="eg/20200313/h-rc"
-    folder="qk_normal"
+    # folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/H"
     spectrumFile="h.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
