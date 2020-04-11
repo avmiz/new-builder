@@ -55,7 +55,7 @@ Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$Fold
 }
 function makeZip(){
     KERNEL_NAME=$(cat "$(pwd)/arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
-    ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')"
+    ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
     cd AnyKernel || exit 1
     if [ ! -d "spectrum" ];then
         git clone https://$githubKey@github.com/ZyCromerZ/spectrum.git spectrum
@@ -149,7 +149,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    git clone --depth=1 https://github.com/Haseo97/Clang-11.0.0.git -b 11.0.0 Getclang
+    git clone --depth=1 https://github.com/Haseo97/Avalon-Clang-11.0.1.git -b 11.0.1 Getclang
     git clone --depth=1 https://github.com/baalajimaestro/aarch64-maestro-linux-android.git -b 07032020-9.2.1 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
