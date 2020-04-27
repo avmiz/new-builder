@@ -154,13 +154,13 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR
     git clone --depth=1 https://github.com/Haseo97/Avalon-Clang-11.0.1.git -b 11.0.1 Getclang
-    git clone --depth=1 https://github.com/baalajimaestro/aarch64-maestro-linux-android.git -b 07032020-9.2.1 GetGcc
+    git clone --depth=1 https://github.com/arter97/arm64-gcc -b master GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="circleCi-server"
     clangFolder="$(pwd)/Getclang/bin/clang"
-    gccFolder="$(pwd)/GetGcc/bin/aarch64-maestro-linux-gnu-"
+    gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
     TANGGAL=$(date +"%m%d")
 fi
