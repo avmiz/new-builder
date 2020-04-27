@@ -44,28 +44,9 @@
 
     sendInfo "build DeadlyCute-N RC done . . ."
 
-    git reset --hard $MainCommit
-    git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 823eabfeb72cb96c210fe083008e878b3d7f6b4f 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    FolderUpload="X01BD/KERNEL/QK/Release-Candidate/N-SAR"
-    GetCommit=$(git log --pretty=format:'%h' -1)
-    HeadCommit=$GetCommit
-
-    sendInfo "starting build QuantumKiller-N-SAR RC . . ."
-
-    build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id" >/dev/null
-    build "66Hz" "" "$chat_group_id" >/dev/null
-    build "67Hz" "" "$chat_group_id" >/dev/null
-    build "68Hz" "" "$chat_group_id" >/dev/null
-    build "69Hz" "" "$chat_group_id" >/dev/null
-    build "71Hz" "" "$chat_group_id" >/dev/null
-
-    sendInfo "build QuantumKiller-N-SAR RC done . . ."
-
 ################################################################################################ QK L RC
 
     branch="qk/20200313/l-rc"
-    folder="qk_low"
     FolderUpload="X01BD/KERNEL/QK/Release-Candidate/L"
     spectrumFile="vipl.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -108,28 +89,9 @@
 
     sendInfo "build DeadlyCute-L RC done . . ."
 
-    git reset --hard $MainCommit
-    git cherry-pick 6471f35a09731d1cefbca7b119d6e5609abbf8ed 7b3452edc8f44535727d40a6af21bafc8fe48493 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    FolderUpload="X01BD/KERNEL/QK/Release-Candidate/L-SAR"
-    GetCommit=$(git log --pretty=format:'%h' -1)
-    HeadCommit=$GetCommit
-
-    sendInfo "starting build QuantumKiller-L-SAR RC . . ."
-
-    build "60Hz" "" "$chat_group_id"
-    build "65Hz" "" "$chat_group_id" >/dev/null
-    build "66Hz" "" "$chat_group_id" >/dev/null
-    build "67Hz" "" "$chat_group_id" >/dev/null
-    build "68Hz" "" "$chat_group_id" >/dev/null
-    build "69Hz" "" "$chat_group_id" >/dev/null
-    build "71Hz" "" "$chat_group_id" >/dev/null
-
-    sendInfo "build QuantumKiller-L-SAR RC done . . ."
-
 ################################################################################################ EG F RC
 
     branch="eg/20200313/f-rc"
-    folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     spectrumFile="f.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -171,28 +133,9 @@
 
     sendInfo "build EmptyGlory-F P RC done . . ."
 
-    git reset --hard $MainCommit
-    git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    #FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
-    GetCommit=$(git log --pretty=format:'%h' -1)
-    HeadCommit=$GetCommit
-
-    sendInfo "starting build EmptyGlory-F Q SAR RC . . ."
-
-    build "QSAR60Hz" "" "$chat_group_id"
-    build "QSAR65Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR66Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR67Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR68Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR69Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR71Hz" "" "$chat_group_id" >/dev/null
-
-    sendInfo "build EmptyGlory-F Q SAR RC done . . ."
-
 ################################################################################################ EG M RC
 
     branch="eg/20200313/m-rc"
-    folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
     spectrumFile="m.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -234,28 +177,9 @@
 
     sendInfo "build EmptyGlory-M P RC done . . ."
 
-    git reset --hard $MainCommit
-    git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    #FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
-    GetCommit=$(git log --pretty=format:'%h' -1)
-    HeadCommit=$GetCommit
-
-    sendInfo "starting build EmptyGlory-M Q SAR RC . . ."
-
-    build "QSAR60Hz" "" "$chat_group_id"
-    build "QSAR65Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR66Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR67Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR68Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR69Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR71Hz" "" "$chat_group_id" >/dev/null
-
-    sendInfo "build EmptyGlory-M Q SAR RC done . . ."
-
 ################################################################################################ EG H RC
 
     branch="eg/20200313/h-rc"
-    folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/H"
     spectrumFile="h.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -297,24 +221,6 @@
 
     sendInfo "build EmptyGlory-H P RC done . . ."
 
-    git reset --hard $MainCommit
-    git cherry-pick 92f5fd7f8609a42fd6c381b5a864bd88e142f534 4f79d5e3ded55f178b1b4494efe947129268fc60
-    # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/H"
-    GetCommit=$(git log --pretty=format:'%h' -1)
-    HeadCommit=$GetCommit
-
-    sendInfo "starting build EmptyGlory-H Q SAR RC . . ."
-
-    build "QSAR60Hz" "" "$chat_group_id"
-    build "QSAR65Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR66Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR67Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR68Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR69Hz" "" "$chat_group_id" >/dev/null
-    build "QSAR71Hz" "" "$chat_group_id" >/dev/null
-
-    sendInfo "build EmptyGlory-H Q SAR RC done . . ."
-
 cd ..
 rm -rf ./$folder
-sendInfo "remove all kernels files done . . . "
+sendInfo "remove all kernels files on server done . . . "
