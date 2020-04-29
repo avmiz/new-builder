@@ -153,14 +153,16 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    git clone --depth=1 https://github.com/Jprimero15/lolz_clang.git -b master Getclang
-    git clone --depth=1 https://github.com/arter97/arm64-gcc -b master GetGcc
+    git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+    git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+    git clone --depth=1 https://github.com/Bikram557/DragonTC-10.0.git -b dragontc Getclang
+    git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b gcc9-20190401 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="circleCi-server"
     clangFolder="$(pwd)/Getclang/bin/clang"
-    gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+    gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
     IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
     TANGGAL=$(date +"%m%d")
 fi
