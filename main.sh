@@ -34,9 +34,13 @@ function sendToSf(){
     rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" $my_host@frs.sourceforge.net:/home/frs/project/zyc-kernel/$FolderUpload/ >/dev/null
     createLink=$1
     createLink=${createLink/"["/"%5B"}
-    createLink=${createLink/"]"/"%5B"}
+    createLink=${createLink/"]"/"%5D"}
     if [ "$3" != "" ];then
-        RefreshRT="$3(oc)"
+        if [[ "$1" == *"60"* ]];then
+            RefreshRT="60Hz(default)"
+        else
+            RefreshRT="$3(oc)"
+        fi
     else
         RefreshRT="60Hz(default)"
     fi
@@ -77,7 +81,7 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$GetCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
+    ZipName="DTC$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
@@ -149,14 +153,16 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    git clone --depth=1 https://github.com/Haseo97/Avalon-Clang-11.0.1.git -b 11.0.1 Getclang
-    git clone --depth=1 https://github.com/baalajimaestro/aarch64-maestro-linux-android.git -b 07032020-9.2.1 GetGcc
+    git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+    git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+    git clone --depth=1 https://github.com/Bikram557/DragonTC-10.0.git -b dragontc Getclang
+    git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b gcc9-20190401 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="circleCi-server"
     clangFolder="$(pwd)/Getclang/bin/clang"
-    gccFolder="$(pwd)/GetGcc/bin/aarch64-maestro-linux-gnu-"
+    gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
     IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
     TANGGAL=$(date +"%m%d")
 fi
