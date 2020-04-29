@@ -153,7 +153,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    git clone --depth=1 https://github.com/Haseo97/Avalon-Clang-11.0.1.git -b 11.0.1 Getclang
+    git clone --depth=1 https://github.com/Jprimero15/lolz_clang.git -b master Getclang
     git clone --depth=1 https://github.com/arter97/arm64-gcc -b master GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
