@@ -81,7 +81,7 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$GetCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
+    ZipName="DTC$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
