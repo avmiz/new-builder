@@ -89,6 +89,51 @@
 
     sendInfo "build DeadlyCute-L done . . ."
 
+################################################################################################ QK uL
+
+    branch="qk/20200313/ul"
+    FolderUpload="X01BD/KERNEL/QK/STABLE/uL"
+    spectrumFile="ul.rc"
+    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+
+    GetCommit=$(git log --pretty=format:'%h' -1)
+    HeadCommit=$GetCommit
+    MainCommit=$GetCommit
+    chat_id="$chat_group_id"
+    sendInfo "starting build QuantumKiller-uL . . ."
+
+    build "60Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
+
+    sendInfo "build QuantumKiller-uL done . . ."
+
+    ## for pie
+    git reset --hard $MainCommit
+    git cherry-pick 7441acae77c1fa71f32495ef8c3ffabdd7b67702 7df17ba2764713e63fb2d8354321e47532fc50de
+    git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
+    git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
+
+    FolderUpload="X01BD/KERNEL/DC/STABLE/uL"
+    GetCommit=$(git log --pretty=format:'%h' -1)
+    HeadCommit=$GetCommit
+
+    sendInfo "starting build DeadlyCute-uL . . ."
+
+    build "60Hz" "" "$chat_group_id"
+    build "65Hz" "" "$chat_group_id" >/dev/null
+    build "66Hz" "" "$chat_group_id" >/dev/null
+    build "67Hz" "" "$chat_group_id" >/dev/null
+    build "68Hz" "" "$chat_group_id" >/dev/null
+    build "69Hz" "" "$chat_group_id" >/dev/null
+    build "71Hz" "" "$chat_group_id" >/dev/null
+
+    sendInfo "build DeadlyCute-uL done . . ."
+
 ################################################################################################ EG F
 
     branch="eg/20200313/f"
