@@ -133,6 +133,9 @@ function build(){
     GetCommit=$(git log --pretty=format:'%h' -1)
     GetCore=$(nproc --all)
     START=$(date +"%s")
+    if [ ! -z "$($clangFolder --version | head -n 1 | grep DragonTC)" ];then
+        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+    fi
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
     make -j$(($GetCore+1))  O=out \
                             ARCH=arm64 \
