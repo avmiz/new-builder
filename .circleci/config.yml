@@ -6,7 +6,7 @@ jobs:
    steps:
       - run:
           command: |
-            export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y upgrade && apt-get -y install tzdata git automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python gcc clang libssl-dev repo rsync flex git-lfs axel 
+            export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y upgrade && apt-get -y install tzdata git automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python gcc clang libssl-dev repo rsync flex git-lfs libz3-dev libz3-4 axel 
             ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
             dpkg-reconfigure --frontend noninteractive tzdata
             git config --global user.name "ZyCromerZ"
@@ -14,6 +14,8 @@ jobs:
             git clone https://github.com/akhilnarang/scripts scripts && cd scripts && bash setup/android_build_env.sh && cd ..
             check=$(ls /usr/lib/x86_64-linux-gnu | grep libisl.so -m1)
             if [ ! -z "$check" ]; then if [ "$check" != "libisl.so.15" ]; then cp -af /usr/lib/x86_64-linux-gnu/$check /usr/lib/x86_64-linux-gnu/libisl.so.15; fi; fi
+            check=$(ls /usr/lib/x86_64-linux-gnu | grep libz3.so -m1)
+            if [ ! -z "$check" ]; then if [ "$check" != "libz3.so.4.8" ]; then cp -af /usr/lib/x86_64-linux-gnu/$check /usr/lib/x86_64-linux-gnu/libz3.so.4.8; fi; fi
             git clone https://$githubKey@github.com/ZyCromerZ/new-builder.git -b master builder_kernel
             cd builder_kernel
             source all-rc.sh
