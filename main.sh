@@ -134,7 +134,12 @@ function build(){
     GetCore=$(nproc --all)
     START=$(date +"%s")
     if [ ! -z "$($clangFolder --version | head -n 1 | grep DragonTC)" ];then
+        ## revert some fix for gcc 9.x changes for DragonTC clang 10
+        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        ## revert Makefile changes for DragonTC clang 10
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     fi
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
     make -j$(($GetCore+1))  O=out \
@@ -151,13 +156,15 @@ function build(){
     END=$(date +"%s")
     DIFF=$(($END - $START))
     makeZip "$1" "$2"
+    if [[ "$1" == *"71Hz"* ]];then
+        make -j$(($GetCore+1)) O=out clean mrproper 
+        make -j$(($GetCore+1)) clean mrproper 
+    fi
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-    git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
     git clone --depth=1 https://github.com/Bikram557/DragonTC-10.0.git -b dragontc Getclang
     git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b gcc9-20190401 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
