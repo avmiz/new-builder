@@ -47,10 +47,6 @@
 ################################################################################################ QK L
 
     branch="qk/20200313/l"
-<<<<<<< HEAD
-    # folder="qk_low"
-=======
->>>>>>> 49c9fbec6d418da9687a128747d85decab477520
     FolderUpload="X01BD/KERNEL/QK/STABLE/L"
     spectrumFile="vipl.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -141,10 +137,6 @@
 ################################################################################################ EG F
 
     branch="eg/20200313/f"
-<<<<<<< HEAD
-    # folder="qk_normal"
-=======
->>>>>>> 49c9fbec6d418da9687a128747d85decab477520
     FolderUpload="X01BD/KERNEL/EG/STABLE/F"
     spectrumFile="f.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -234,10 +226,6 @@
 ################################################################################################ EG H
 
     branch="eg/20200313/h"
-<<<<<<< HEAD
-    # folder="qk_normal"
-=======
->>>>>>> 49c9fbec6d418da9687a128747d85decab477520
     FolderUpload="X01BD/KERNEL/EG/STABLE/H"
     spectrumFile="h.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch

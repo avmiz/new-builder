@@ -47,10 +47,6 @@
 ################################################################################################ QK L RC
 
     branch="qk/20200313/l-rc"
-<<<<<<< HEAD
-    # folder="qk_low"
-=======
->>>>>>> 49c9fbec6d418da9687a128747d85decab477520
     FolderUpload="X01BD/KERNEL/QK/Release-Candidate/L"
     spectrumFile="vipl.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -141,10 +137,6 @@
 ################################################################################################ EG F RC
 
     branch="eg/20200313/f-rc"
-<<<<<<< HEAD
-    # folder="qk_normal"
-=======
->>>>>>> 49c9fbec6d418da9687a128747d85decab477520
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     spectrumFile="f.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -189,10 +181,6 @@
 ################################################################################################ EG M RC
 
     branch="eg/20200313/m-rc"
-<<<<<<< HEAD
-    # folder="qk_normal"
-=======
->>>>>>> 49c9fbec6d418da9687a128747d85decab477520
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/M"
     spectrumFile="m.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
@@ -237,10 +225,6 @@
 ################################################################################################ EG H RC
 
     branch="eg/20200313/h-rc"
-<<<<<<< HEAD
-    # folder="qk_normal"
-=======
->>>>>>> 49c9fbec6d418da9687a128747d85decab477520
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/H"
     spectrumFile="h.rc"
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
