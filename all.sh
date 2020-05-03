@@ -44,6 +44,8 @@
 
     sendInfo "build DeadlyCute-N done . . ."
 
+    clean_build
+
 ################################################################################################ QK L
 
     branch="qk/20200313/l"
@@ -88,6 +90,8 @@
     build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build DeadlyCute-L done . . ."
+
+    clean_build
 
 ################################################################################################ QK uL
 
@@ -134,6 +138,8 @@
 
     sendInfo "build DeadlyCute-uL done . . ."
 
+    clean_build
+
 ################################################################################################ EG F
 
     branch="eg/20200313/f"
@@ -177,6 +183,8 @@
     build "P71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-F P done . . ."
+
+    clean_build
 
 ################################################################################################ EG M
 
@@ -223,6 +231,8 @@
 
     sendInfo "build EmptyGlory-M P done . . ."
 
+    clean_build
+
 ################################################################################################ EG H
 
     branch="eg/20200313/h"
@@ -266,6 +276,8 @@
     build "P71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-H P done . . ."
+
+    clean_build
 
 cd ..
 rm -rf ./$folder
