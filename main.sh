@@ -80,8 +80,8 @@ function makeZip(){
         HzNya=${HzNya/"Q"/""}
     fi
     cp -af anykernel-real.sh anykernel.sh
-    sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$GetCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="DTC$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
+    sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$TAGKENEL-$HeadCommit by ZyCromerZ/g" anykernel.sh
+    ZipName="DTC$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$TAGKENEL.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
@@ -99,6 +99,10 @@ function finerr() {
         -d "parse_mode=html" \
         -d text="Build kernel from branch : $branch failed -_-" >/dev/null
     exit 1
+}
+function clean_build() {
+    make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
+    make -j$(($GetCore+1)) clean mrproper >/dev/null
 }
 function build(){
     if [ ! -z "$3" ];then
@@ -133,6 +137,16 @@ function build(){
     GetCommit=$(git log --pretty=format:'%h' -1)
     GetCore=$(nproc --all)
     START=$(date +"%s")
+    git pull . origin/rebase-20200313-$TAGKENEL --no-commit
+    git commit -s -m "upstream kernel to $TAGKENEL tags"
+    if [ ! -z "$($clangFolder --version | head -n 1 | grep DragonTC)" ];then
+        ## revert some fix for gcc 9.x changes for DragonTC clang 10
+        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        ## revert Makefile changes for DragonTC clang 10
+        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
+    fi
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
     make -j$(($GetCore+1))  O=out \
                             ARCH=arm64 \
@@ -150,11 +164,10 @@ function build(){
     makeZip "$1" "$2"
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
+    TAGKENEL="LA.UM.8.2.r1-06500-sdm660.0"
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
-    git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-    git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+    git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
     git clone --depth=1 https://github.com/Bikram557/DragonTC-10.0.git -b dragontc Getclang
     git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b gcc9-20190401 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel

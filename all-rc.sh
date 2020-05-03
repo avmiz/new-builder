@@ -44,6 +44,8 @@
 
     sendInfo "build DeadlyCute-N RC done . . ."
 
+    clean_build
+
 ################################################################################################ QK L RC
 
     branch="qk/20200313/l-rc"
@@ -88,6 +90,8 @@
     build "71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build DeadlyCute-L RC done . . ."
+
+    clean_build
 
 ################################################################################################ QK uL RC
 
@@ -134,6 +138,8 @@
 
     sendInfo "build DeadlyCute-uL RC done . . ."
 
+    clean_build
+
 ################################################################################################ EG F RC
 
     branch="eg/20200313/f-rc"
@@ -177,6 +183,8 @@
     build "P71Hz" "" "$chat_group_id" >/dev/null
 
     sendInfo "build EmptyGlory-F P RC done . . ."
+
+    clean_build
 
 ################################################################################################ EG M RC
 
@@ -222,6 +230,8 @@
 
     sendInfo "build EmptyGlory-M P RC done . . ."
 
+    clean_build
+
 ################################################################################################ EG H RC
 
     branch="eg/20200313/h-rc"
@@ -266,6 +276,8 @@
 
     sendInfo "build EmptyGlory-H P RC done . . ."
 
+    clean_build
+    
 cd ..
 rm -rf ./$folder
 sendInfo "remove all kernels files on server done . . . "
