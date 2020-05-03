@@ -100,6 +100,10 @@ function finerr() {
         -d text="Build kernel from branch : $branch failed -_-" >/dev/null
     exit 1
 }
+function clean_build() {
+    make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
+    make -j$(($GetCore+1)) clean mrproper >/dev/null
+}
 function build(){
     if [ ! -z "$3" ];then
         chat_id="$3"
@@ -156,10 +160,6 @@ function build(){
     END=$(date +"%s")
     DIFF=$(($END - $START))
     makeZip "$1" "$2"
-    if [[ "$1" == *"71Hz"* ]];then
-        make -j$(($GetCore+1)) O=out clean mrproper 
-        make -j$(($GetCore+1)) clean mrproper 
-    fi
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
