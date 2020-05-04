@@ -209,7 +209,7 @@ function Getclang(){
         git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
         git fetch gcc-9-latest master --depth=1
     else
-        git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
+        git remote add gcc-9-latest https://github.com/milouk/gcc-prebuilt-elf-toolchains.git
         git fetch gcc-9-latest master --depth=1
         git remote add gcc-9-old https://github.com/najahiiii/aarch64-linux-gnu.git
         git fetch gcc-9-old gcc9-20190401 --depth=1
@@ -225,7 +225,7 @@ function SetClang(){
         git checkout gcc-9-latest/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
     elif [ "$1" == "dtc" ];then
         cd Getclang
         git checkout dtc/dragontc
@@ -244,7 +244,7 @@ function SetClang(){
         git checkout gcc-9-latest/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
     fi
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
@@ -252,8 +252,6 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
-    git clone --depth=1 https://github.com/Bikram557/DragonTC-10.0.git -b dragontc Getclang
-    git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b gcc9-20190401 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
