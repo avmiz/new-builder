@@ -36,7 +36,7 @@ function sendToSf(){
     createLink=${createLink/"["/"%5B"}
     createLink=${createLink/"]"/"%5D"}
     if [ "$3" != "" ];then
-        if [[ "$1" == *"60"* ]];then
+        if [[ "$1" == *"60Hz"* ]];then
             RefreshRT="60Hz(default)"
         else
             RefreshRT="$3(oc)"
