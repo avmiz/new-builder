@@ -244,7 +244,7 @@ function SetClang(){
     fi
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
-    TAGKENEL="LA.UM.8.2.r1-06500-sdm660.0"
+    TAGKENEL="LA.UM.8.2.r1-06300-sdm660.0"
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
     git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
