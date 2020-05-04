@@ -105,7 +105,7 @@ function finerr() {
 function clean_build() {
     make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
     make -j$(($GetCore+1)) clean mrproper >/dev/null
-    git reset --hard $HeadCommit
+    git checkout origin/$branch && git branch -D $branch
 }
 function build(){
     if [ ! -z "$3" ];then
