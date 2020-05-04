@@ -105,7 +105,10 @@ function finerr() {
 function clean_build() {
     make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
     make -j$(($GetCore+1)) clean mrproper >/dev/null
-    git checkout origin/$branch && git branch -D $branch
+    git checkout origin/$branch && git branch -D $branch >/dev/null
+}
+function change_branch() {
+    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch >/dev/null
 }
 function build(){
     if [ ! -z "$3" ];then

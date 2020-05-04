@@ -35,7 +35,7 @@
 
     sendInfo "starting build DeadlyCute-N . . ."
 
-    build "Avalon60Hz" "" "$chat_group_id"
+    build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
     build "Avalon66Hz" "" "$chat_group_id" >/dev/null
     build "Avalon67Hz" "" "$chat_group_id" >/dev/null
@@ -52,7 +52,7 @@
     branch="qk/20200313/l"
     FolderUpload="X01BD/KERNEL/QK/STABLE/L"
     spectrumFile="vipl.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -60,7 +60,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build QuantumKiller-L . . ."
 
-    build "Avalon60Hz" "" "$chat_group_id"
+    build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
     build "Avalon66Hz" "" "$chat_group_id" >/dev/null
     build "Avalon67Hz" "" "$chat_group_id" >/dev/null
@@ -82,7 +82,7 @@
 
     sendInfo "starting build DeadlyCute-L . . ."
 
-    build "Avalon60Hz" "" "$chat_group_id"
+    build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
     build "Avalon66Hz" "" "$chat_group_id" >/dev/null
     build "Avalon67Hz" "" "$chat_group_id" >/dev/null
@@ -99,7 +99,7 @@
     branch="qk/20200313/ul"
     FolderUpload="X01BD/KERNEL/QK/STABLE/uL"
     spectrumFile="ul.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -107,7 +107,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build QuantumKiller-uL . . ."
 
-    build "Avalon60Hz" "" "$chat_group_id"
+    build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
     build "Avalon66Hz" "" "$chat_group_id" >/dev/null
     build "Avalon67Hz" "" "$chat_group_id" >/dev/null
@@ -129,7 +129,7 @@
 
     sendInfo "starting build DeadlyCute-uL . . ."
 
-    build "Avalon60Hz" "" "$chat_group_id"
+    build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
     build "Avalon66Hz" "" "$chat_group_id" >/dev/null
     build "Avalon67Hz" "" "$chat_group_id" >/dev/null
@@ -146,7 +146,7 @@
     branch="eg/20200313/f"
     FolderUpload="X01BD/KERNEL/EG/STABLE/F"
     spectrumFile="f.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -154,7 +154,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build EmptyGlory-F Q . . ."
 
-    build "AvalonQ60Hz" "" "$chat_group_id"
+    build "AvalonQ60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ65Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ66Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ67Hz" "" "$chat_group_id" >/dev/null
@@ -175,7 +175,7 @@
 
     sendInfo "starting build EmptyGlory-F P . . ."
 
-    build "AvalonP60Hz" "" "$chat_group_id"
+    build "AvalonP60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP65Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP66Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP67Hz" "" "$chat_group_id" >/dev/null
@@ -193,7 +193,7 @@
     # folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/STABLE/M"
     spectrumFile="m.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -201,7 +201,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build EmptyGlory-M Q . . ."
 
-    build "AvalonQ60Hz" "" "$chat_group_id"
+    build "AvalonQ60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ65Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ66Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ67Hz" "" "$chat_group_id" >/dev/null
@@ -222,7 +222,7 @@
 
     sendInfo "starting build EmptyGlory-M P . . ."
 
-    build "AvalonP60Hz" "" "$chat_group_id"
+    build "AvalonP60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP65Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP66Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP67Hz" "" "$chat_group_id" >/dev/null
@@ -239,7 +239,7 @@
     branch="eg/20200313/h"
     FolderUpload="X01BD/KERNEL/EG/STABLE/H"
     spectrumFile="h.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -247,7 +247,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build EmptyGlory-H Q . . ."
 
-    build "AvalonQ60Hz" "" "$chat_group_id"
+    build "AvalonQ60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ65Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ66Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ67Hz" "" "$chat_group_id" >/dev/null
@@ -268,7 +268,7 @@
 
     sendInfo "starting build EmptyGlory-H P . . ."
 
-    build "AvalonP60Hz" "" "$chat_group_id"
+    build "AvalonP60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP65Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP66Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP67Hz" "" "$chat_group_id" >/dev/null
@@ -280,12 +280,11 @@
 
     clean_build
 
-
 ################################################################################################ QK N
     branch="qk/20200313/n"
     FolderUpload="X01BD/KERNEL/QK/STABLE/N"
     spectrumFile="vipn.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -293,7 +292,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build QuantumKiller-N . . ."
 
-    build "DTC60Hz" "" "$chat_group_id"
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
     build "DTC66Hz" "" "$chat_group_id" >/dev/null
     build "DTC67Hz" "" "$chat_group_id" >/dev/null
@@ -315,7 +314,7 @@
 
     sendInfo "starting build DeadlyCute-N . . ."
 
-    build "DTC60Hz" "" "$chat_group_id"
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
     build "DTC66Hz" "" "$chat_group_id" >/dev/null
     build "DTC67Hz" "" "$chat_group_id" >/dev/null
@@ -332,7 +331,7 @@
     branch="qk/20200313/l"
     FolderUpload="X01BD/KERNEL/QK/STABLE/L"
     spectrumFile="vipl.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -340,7 +339,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build QuantumKiller-L . . ."
 
-    build "DTC60Hz" "" "$chat_group_id"
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
     build "DTC66Hz" "" "$chat_group_id" >/dev/null
     build "DTC67Hz" "" "$chat_group_id" >/dev/null
@@ -362,7 +361,7 @@
 
     sendInfo "starting build DeadlyCute-L . . ."
 
-    build "DTC60Hz" "" "$chat_group_id"
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
     build "DTC66Hz" "" "$chat_group_id" >/dev/null
     build "DTC67Hz" "" "$chat_group_id" >/dev/null
@@ -379,7 +378,7 @@
     branch="qk/20200313/ul"
     FolderUpload="X01BD/KERNEL/QK/STABLE/uL"
     spectrumFile="ul.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -387,7 +386,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build QuantumKiller-uL . . ."
 
-    build "DTC60Hz" "" "$chat_group_id"
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
     build "DTC66Hz" "" "$chat_group_id" >/dev/null
     build "DTC67Hz" "" "$chat_group_id" >/dev/null
@@ -409,7 +408,7 @@
 
     sendInfo "starting build DeadlyCute-uL . . ."
 
-    build "DTC60Hz" "" "$chat_group_id"
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
     build "DTC66Hz" "" "$chat_group_id" >/dev/null
     build "DTC67Hz" "" "$chat_group_id" >/dev/null
@@ -426,7 +425,7 @@
     branch="eg/20200313/f"
     FolderUpload="X01BD/KERNEL/EG/STABLE/F"
     spectrumFile="f.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -434,7 +433,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build EmptyGlory-F Q . . ."
 
-    build "DTCQ60Hz" "" "$chat_group_id"
+    build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ66Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ67Hz" "" "$chat_group_id" >/dev/null
@@ -455,7 +454,7 @@
 
     sendInfo "starting build EmptyGlory-F P . . ."
 
-    build "DTCP60Hz" "" "$chat_group_id"
+    build "DTCP60Hz" "" "$chat_group_id" >/dev/null
     build "DTCP65Hz" "" "$chat_group_id" >/dev/null
     build "DTCP66Hz" "" "$chat_group_id" >/dev/null
     build "DTCP67Hz" "" "$chat_group_id" >/dev/null
@@ -473,7 +472,7 @@
     # folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/STABLE/M"
     spectrumFile="m.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -481,7 +480,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build EmptyGlory-M Q . . ."
 
-    build "DTCQ60Hz" "" "$chat_group_id"
+    build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ66Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ67Hz" "" "$chat_group_id" >/dev/null
@@ -502,7 +501,7 @@
 
     sendInfo "starting build EmptyGlory-M P . . ."
 
-    build "DTCP60Hz" "" "$chat_group_id"
+    build "DTCP60Hz" "" "$chat_group_id" >/dev/null
     build "DTCP65Hz" "" "$chat_group_id" >/dev/null
     build "DTCP66Hz" "" "$chat_group_id" >/dev/null
     build "DTCP67Hz" "" "$chat_group_id" >/dev/null
@@ -519,7 +518,7 @@
     branch="eg/20200313/h"
     FolderUpload="X01BD/KERNEL/EG/STABLE/H"
     spectrumFile="h.rc"
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    change_branch
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -527,7 +526,7 @@
     chat_id="$chat_group_id"
     sendInfo "starting build EmptyGlory-H Q . . ."
 
-    build "DTCQ60Hz" "" "$chat_group_id"
+    build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ66Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ67Hz" "" "$chat_group_id" >/dev/null
@@ -548,7 +547,7 @@
 
     sendInfo "starting build EmptyGlory-H P . . ."
 
-    build "DTCP60Hz" "" "$chat_group_id"
+    build "DTCP60Hz" "" "$chat_group_id" >/dev/null
     build "DTCP65Hz" "" "$chat_group_id" >/dev/null
     build "DTCP66Hz" "" "$chat_group_id" >/dev/null
     build "DTCP67Hz" "" "$chat_group_id" >/dev/null
