@@ -36,7 +36,7 @@ function sendToSf(){
     createLink=${createLink/"["/"%5B"}
     createLink=${createLink/"]"/"%5D"}
     if [ "$3" != "" ];then
-        if [[ "$1" == *"60"* ]];then
+        if [[ "$1" == *"60Hz"* ]];then
             RefreshRT="60Hz(default)"
         else
             RefreshRT="$3(oc)"
@@ -78,10 +78,12 @@ function makeZip(){
         HzNya=${Type/"P"/""}
         HzNya=${HzNya/"QSAR"/""}
         HzNya=${HzNya/"Q"/""}
+        HzNya=${HzNya/"DTC"/""}
+        HzNya=${HzNya/"Avalon"/""}
     fi
     cp -af anykernel-real.sh anykernel.sh
-    sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$GetCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="DTC$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
+    sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$TAGKENEL-$HeadCommit by ZyCromerZ/g" anykernel.sh
+    ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$TAGKENEL-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
@@ -99,6 +101,14 @@ function finerr() {
         -d "parse_mode=html" \
         -d text="Build kernel from branch : $branch failed -_-" >/dev/null
     exit 1
+}
+function clean_build() {
+    make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
+    make -j$(($GetCore+1)) clean mrproper >/dev/null
+    git checkout origin/$branch && git branch -D $branch >/dev/null
+}
+function change_branch() {
+    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch >/dev/null
 }
 function build(){
     if [ ! -z "$3" ];then
@@ -132,6 +142,29 @@ function build(){
     fi;
     GetCommit=$(git log --pretty=format:'%h' -1)
     GetCore=$(nproc --all)
+    git pull . origin/rebase-20200313-$TAGKENEL --no-commit
+    git commit -s -m "upstream kernel to $TAGKENEL tags"
+    if [ ! -z "$($clangFolder --version | head -n 1 | grep DragonTC)" ];then
+        ## revert some fix for gcc 9.x changes for DragonTC clang 10
+        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        ## revert Makefile changes for DragonTC clang 10
+        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
+    fi
+    if [[ "$1" == *"Avalon"* ]];then
+        [ ! -d "GetGcc" ] && Getclang "avalon"
+        [ ! -d "Getclang" ] && Getclang "avalon"
+        SetClang "avalon"
+    elif [[ "$1" == *"DTC"* ]];then
+        [ ! -d "GetGcc" ] && Getclang "dtc"
+        [ ! -d "Getclang" ] && Getclang "dtc"
+        SetClang "dtc"
+    else
+        [ ! -d "GetGcc" ] && Getclang "avalon"
+        [ ! -d "Getclang" ] && Getclang "avalon"
+        SetClang "avalon"
+    fi
     START=$(date +"%s")
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
     make -j$(($GetCore+1))  O=out \
@@ -149,20 +182,82 @@ function build(){
     DIFF=$(($END - $START))
     makeZip "$1" "$2"
 }
+function Getclang(){
+    [ ! -d "Getclang" ] && mkdir Getclang
+    cd Getclang
+    git init
+    if [ "$1" == "dtc" ];then
+        git remote add dtc https://github.com/Bikram557/DragonTC-10.0.git
+        git fetch dtc dragontc --depth=1
+    elif [ "$1" == "avalon" ]
+        git remote add avalon https://github.com/Haseo97/Avalon-Clang-11.0.1.git
+        git fetch avalon 11.0.1 --depth=1
+    else
+        git remote add avalon https://github.com/Haseo97/Avalon-Clang-11.0.1.git
+        git fetch avalon 11.0.1 --depth=1
+        git remote add dtc https://github.com/Bikram557/DragonTC-10.0.git
+        git fetch dtc dragontc --depth=1
+    fi
+    cd ..
+    [ ! -d "GetGcc" ] && mkdir GetGcc
+    cd GetGcc
+    git init
+    if [ "$1" == "dtc" ];then
+        git remote add gcc-9-old https://github.com/najahiiii/aarch64-linux-gnu.git
+        git fetch gcc-9-old gcc9-20190401 --depth=1
+    elif [ "$1" == "Avalon" ]
+        git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
+        git fetch gcc-9-latest master --depth=1
+    else
+        git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
+        git fetch gcc-9-latest master --depth=1
+        git remote add gcc-9-old https://github.com/najahiiii/aarch64-linux-gnu.git
+        git fetch gcc-9-old gcc9-20190401 --depth=1
+    fi
+    cd ..
+}
+function SetClang(){
+    if [ "$1" == "avalon" ];then
+        cd Getclang
+        git checkout avalon/11.0.1
+        cd ..
+        cd GetGcc
+        git checkout gcc-9-latest/master
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+    elif [ "$1" == "dtc" ];then
+        cd Getclang
+        git checkout dtc/dragontc
+        cd ..
+        cd GetGcc
+        git checkout gcc-9-old/gcc9-20190401
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
+    else
+        # default use avalon clang
+        cd Getclang
+        git checkout avalon/11.0.1
+        cd ..
+        cd GetGcc
+        git checkout gcc-9-latest/master
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+    fi
+}
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
+    TAGKENEL="LA.UM.8.2.r1-06300-sdm660.0"
     git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
     cd $folder
-    git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-    git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+    git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
     git clone --depth=1 https://github.com/Bikram557/DragonTC-10.0.git -b dragontc Getclang
     git clone --depth=1 https://github.com/najahiiii/aarch64-linux-gnu.git -b gcc9-20190401 GetGcc
     git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="circleCi-server"
-    clangFolder="$(pwd)/Getclang/bin/clang"
-    gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
     IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
     TANGGAL=$(date +"%m%d")
 fi
