@@ -169,6 +169,7 @@ function build(){
         [ ! -d "Getclang" ] && Getclang "avalon"
         SetClang "avalon"
     fi
+    TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
     make -j$(($GetCore+1))  O=out \
@@ -261,7 +262,6 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="circleCi-server"
     IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
-    TANGGAL=$(date +"%m%d")
 fi
 echo "include main.sh success"
 ## info builder
