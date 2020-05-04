@@ -153,7 +153,7 @@ function build(){
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
         SetClang "avalon"
-    elif [[ "$1" == *"dtc"* ]];then
+    elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
         SetClang "dtc"
