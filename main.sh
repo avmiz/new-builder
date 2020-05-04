@@ -189,7 +189,7 @@ function Getclang(){
     if [ "$1" == "dtc" ];then
         git remote add dtc https://github.com/Bikram557/DragonTC-10.0.git
         git fetch dtc dragontc --depth=1
-    elif [ "$1" == "avalon" ]
+    elif [ "$1" == "avalon" ];then
         git remote add avalon https://github.com/Haseo97/Avalon-Clang-11.0.1.git
         git fetch avalon 11.0.1 --depth=1
     else
@@ -205,7 +205,7 @@ function Getclang(){
     if [ "$1" == "dtc" ];then
         git remote add gcc-9-old https://github.com/najahiiii/aarch64-linux-gnu.git
         git fetch gcc-9-old gcc9-20190401 --depth=1
-    elif [ "$1" == "Avalon" ]
+    elif [ "$1" == "Avalon" ];then
         git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
         git fetch gcc-9-latest master --depth=1
     else
