@@ -147,7 +147,7 @@ function build(){
         git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
         ## revert Makefile changes for DragonTC clang 10
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
-        git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
+        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     fi
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
