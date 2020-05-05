@@ -145,7 +145,7 @@ function build(){
     git pull . origin/rebase-20200313-$TAGKENEL --no-commit
     git commit -s -m "upstream kernel to $TAGKENEL tags"
     GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
-    HzNya=${$1/"P"/""}
+    HzNya=${1/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
     HzNya=${HzNya/"Q"/""}
     HzNya=${HzNya/"DTC"/""}
