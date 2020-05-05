@@ -152,15 +152,6 @@ function build(){
     HzNya=${HzNya/"Avalon"/""}
     sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
     git add ./arch/arm64/configs/X01BD_defconfig && git commit -s -m "CONFIG_LOCALVERSION=$GetKernelName-$TAGKENEL"
-    if [ ! -z "$($clangFolder --version | head -n 1 | grep DragonTC)" ];then
-        ## revert some fix for gcc 9.x changes for DragonTC clang 10
-        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
-        ## revert Makefile changes for DragonTC clang 10
-        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
-        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
-        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
-    fi
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
@@ -169,6 +160,13 @@ function build(){
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
         SetClang "dtc"
+        ## revert some fix for gcc 9.x changes for DragonTC clang 10
+        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        ## revert Makefile changes for DragonTC clang 10
+        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
+        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
     else
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
