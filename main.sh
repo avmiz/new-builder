@@ -73,6 +73,7 @@ function makeZip(){
     fi
     Type=""
     HzNya=""
+    TypeFor=""
     if [ ! -z "$1" ];then
         Type=$1
         HzNya=${Type/"P"/""}
@@ -86,9 +87,14 @@ function makeZip(){
     else
         Type=""
     fi
+    if [[ "$1" == *"Q"* ]];then
+        TypeFor="Q"
+    elif [[ "$1" == *"P"* ]];then
+        TypeFor="P"
+    fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
+    ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
