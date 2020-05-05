@@ -81,9 +81,14 @@ function makeZip(){
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
     fi
+    if [[ "" == *"DTC"* ]];then
+        Type="DTC"
+    else
+        Type=""
+    fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
+    ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
