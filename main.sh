@@ -81,7 +81,7 @@ function makeZip(){
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
     fi
-    if [[ "" == *"DTC"* ]];then
+    if [[ "$1" == *"DTC"* ]];then
         Type="DTC"
     else
         Type=""
