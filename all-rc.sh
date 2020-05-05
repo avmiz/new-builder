@@ -11,7 +11,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-N RC . . ."
+    # sendInfo "starting build QuantumKiller-N RC . . ."
 
     build "Avalon60Hz" "" "$chat_group_id"
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
@@ -21,7 +21,7 @@
     build "Avalon69Hz" "" "$chat_group_id" >/dev/null
     build "Avalon71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build QuantumKiller-N RC done . . ."
+    # sendInfo "build QuantumKiller-N RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -33,7 +33,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-N RC . . ."
+    # sendInfo "starting build DeadlyCute-N RC . . ."
 
     build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
@@ -43,7 +43,7 @@
     build "Avalon69Hz" "" "$chat_group_id" >/dev/null
     build "Avalon71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build DeadlyCute-N RC done . . ."
+    # sendInfo "build DeadlyCute-N RC done . . ."
 
     clean_build
 
@@ -58,7 +58,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-L RC . . ."
+    # sendInfo "starting build QuantumKiller-L RC . . ."
 
     build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
@@ -68,7 +68,7 @@
     build "Avalon69Hz" "" "$chat_group_id" >/dev/null
     build "Avalon71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build QuantumKiller-L RC done . . ."
+    # sendInfo "build QuantumKiller-L RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -80,7 +80,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-L RC . . ."
+    # sendInfo "starting build DeadlyCute-L RC . . ."
 
     build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
@@ -90,7 +90,7 @@
     build "Avalon69Hz" "" "$chat_group_id" >/dev/null
     build "Avalon71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build DeadlyCute-L RC done . . ."
+    # sendInfo "build DeadlyCute-L RC done . . ."
 
     clean_build
 
@@ -105,7 +105,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-uL RC . . ."
+    # sendInfo "starting build QuantumKiller-uL RC . . ."
 
     build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
@@ -115,7 +115,7 @@
     build "Avalon69Hz" "" "$chat_group_id" >/dev/null
     build "Avalon71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build QuantumKiller-uL RC done . . ."
+    # sendInfo "build QuantumKiller-uL RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -127,7 +127,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-uL RC . . ."
+    # sendInfo "starting build DeadlyCute-uL RC . . ."
 
     build "Avalon60Hz" "" "$chat_group_id" >/dev/null
     build "Avalon65Hz" "" "$chat_group_id" >/dev/null
@@ -137,7 +137,7 @@
     build "Avalon69Hz" "" "$chat_group_id" >/dev/null
     build "Avalon71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build DeadlyCute-uL RC done . . ."
+    # sendInfo "build DeadlyCute-uL RC done . . ."
 
     clean_build
 
@@ -152,7 +152,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-F Q RC . . ."
+    # sendInfo "starting build EmptyGlory-F Q RC . . ."
 
     build "AvalonQ60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ65Hz" "" "$chat_group_id" >/dev/null
@@ -162,7 +162,7 @@
     build "AvalonQ69Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-F Q RC done . . ."
+    # sendInfo "build EmptyGlory-F Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -173,7 +173,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-F P RC . . ."
+    # sendInfo "starting build EmptyGlory-F P RC . . ."
 
     build "AvalonP60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP65Hz" "" "$chat_group_id" >/dev/null
@@ -183,7 +183,7 @@
     build "AvalonP69Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-F P RC done . . ."
+    # sendInfo "build EmptyGlory-F P RC done . . ."
 
     clean_build
 
@@ -198,7 +198,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-M Q RC . . ."
+    # sendInfo "starting build EmptyGlory-M Q RC . . ."
 
     build "AvalonQ60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ65Hz" "" "$chat_group_id" >/dev/null
@@ -208,7 +208,7 @@
     build "AvalonQ69Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-M Q RC done . . ."
+    # sendInfo "build EmptyGlory-M Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -219,7 +219,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-M P RC . . ."
+    # sendInfo "starting build EmptyGlory-M P RC . . ."
 
     build "AvalonP60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP65Hz" "" "$chat_group_id" >/dev/null
@@ -229,7 +229,7 @@
     build "AvalonP69Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-M P RC done . . ."
+    # sendInfo "build EmptyGlory-M P RC done . . ."
 
     clean_build
 
@@ -244,7 +244,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-H Q RC . . ."
+    # sendInfo "starting build EmptyGlory-H Q RC . . ."
 
     build "AvalonQ60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ65Hz" "" "$chat_group_id" >/dev/null
@@ -254,7 +254,7 @@
     build "AvalonQ69Hz" "" "$chat_group_id" >/dev/null
     build "AvalonQ71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-H Q RC done . . ."
+    # sendInfo "build EmptyGlory-H Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -265,7 +265,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-H P RC . . ."
+    # sendInfo "starting build EmptyGlory-H P RC . . ."
 
     build "AvalonP60Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP65Hz" "" "$chat_group_id" >/dev/null
@@ -275,7 +275,7 @@
     build "AvalonP69Hz" "" "$chat_group_id" >/dev/null
     build "AvalonP71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-H P RC done . . ."
+    # sendInfo "build EmptyGlory-H P RC done . . ."
 
     clean_build
 
@@ -289,7 +289,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-N RC . . ."
+    # sendInfo "starting build QuantumKiller-N RC . . ."
 
     build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
@@ -299,7 +299,7 @@
     build "DTC69Hz" "" "$chat_group_id" >/dev/null
     build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build QuantumKiller-N RC done . . ."
+    # sendInfo "build QuantumKiller-N RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -311,7 +311,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-N RC . . ."
+    # sendInfo "starting build DeadlyCute-N RC . . ."
 
     build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
@@ -321,7 +321,7 @@
     build "DTC69Hz" "" "$chat_group_id" >/dev/null
     build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build DeadlyCute-N RC done . . ."
+    # sendInfo "build DeadlyCute-N RC done . . ."
 
     clean_build
 
@@ -336,7 +336,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-L RC . . ."
+    # sendInfo "starting build QuantumKiller-L RC . . ."
 
     build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
@@ -346,7 +346,7 @@
     build "DTC69Hz" "" "$chat_group_id" >/dev/null
     build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build QuantumKiller-L RC done . . ."
+    # sendInfo "build QuantumKiller-L RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -358,7 +358,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-L RC . . ."
+    # sendInfo "starting build DeadlyCute-L RC . . ."
 
     build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
@@ -368,7 +368,7 @@
     build "DTC69Hz" "" "$chat_group_id" >/dev/null
     build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build DeadlyCute-L RC done . . ."
+    # sendInfo "build DeadlyCute-L RC done . . ."
 
     clean_build
 
@@ -383,7 +383,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build QuantumKiller-uL RC . . ."
+    # sendInfo "starting build QuantumKiller-uL RC . . ."
 
     build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
@@ -393,7 +393,7 @@
     build "DTC69Hz" "" "$chat_group_id" >/dev/null
     build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build QuantumKiller-uL RC done . . ."
+    # sendInfo "build QuantumKiller-uL RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -405,7 +405,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build DeadlyCute-uL RC . . ."
+    # sendInfo "starting build DeadlyCute-uL RC . . ."
 
     build "DTC60Hz" "" "$chat_group_id" >/dev/null
     build "DTC65Hz" "" "$chat_group_id" >/dev/null
@@ -415,7 +415,7 @@
     build "DTC69Hz" "" "$chat_group_id" >/dev/null
     build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build DeadlyCute-uL RC done . . ."
+    # sendInfo "build DeadlyCute-uL RC done . . ."
 
     clean_build
 
@@ -430,7 +430,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-F Q RC . . ."
+    # sendInfo "starting build EmptyGlory-F Q RC . . ."
 
     build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
@@ -440,7 +440,7 @@
     build "DTCQ69Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-F Q RC done . . ."
+    # sendInfo "build EmptyGlory-F Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -451,7 +451,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-F P RC . . ."
+    # sendInfo "starting build EmptyGlory-F P RC . . ."
 
     build "DTCP60Hz" "" "$chat_group_id" >/dev/null
     build "DTCP65Hz" "" "$chat_group_id" >/dev/null
@@ -461,7 +461,7 @@
     build "DTCP69Hz" "" "$chat_group_id" >/dev/null
     build "DTCP71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-F P RC done . . ."
+    # sendInfo "build EmptyGlory-F P RC done . . ."
 
     clean_build
 
@@ -476,7 +476,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-M Q RC . . ."
+    # sendInfo "starting build EmptyGlory-M Q RC . . ."
 
     build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
@@ -486,7 +486,7 @@
     build "DTCQ69Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-M Q RC done . . ."
+    # sendInfo "build EmptyGlory-M Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -497,7 +497,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-M P RC . . ."
+    # sendInfo "starting build EmptyGlory-M P RC . . ."
 
     build "DTCP60Hz" "" "$chat_group_id" >/dev/null
     build "DTCP65Hz" "" "$chat_group_id" >/dev/null
@@ -507,7 +507,7 @@
     build "DTCP69Hz" "" "$chat_group_id" >/dev/null
     build "DTCP71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-M P RC done . . ."
+    # sendInfo "build EmptyGlory-M P RC done . . ."
 
     clean_build
 
@@ -522,7 +522,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    sendInfo "starting build EmptyGlory-H Q RC . . ."
+    # sendInfo "starting build EmptyGlory-H Q RC . . ."
 
     build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
@@ -532,7 +532,7 @@
     build "DTCQ69Hz" "" "$chat_group_id" >/dev/null
     build "DTCQ71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-H Q RC done . . ."
+    # sendInfo "build EmptyGlory-H Q RC done . . ."
 
     ## for pie
     git reset --hard $MainCommit
@@ -543,7 +543,7 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
 
-    sendInfo "starting build EmptyGlory-H P RC . . ."
+    # sendInfo "starting build EmptyGlory-H P RC . . ."
 
     build "DTCP60Hz" "" "$chat_group_id" >/dev/null
     build "DTCP65Hz" "" "$chat_group_id" >/dev/null
@@ -553,10 +553,10 @@
     build "DTCP69Hz" "" "$chat_group_id" >/dev/null
     build "DTCP71Hz" "" "$chat_group_id" >/dev/null
 
-    sendInfo "build EmptyGlory-H P RC done . . ."
+    # sendInfo "build EmptyGlory-H P RC done . . ."
 
     clean_build
     
 cd ..
 rm -rf ./$folder
-sendInfo "remove all kernels files on server done . . . "
+# sendInfo "remove all kernels files on server done . . . "
