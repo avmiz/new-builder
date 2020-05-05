@@ -83,7 +83,7 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
+    ZipName="[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
@@ -145,7 +145,12 @@ function build(){
     git pull . origin/rebase-20200313-$TAGKENEL --no-commit
     git commit -s -m "upstream kernel to $TAGKENEL tags"
     GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
-    sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
+    HzNya=${$1/"P"/""}
+    HzNya=${HzNya/"QSAR"/""}
+    HzNya=${HzNya/"Q"/""}
+    HzNya=${HzNya/"DTC"/""}
+    HzNya=${HzNya/"Avalon"/""}
+    sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
     git add ./arch/arm64/configs/X01BD_defconfig && git commit -s -m "CONFIG_LOCALVERSION=$GetKernelName-$TAGKENEL"
     if [ ! -z "$($clangFolder --version | head -n 1 | grep DragonTC)" ];then
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
