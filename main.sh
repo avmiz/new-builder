@@ -228,7 +228,9 @@ function Getclang(){
         git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
         git fetch gcc-9-latest master --depth=1
     else
-        git remote add gcc-9-latest https://github.com/milouk/gcc-prebuilt-elf-toolchains.git
+        # git remote add gcc-11-latest https://github.com/milouk/gcc-prebuilt-elf-toolchains.git
+        # git fetch gcc-11-latest master --depth=1
+        git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
         git fetch gcc-9-latest master --depth=1
         git remote add gcc-9-old https://github.com/najahiiii/aarch64-linux-gnu.git
         git fetch gcc-9-old gcc9-20190401 --depth=1
@@ -244,7 +246,8 @@ function SetClang(){
         git checkout gcc-9-latest/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     elif [ "$1" == "dtc" ];then
         cd Getclang
         git checkout dtc/dragontc
@@ -260,10 +263,12 @@ function SetClang(){
         git checkout avalon/11.0.1
         cd ..
         cd GetGcc
-        git checkout gcc-9-latest/master
+        # git checkout gcc-11-latest/master
+        git checkout gcc-9-latest
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     fi
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
