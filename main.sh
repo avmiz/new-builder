@@ -73,6 +73,7 @@ function makeZip(){
     fi
     Type=""
     HzNya=""
+    TypeFor=""
     if [ ! -z "$1" ];then
         Type=$1
         HzNya=${Type/"P"/""}
@@ -81,9 +82,19 @@ function makeZip(){
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
     fi
+    if [[ "$1" == *"DTC"* ]];then
+        Type="DTC"
+    else
+        Type=""
+    fi
+    if [[ "$1" == *"Q"* ]];then
+        TypeFor="Q"
+    elif [[ "$1" == *"P"* ]];then
+        TypeFor="P"
+    fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
+    ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME" "$HzNya"
@@ -145,17 +156,13 @@ function build(){
     git pull . origin/rebase-20200313-$TAGKENEL --no-commit
     git commit -s -m "upstream kernel to $TAGKENEL tags"
     GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
-    sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
+    HzNya=${1/"P"/""}
+    HzNya=${HzNya/"QSAR"/""}
+    HzNya=${HzNya/"Q"/""}
+    HzNya=${HzNya/"DTC"/""}
+    HzNya=${HzNya/"Avalon"/""}
+    sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
     git add ./arch/arm64/configs/X01BD_defconfig && git commit -s -m "CONFIG_LOCALVERSION=$GetKernelName-$TAGKENEL"
-    if [ ! -z "$($clangFolder --version | head -n 1 | grep DragonTC)" ];then
-        ## revert some fix for gcc 9.x changes for DragonTC clang 10
-        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
-        ## revert Makefile changes for DragonTC clang 10
-        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
-        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
-        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
-    fi
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
@@ -164,6 +171,13 @@ function build(){
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
         SetClang "dtc"
+        ## revert some fix for gcc 9.x changes for DragonTC clang 10
+        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        ## revert Makefile changes for DragonTC clang 10
+        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
+        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
     else
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
@@ -214,7 +228,9 @@ function Getclang(){
         git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
         git fetch gcc-9-latest master --depth=1
     else
-        git remote add gcc-9-latest https://github.com/milouk/gcc-prebuilt-elf-toolchains.git
+        # git remote add gcc-11-latest https://github.com/milouk/gcc-prebuilt-elf-toolchains.git
+        # git fetch gcc-11-latest master --depth=1
+        git remote add gcc-9-latest https://github.com/arter97/arm64-gcc.git
         git fetch gcc-9-latest master --depth=1
         git remote add gcc-9-old https://github.com/najahiiii/aarch64-linux-gnu.git
         git fetch gcc-9-old gcc9-20190401 --depth=1
@@ -230,7 +246,8 @@ function SetClang(){
         git checkout gcc-9-latest/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     elif [ "$1" == "dtc" ];then
         cd Getclang
         git checkout dtc/dragontc
@@ -246,10 +263,12 @@ function SetClang(){
         git checkout avalon/11.0.1
         cd ..
         cd GetGcc
-        git checkout gcc-9-latest/master
+        # git checkout gcc-11-latest/master
+        git checkout gcc-9-latest
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     fi
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
