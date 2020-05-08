@@ -132,8 +132,14 @@ function makeZip(){
         HzNya=${HzNya/"Avalon"/""}
         HzNya=${HzNya/"GCC"/""}
     fi
-    if [[ "$1" == *"DTC"* ]];then
+    if [[ "$1" == *"DTCoLd"* ]];then
+        Type="DTCoLd"
+    elif [[ "$1" == *"DTC"* ]];then
         Type="DTC"
+    elif [[ "$1" == *"AvalonTest"* ]];then
+        Type="AvalonTest"
+    elif [[ "$1" == *"Avalon"* ]];then
+        Type="Avalon"
     elif [[ "$1" == *"GCC"* ]];then
         Type="GCC"
     else
