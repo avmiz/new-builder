@@ -58,23 +58,23 @@
 
 # ################################################################################################ DTCoLd
 #     change_branch
-    GetCommit=$(git log --pretty=format:'%h' -1)
-    HeadCommit=$GetCommit
-    MainCommit=$GetCommit
-    chat_id="$chat_group_id"
-    build "QDTCoLd65Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC"
-    build "QDTCoLd68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" >/dev/null
-    git reset --hard $MainCommit
-    git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
-    git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
-    GetCommit=$(git log --pretty=format:'%h' -1)
-    HeadCommit=$GetCommit
-    build "PDTCoLd65Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" >/dev/null
-    build "PDTCoLd68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" >/dev/null
-    clean_build
+#     GetCommit=$(git log --pretty=format:'%h' -1)
+#     HeadCommit=$GetCommit
+#     MainCommit=$GetCommit
+#     chat_id="$chat_group_id"
+#     build "QDTCoLd65Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC"
+#     build "QDTCoLd68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" >/dev/null
+#     git reset --hard $MainCommit
+#     git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
+#     git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
+#     GetCommit=$(git log --pretty=format:'%h' -1)
+#     HeadCommit=$GetCommit
+#     build "PDTCoLd65Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" >/dev/null
+#     build "PDTCoLd68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" >/dev/null
+#     clean_build
 
-################################################################################################ GCC
-    change_branch
+# ################################################################################################ GCC
+#     change_branch
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
