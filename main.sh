@@ -383,7 +383,8 @@ function SetClang(){
         git checkout dtc/dragontc
         cd ..
         cd GetGcc
-        git checkout gcc-google/ndk-r19
+        git fetch gcc-google ndk-r19
+        git checkout FETCH_HEAD
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
