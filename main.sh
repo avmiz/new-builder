@@ -281,7 +281,7 @@ function build(){
         git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
     elif [[ "$1" == *"GCC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "GCC"
-        SetClang "dtc"
+        SetClang "GCC"
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
         git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
         git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
@@ -365,7 +365,8 @@ function SetClang(){
         gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
     elif [ "$1" == "GCC" ];then
         cd GetGcc
-        git checkout gcc-google/ndk-r19
+        git fetch gcc-google ndk-r19
+        git checkout FETCH_HEAD
         cd ..
         clangFolder=""
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
