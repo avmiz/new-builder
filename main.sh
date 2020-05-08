@@ -297,10 +297,9 @@ function SetClang(){
 }
 function setRemote(){
     #link remote branch-name
-    [ ! -z "$(git remote | grep "$2")" ] && git checkout -b $3 && git remote remove $2
+    [ ! -z "$(git remote | grep "$asu")" ] && git remote remove $2
     git remote add $2 $1
     git fetch $2 $3 --depth=1
-    [ ! -z "$(git branch | grep "$3")" ] && git branch -D $3
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     TAGKENEL="LA.UM.8.2.r1-06200-sdm660.0"
