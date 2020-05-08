@@ -19,11 +19,18 @@ function sendToTele(){
     else
         RefreshRT="60Hz(default)"
     fi
-    curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
-        -F chat_id="$chat_id" \
-        -F "disable_web_page_preview=true" \
-        -F "parse_mode=html" \
-        -F caption="New kernel !!
+    if [ "$clangFolder" == "" ];then
+        Text="New kernel !!
+Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
+
+- Kernel name : $2
+- Refreshrate : $RefreshRT
+- Password Protected : $withPassword
+ 
+Using compiler: 
+- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+    else
+        Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
@@ -32,7 +39,13 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
-- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>" >/dev/null
+- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+    fi
+    curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
+        -F chat_id="$chat_id" \
+        -F "disable_web_page_preview=true" \
+        -F "parse_mode=html" \
+        -F caption="$Text" >/dev/null
 }
 function sendToSf(){
     echo "upload to sf"
@@ -50,7 +63,20 @@ function sendToSf(){
     else
         RefreshRT="60Hz(default)"
     fi
-    Text="New kernel !!
+    if [ "$clangFolder" == "" ];then
+        Text="New kernel !!
+Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
+
+- Kernel name : $2
+- Refreshrate : $RefreshRT
+- Password Protected : $withPassword
+ 
+Using compiler: 
+- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+
+Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+    else
+        Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
@@ -62,6 +88,7 @@ Using compiler:
 - <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
 Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+    fi
     sendInfo "$Text"
 
     Text="Link Download :
@@ -99,6 +126,8 @@ function makeZip(){
         HzNya=${Type/"P"/""}
         HzNya=${HzNya/"QSAR"/""}
         HzNya=${HzNya/"Q"/""}
+        HzNya=${HzNya/"AvalonTest"/""}
+        HzNya=${HzNya/"DTCoLd"/""}
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
         HzNya=${HzNya/"GCC"/""}
@@ -209,6 +238,8 @@ function build(){
     HzNya=${1/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
     HzNya=${HzNya/"Q"/""}
+    HzNya=${HzNya/"AvalonTest"/""}
+    HzNya=${HzNya/"DTCoLd"/""}
     HzNya=${HzNya/"DTC"/""}
     HzNya=${HzNya/"Avalon"/""}
     HzNya=${HzNya/"GCC"/""}
@@ -218,9 +249,25 @@ function build(){
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
         SetClang "avalon"
-    elif [[ "$1" == *"DTC"* ]] || [[ "$1" == *"GCC"* ]];then
+        if [[ "$1" == *"AvalonTest"* ]];then
+            SetClang "Avalon-Test"
+        fi
+    elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
+        SetClang "dtc"
+        if [[ "$1" == *"DTCoLd"* ]];then
+            SetClang "dtc-old"
+        fi
+        ## revert some fix for gcc 9.x changes for DragonTC clang 10
+        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        ## revert Makefile changes for DragonTC clang 10
+        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
+        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
+    elif [[ "$1" == *"GCC"* ]];then
+        [ ! -d "GetGcc" ] && Getclang "GCC"
         SetClang "dtc"
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
         git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
@@ -275,7 +322,7 @@ function Getclang(){
     elif [ "$1" == "GCC" ];then
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     else
-        # setRemote "https://github.com/milouk/gcc-prebuilt-elf-toolchains.git" "add gcc-11-latest" "master"
+        setRemote "https://github.com/milouk/gcc-prebuilt-elf-toolchains.git" "add gcc-11-latest" "master"
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
@@ -291,8 +338,16 @@ function SetClang(){
         git checkout gcc-9-latest/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+    elif [ "$1" == "Avalon-Test" ];then
+        cd Getclang
+        git checkout avalon/11.0.1
+        cd ..
+        cd GetGcc
+        git checkout gcc-11-latest/master
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
     elif [ "$1" == "GCC" ];then
         cd GetGcc
         git checkout gcc-google/ndk-r19
@@ -308,17 +363,24 @@ function SetClang(){
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
+    elif [ "$1" == "dtc-old" ];then
+        cd Getclang
+        git checkout dtc/dragontc
+        cd ..
+        cd GetGcc
+        git checkout gcc-google/ndk-r19
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
     else
         # default use avalon clang
         cd Getclang
         git checkout avalon/11.0.1
         cd ..
         cd GetGcc
-        # git checkout gcc-11-latest/master
         git checkout gcc-9-latest
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     fi
 }
