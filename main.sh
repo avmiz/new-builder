@@ -119,9 +119,9 @@ function makeZip(){
     ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
-        zip -r --password "$3" "$ZipName-protected" $ZipName >/dev/null 2>&1
+        zip -r --password "$3" "$ZipName-protected.zip" $ZipName >/dev/null 2>&1
         rm -rf "$ZipName"
-        setName="$ZipName-protected"
+        setName="$ZipName-protected.zip"
         ZipName="$setName"
         SetPassword="$3"
     else
