@@ -89,7 +89,12 @@ Using compiler:
 
 Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     fi
-    sendInfo "$Text"
+    
+    if [ "$withPassword" == "YES" ];then
+        sendInfo "$Text" "$chat_password_id"
+    else
+        sendInfo "$Text"
+    fi
 
     Text="Link Download :
 -  <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>
