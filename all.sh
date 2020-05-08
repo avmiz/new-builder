@@ -323,7 +323,3 @@
     # sendInfo "build EmptyGlory-H P done . . ."
 
     clean_build
-
-cd ..
-rm -rf ./$folder
-# sendInfo "remove all kernels files on server done . . . "
