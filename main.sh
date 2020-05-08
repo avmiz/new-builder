@@ -76,6 +76,11 @@ function makeZip(){
     cd AnyKernel || exit 1
     if [ ! -d "spectrum" ];then
         git clone https://$githubKey@github.com/ZyCromerZ/spectrum.git spectrum
+    else
+        cd spectrum
+        git fetch origin master && git checkout origin/master
+        [ $(git branch | grep master) ] && git branch -D master
+        git checkout -b master
     fi
     if [ -e "spectrum/$spectrumFile" ];then
         cp -af "spectrum/$spectrumFile" init.spectrum.rc
@@ -310,11 +315,11 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     fi
     git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
     if [ ! -d "AnyKernel" ];then
+        git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
+    else
         cd "AnyKernel"
         git fetch origin master && git checkout origin/master && git branch -D master && git checkout -b master
         cd ..
-    else
-        git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     fi
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
