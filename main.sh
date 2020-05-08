@@ -80,8 +80,9 @@ function makeZip(){
     else
         cd spectrum
         git fetch origin master && git checkout origin/master
-        [ $(git branch | grep master) ] && git branch -D master
+        [ ! -z "$(git branch | grep master)" ] && git branch -D master
         git checkout -b master
+        cd ..
     fi
     if [ -e "spectrum/$spectrumFile" ];then
         cp -af "spectrum/$spectrumFile" init.spectrum.rc
