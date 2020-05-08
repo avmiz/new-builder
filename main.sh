@@ -237,7 +237,7 @@ function build(){
 function Getclang(){
     [ ! -d "Getclang" ] && mkdir Getclang
     cd Getclang
-    git init
+    [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
         setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     elif [ "$1" == "avalon" ];then
@@ -249,7 +249,7 @@ function Getclang(){
     cd ..
     [ ! -d "GetGcc" ] && mkdir GetGcc
     cd GetGcc
-    git init
+    [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
     elif [ "$1" == "Avalon" ];then
@@ -297,7 +297,7 @@ function SetClang(){
 }
 function setRemote(){
     #link remote branch-name
-    [ ! -z "$(git remote | grep "$asu")" ] && git remote remove $2
+    [ ! -z "$(git remote | grep "$2")" ] && git remote remove $2
     git remote add $2 $1
     git fetch $2 $3 --depth=1
 }
