@@ -55,6 +55,7 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
 - Refreshrate : $RefreshRT
+- Password Protected : $withPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
