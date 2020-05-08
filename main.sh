@@ -99,6 +99,7 @@ function makeZip(){
         HzNya=${HzNya/"Q"/""}
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
+        HzNya=${HzNya/"GCC"/""}
     fi
     if [[ "$1" == *"DTC"* ]];then
         Type="DTC"
@@ -144,6 +145,10 @@ function clean_build() {
     make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
     make -j$(($GetCore+1)) clean mrproper >/dev/null
     git checkout origin/$branch && git branch -D $branch >/dev/null
+}
+function makeCleanOnly(){
+    make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
+    make -j$(($GetCore+1)) clean mrproper >/dev/null
 }
 function change_branch() {
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch >/dev/null
