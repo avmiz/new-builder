@@ -148,6 +148,20 @@ function clean_build() {
 function change_branch() {
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch >/dev/null
 }
+function compileNow(){
+    make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
+    if [ "$clangFolder" != "" ];then
+        make -j$(($GetCore+1))  O=out \
+                                ARCH=arm64 \
+                                CROSS_COMPILE=$gccFolder \
+                                CC=$clangFolder \
+                                CLANG_TRIPLE=aarch64-linux-gnu-
+    else
+            make -j$(($GetCore+1))  O=out \
+                                ARCH=arm64 \
+                                CROSS_COMPILE=$gccFolder
+    fi
+}
 function build(){
     if [ ! -z "$3" ];then
         chat_id="$3"
@@ -188,13 +202,14 @@ function build(){
     HzNya=${HzNya/"Q"/""}
     HzNya=${HzNya/"DTC"/""}
     HzNya=${HzNya/"Avalon"/""}
+    HzNya=${HzNya/"GCC"/""}
     sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
     git add ./arch/arm64/configs/X01BD_defconfig && git commit -s -m "CONFIG_LOCALVERSION=$GetKernelName-$TAGKENEL"
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
         SetClang "avalon"
-    elif [[ "$1" == *"DTC"* ]];then
+    elif [[ "$1" == *"DTC"* ]] || [[ "$1" == *"GCC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
         SetClang "dtc"
@@ -212,26 +227,20 @@ function build(){
     fi
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
-    make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
-    make -j$(($GetCore+1))  O=out \
-                            ARCH=arm64 \
-                            CROSS_COMPILE=$gccFolder \
-                            CC=$clangFolder \
-                            CLANG_TRIPLE=aarch64-linux-gnu-
-
-    if [ ! -a "$IMAGE" ]; then
+    compileNow
+    if [ ! -f "$IMAGE" ]; then
         finerr
-        exit 1
-    fi
-    cp -af out/arch/arm64/boot/Image.gz-dtb AnyKernel && rm -rf out/arch/arm64/boot/Image.gz-dtb
-    END=$(date +"%s")
-    DIFF=$(($END - $START))
-    withPassword="NO"
-    if [ ! -z "$4" ];then
-        withPassword="YES"
-        makeZip "$1" "$2" "$4"
     else
-        makeZip "$1" "$2"
+        cp -af out/arch/arm64/boot/Image.gz-dtb AnyKernel
+        END=$(date +"%s")
+        DIFF=$(($END - $START))
+        withPassword="NO"
+        if [ ! -z "$4" ];then
+            withPassword="YES"
+            makeZip "$1" "$2" "$4"
+        else
+            makeZip "$1" "$2"
+        fi
     fi
 }
 function Getclang(){
@@ -254,10 +263,13 @@ function Getclang(){
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
     elif [ "$1" == "Avalon" ];then
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
+    elif [ "$1" == "GCC" ];then
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc" "ndk-r19"
     else
         # setRemote "https://github.com/milouk/gcc-prebuilt-elf-toolchains.git" "add gcc-11-latest" "master"
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc" "ndk-r19"
     fi
     cd ..
 }
@@ -272,6 +284,12 @@ function SetClang(){
         clangFolder="$(pwd)/Getclang/bin/clang"
         # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+    elif [ "$1" == "GCC" ];then
+        cd GetGcc
+        git checkout gcc-9-old/gcc9-20190401
+        cd ..
+        clangFolder=""
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
     elif [ "$1" == "dtc" ];then
         cd Getclang
         git checkout dtc/dragontc
