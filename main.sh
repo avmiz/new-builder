@@ -300,13 +300,13 @@ function setRemote(){
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     TAGKENEL="LA.UM.8.2.r1-06200-sdm660.0"
     if [ ! -d $folder ];then
+        git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
+        cd $folder
+    else
         cd $folder
         git fetch origin $branch
         [ ! -z "$(git branch | grep "$branch" )" ] && git branch -D $branch
         git checkout -b $branch
-    else
-        git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
-        cd $folder
     fi
     git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
     if [ ! -d "AnyKernel" ];then
