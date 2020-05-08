@@ -269,12 +269,12 @@ function Getclang(){
     elif [ "$1" == "Avalon" ];then
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
     elif [ "$1" == "GCC" ];then
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc" "ndk-r19"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     else
         # setRemote "https://github.com/milouk/gcc-prebuilt-elf-toolchains.git" "add gcc-11-latest" "master"
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc" "ndk-r19"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     fi
     cd ..
 }
@@ -291,7 +291,7 @@ function SetClang(){
         gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     elif [ "$1" == "GCC" ];then
         cd GetGcc
-        git checkout gcc-9-old/gcc9-20190401
+        git checkout gcc-google/ndk-r19
         cd ..
         clangFolder=""
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
