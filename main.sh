@@ -104,6 +104,8 @@ function makeZip(){
     fi
     if [[ "$1" == *"DTC"* ]];then
         Type="DTC"
+    elif [[ "$1" == *"GCC"* ]];then
+        Type="GCC"
     else
         Type=""
     fi
