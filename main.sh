@@ -243,8 +243,7 @@ function build(){
     fi;
     GetCommit=$(git log --pretty=format:'%h' -1)
     GetCore=$(nproc --all)
-    git pull . origin/rebase-20200313-$TAGKENEL --no-commit
-    git commit -s -m "upstream kernel to $TAGKENEL tags"
+    TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
     GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     HzNya=${1/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
@@ -408,7 +407,6 @@ function setRemote(){
     git fetch $2 $3 --depth=1
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
-    TAGKENEL="LA.UM.8.2.r1-06200-sdm660.0"
     if [ ! -d $folder ];then
         git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
         cd $folder
@@ -418,7 +416,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         [ ! -z "$(git branch | grep "$branch" )" ] && git branch -D $branch
         git checkout -b $branch
     fi
-    git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
+    git fetch origin rebase-20200313-rename rebase-20200313-SAR
     if [ ! -d "AnyKernel" ];then
         git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     else
