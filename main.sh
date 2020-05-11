@@ -19,11 +19,18 @@ function sendToTele(){
     else
         RefreshRT="60Hz(default)"
     fi
-    curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
-        -F chat_id="$chat_id" \
-        -F "disable_web_page_preview=true" \
-        -F "parse_mode=html" \
-        -F caption="New kernel !!
+    if [ "$clangFolder" == "" ];then
+        Text="New kernel !!
+Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
+
+- Kernel name : $2
+- Refreshrate : $RefreshRT
+- Password Protected : $withPassword
+ 
+Using compiler: 
+- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+    else
+        Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
@@ -32,7 +39,13 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
-- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>" >/dev/null
+- <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
+    fi
+    curl -F document=@$ZIP "https://api.telegram.org/bot$token/sendDocument" \
+        -F chat_id="$chat_id" \
+        -F "disable_web_page_preview=true" \
+        -F "parse_mode=html" \
+        -F caption="$Text" >/dev/null
 }
 function sendToSf(){
     echo "upload to sf"
@@ -50,18 +63,38 @@ function sendToSf(){
     else
         RefreshRT="60Hz(default)"
     fi
-    Text="New kernel !!
+    if [ "$clangFolder" == "" ];then
+        Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
 - Refreshrate : $RefreshRT
+- Password Protected : $withPassword
+ 
+Using compiler: 
+- <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
+
+Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+    else
+        Text="New kernel !!
+Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
+
+- Kernel name : $2
+- Refreshrate : $RefreshRT
+- Password Protected : $withPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
 Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
-    sendInfo "$Text"
+    fi
+    
+    if [ "$withPassword" == "YES" ];then
+        sendInfo "$Text" "$chat_password_id"
+    else
+        sendInfo "$Text"
+    fi
 
     Text="Link Download :
 -  <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>
@@ -76,6 +109,12 @@ function makeZip(){
     cd AnyKernel || exit 1
     if [ ! -d "spectrum" ];then
         git clone https://$githubKey@github.com/ZyCromerZ/spectrum.git spectrum
+    else
+        cd spectrum
+        git fetch origin master && git checkout origin/master
+        [ ! -z "$(git branch | grep master)" ] && git branch -D master
+        git checkout -b master
+        cd ..
     fi
     if [ -e "spectrum/$spectrumFile" ];then
         cp -af "spectrum/$spectrumFile" init.spectrum.rc
@@ -92,11 +131,22 @@ function makeZip(){
         HzNya=${Type/"P"/""}
         HzNya=${HzNya/"QSAR"/""}
         HzNya=${HzNya/"Q"/""}
+        HzNya=${HzNya/"AvalonTest"/""}
+        HzNya=${HzNya/"DTCoLd"/""}
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
+        HzNya=${HzNya/"GCC"/""}
     fi
-    if [[ "$1" == *"DTC"* ]];then
+    if [[ "$1" == *"DTCoLd"* ]];then
+        Type="DTCoLd"
+    elif [[ "$1" == *"DTC"* ]];then
         Type="DTC"
+    elif [[ "$1" == *"AvalonTest"* ]];then
+        Type="AvalonTest"
+    elif [[ "$1" == *"Avalon"* ]];then
+        Type="Avalon"
+    elif [[ "$1" == *"GCC"* ]];then
+        Type="GCC"
     else
         Type=""
     fi
@@ -110,9 +160,9 @@ function makeZip(){
     ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
-        zip -r --password "$3" "$ZipName-protected" $ZipName >/dev/null 2>&1
+        zip -r --password "$3" "$ZipName-protected.zip" $ZipName >/dev/null 2>&1
         rm -rf "$ZipName"
-        setName="$ZipName-protected"
+        setName="$ZipName-protected.zip"
         ZipName="$setName"
         SetPassword="$3"
     else
@@ -140,8 +190,26 @@ function clean_build() {
     make -j$(($GetCore+1)) clean mrproper >/dev/null
     git checkout origin/$branch && git branch -D $branch >/dev/null
 }
+function makeCleanOnly(){
+    make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
+    make -j$(($GetCore+1)) clean mrproper >/dev/null
+}
 function change_branch() {
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch >/dev/null
+}
+function compileNow(){
+    make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
+    if [ "$clangFolder" != "" ];then
+        make -j$(($GetCore+1))  O=out \
+                                ARCH=arm64 \
+                                CROSS_COMPILE=$gccFolder \
+                                CC=$clangFolder \
+                                CLANG_TRIPLE=aarch64-linux-gnu-
+    else
+            make -j$(($GetCore+1))  O=out \
+                                ARCH=arm64 \
+                                CROSS_COMPILE=$gccFolder
+    fi
 }
 function build(){
     if [ ! -z "$3" ];then
@@ -175,27 +243,49 @@ function build(){
     fi;
     GetCommit=$(git log --pretty=format:'%h' -1)
     GetCore=$(nproc --all)
-    git pull . origin/rebase-20200313-$TAGKENEL --no-commit
-    git commit -s -m "upstream kernel to $TAGKENEL tags"
+    TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
     GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     HzNya=${1/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
     HzNya=${HzNya/"Q"/""}
+    HzNya=${HzNya/"AvalonTest"/""}
+    HzNya=${HzNya/"DTCoLd"/""}
     HzNya=${HzNya/"DTC"/""}
     HzNya=${HzNya/"Avalon"/""}
+    HzNya=${HzNya/"GCC"/""}
     sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
     git add ./arch/arm64/configs/X01BD_defconfig && git commit -s -m "CONFIG_LOCALVERSION=$GetKernelName-$TAGKENEL"
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
         SetClang "avalon"
+        if [[ "$1" == *"AvalonTest"* ]];then
+            SetClang "Avalon-Test"
+        fi
     elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
         SetClang "dtc"
+        if [[ "$1" == *"DTCoLd"* ]];then
+            SetClang "dtc-old"
+        fi
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
         git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
         git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
+        git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
+        ## revert Makefile changes for DragonTC clang 10
+        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
+        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
+    elif [[ "$1" == *"GCC"* ]];then
+        [ ! -d "GetGcc" ] && Getclang "GCC"
+        SetClang "GCC"
+        ## revert some fix for gcc 9.x changes for DragonTC clang 10
+        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
+        git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
         ## revert Makefile changes for DragonTC clang 10
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
@@ -207,32 +297,26 @@ function build(){
     fi
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
-    make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
-    make -j$(($GetCore+1))  O=out \
-                            ARCH=arm64 \
-                            CROSS_COMPILE=$gccFolder \
-                            CC=$clangFolder \
-                            CLANG_TRIPLE=aarch64-linux-gnu-
-
-    if [ ! -a "$IMAGE" ]; then
+    compileNow
+    if [ ! -f "$IMAGE" ]; then
         finerr
-        exit 1
-    fi
-    cp -af out/arch/arm64/boot/Image.gz-dtb AnyKernel && rm -rf out/arch/arm64/boot/Image.gz-dtb
-    END=$(date +"%s")
-    DIFF=$(($END - $START))
-    withPassword="NO"
-    if [ ! -z "$4" ];then
-        withPassword="YES"
-        makeZip "$1" "$2" "$4"
     else
-        makeZip "$1" "$2"
+        cp -af out/arch/arm64/boot/Image.gz-dtb AnyKernel
+        END=$(date +"%s")
+        DIFF=$(($END - $START))
+        withPassword="NO"
+        if [ ! -z "$4" ];then
+            withPassword="YES"
+            makeZip "$1" "$2" "$4"
+        else
+            makeZip "$1" "$2"
+        fi
     fi
 }
 function Getclang(){
     [ ! -d "Getclang" ] && mkdir Getclang
     cd Getclang
-    git init
+    [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
         setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     elif [ "$1" == "avalon" ];then
@@ -244,15 +328,18 @@ function Getclang(){
     cd ..
     [ ! -d "GetGcc" ] && mkdir GetGcc
     cd GetGcc
-    git init
+    [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
     elif [ "$1" == "Avalon" ];then
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
+    elif [ "$1" == "GCC" ];then
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     else
-        # setRemote "https://github.com/milouk/gcc-prebuilt-elf-toolchains.git" "add gcc-11-latest" "master"
+        setRemote "https://github.com/milouk/gcc-prebuilt-elf-toolchains.git" "gcc-11-latest" "master"
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     fi
     cd ..
 }
@@ -265,8 +352,23 @@ function SetClang(){
         git checkout gcc-9-latest/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+    elif [ "$1" == "Avalon-Test" ];then
+        cd Getclang
+        git checkout avalon/11.0.1
+        cd ..
+        cd GetGcc
+        git checkout gcc-11-latest/master
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+    elif [ "$1" == "GCC" ];then
+        cd GetGcc
+        git fetch gcc-google ndk-r19
+        git checkout FETCH_HEAD
+        cd ..
+        clangFolder=""
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
     elif [ "$1" == "dtc" ];then
         cd Getclang
         git checkout dtc/dragontc
@@ -276,45 +378,51 @@ function SetClang(){
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
+    elif [ "$1" == "dtc-old" ];then
+        cd Getclang
+        git checkout dtc/dragontc
+        cd ..
+        cd GetGcc
+        git fetch gcc-google ndk-r19
+        git checkout FETCH_HEAD
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
     else
         # default use avalon clang
         cd Getclang
         git checkout avalon/11.0.1
         cd ..
         cd GetGcc
-        # git checkout gcc-11-latest/master
         git checkout gcc-9-latest
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        # gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
     fi
 }
 function setRemote(){
     #link remote branch-name
-    [ ! -z "$(git remote | grep "$2")" ] && git checkout -b $3 && git remote remove $2
+    [ ! -z "$(git remote | grep "$2")" ] && git remote remove $2
     git remote add $2 $1
     git fetch $2 $3 --depth=1
-    [ ! -z "$(git branch | grep "$3")" ] && git branch -D $3
 }
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
-    TAGKENEL="LA.UM.8.2.r1-06200-sdm660.0"
     if [ ! -d $folder ];then
+        git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
+        cd $folder
+    else
         cd $folder
         git fetch origin $branch
         [ ! -z "$(git branch | grep "$branch" )" ] && git branch -D $branch
         git checkout -b $branch
-    else
-        git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
-        cd $folder
     fi
-    git fetch origin rebase-20200313-rename rebase-20200313-SAR rebase-20200313-$TAGKENEL
+    git fetch origin rebase-20200313-rename rebase-20200313-SAR
     if [ ! -d "AnyKernel" ];then
+        git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
+    else
         cd "AnyKernel"
         git fetch origin master && git checkout origin/master && git branch -D master && git checkout -b master
         cd ..
-    else
-        git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
     fi
     export ARCH="arm64"
     export KBUILD_BUILD_USER="ZyCromerZ"
