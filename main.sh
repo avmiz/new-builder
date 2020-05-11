@@ -25,7 +25,8 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
 - Refreshrate : $RefreshRT
-- Password Protected : $withPassword
+- Password Protected : $withPassword 
+$SetPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>"
@@ -35,7 +36,8 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
 - Refreshrate : $RefreshRT
-- Password Protected : $withPassword
+- Password Protected : $withPassword 
+$SetPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
@@ -69,7 +71,8 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
 - Refreshrate : $RefreshRT
-- Password Protected : $withPassword
+- Password Protected : $withPassword 
+$SetPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
@@ -81,7 +84,8 @@ Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Kernel name : $2
 - Refreshrate : $RefreshRT
-- Password Protected : $withPassword
+- Password Protected : $withPassword 
+$SetPassword
  
 Using compiler: 
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
@@ -95,13 +99,6 @@ Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$Fold
     else
         sendInfo "$Text"
     fi
-
-    Text="Link Download :
--  <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>
-Password zip :
-<code>$SetPassword</code>
-"
-    [ "$withPassword" == "YES" ] && sendInfo "$Text" "$chat_password_id"
 }
 function makeZip(){
     KERNEL_NAME=$(cat "$(pwd)/arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
@@ -164,7 +161,7 @@ function makeZip(){
         rm -rf "$ZipName"
         setName="$ZipName-protected.zip"
         ZipName="$setName"
-        SetPassword="$3"
+        SetPassword="- Password Kernel : <code>$3</code>"
     else
         SetPassword=""
     fi
