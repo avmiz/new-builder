@@ -209,11 +209,13 @@ function compileNow(){
     fi
 }
 function update_file() {
-    GetValue="$(cat $3 | grep $1)"
-    [ "$GetValue" != $2 ] && \
-    sed -i "s/$1.*/$2/g" "$3" && \
-    git add $3 && \
-    git commit -s -m "defconfig: update $2"
+    if [ ! -z "$1" ] && [ ! -z "$2" ] && [ ! -z "$3" ];then
+        GetValue="$(cat $3 | grep $1)"
+        [ "$GetValue" != $2 ] && \
+        sed -i "s/$1.*/$2/g" "$3" && \
+        git add $3 && \
+        git commit -s -m "defconfig: update $2"
+    fi
 }
 function build(){
     if [ ! -z "$3" ];then
