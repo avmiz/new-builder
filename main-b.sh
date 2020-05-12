@@ -135,15 +135,15 @@ function makeZip(){
         HzNya=${HzNya/"GCC"/""}
     fi
     if [[ "$1" == *"DTCoLd"* ]];then
-        Type="DTCoLd"
+        Type="[DTCoLd]"
     elif [[ "$1" == *"DTC"* ]];then
-        Type="DTC"
+        Type="[DTC]"
     elif [[ "$1" == *"AvalonTest"* ]];then
-        Type="AvalonTest"
+        Type="[AvalonTest]"
     elif [[ "$1" == *"Avalon"* ]];then
-        Type="Avalon"
+        Type="[Avalon]"
     elif [[ "$1" == *"GCC"* ]];then
-        Type="GCC"
+        Type="[GCC]"
     else
         Type=""
     fi
@@ -154,7 +154,7 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="V2$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
+    ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit-HZ-1000.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
         zip -r --password "$3" "$ZipName-protected.zip" $ZipName >/dev/null 2>&1
