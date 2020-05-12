@@ -208,6 +208,13 @@ function compileNow(){
                                 CROSS_COMPILE=$gccFolder
     fi
 }
+function update_file() {
+    GetValue="$(cat $3 | grep $1)"
+    [ "$GetValue" != $2 ] && \
+    sed -i "s/$1.*/$2/g" "$3" && \
+    git add $3 && \
+    git commit -s -m "defconfig: update $2"
+}
 function build(){
     if [ ! -z "$3" ];then
         chat_id="$3"
@@ -250,7 +257,8 @@ function build(){
     HzNya=${HzNya/"DTC"/""}
     HzNya=${HzNya/"Avalon"/""}
     HzNya=${HzNya/"GCC"/""}
-    sed -i "s/CONFIG_LOCALVERSION=.*/CONFIG_LOCALVERSION="'"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'"/g" "./arch/arm64/configs/X01BD_defconfig"
+    KernelName='"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'
+    update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/arm64/configs/X01BD_defconfig"
     git add ./arch/arm64/configs/X01BD_defconfig && git commit -s -m "CONFIG_LOCALVERSION=$GetKernelName-$TAGKENEL"
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
@@ -274,7 +282,7 @@ function build(){
         ## revert Makefile changes for DragonTC clang 10
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
-        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
+        update_file "CONFIG_HZ=" "CONFIG_HZ=300" 
     elif [[ "$1" == *"GCC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "GCC"
         SetClang "GCC"
@@ -286,7 +294,7 @@ function build(){
         ## revert Makefile changes for DragonTC clang 10
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
-        git cherry-pick cdb9514c11cc6b8acb9eccdb960d6c934a981b1c
+        update_file "CONFIG_HZ=" "CONFIG_HZ=300" "./arch/arm64/configs/X01BD_defconfig"
     else
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
