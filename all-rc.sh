@@ -255,10 +255,10 @@
     chat_id="$chat_group_id"
     # sendInfo "starting build QuantumKiller-N RC . . ."
 
-    build "DTCoLd60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd71Hz" "" "$chat_group_id" >/dev/null
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
+    build "DTC65Hz" "" "$chat_group_id" >/dev/null
+    build "DTC68Hz" "" "$chat_group_id" >/dev/null
+    build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build QuantumKiller-N RC done . . ."
 
@@ -274,10 +274,10 @@
 
     # sendInfo "starting build DeadlyCute-N RC . . ."
 
-    build "DTCoLd60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd71Hz" "" "$chat_group_id" >/dev/null
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
+    build "DTC65Hz" "" "$chat_group_id" >/dev/null
+    build "DTC68Hz" "" "$chat_group_id" >/dev/null
+    build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build DeadlyCute-N RC done . . ."
 
@@ -296,10 +296,10 @@
     chat_id="$chat_group_id"
     # sendInfo "starting build QuantumKiller-L RC . . ."
 
-    build "DTCoLd60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd71Hz" "" "$chat_group_id" >/dev/null
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
+    build "DTC65Hz" "" "$chat_group_id" >/dev/null
+    build "DTC68Hz" "" "$chat_group_id" >/dev/null
+    build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build QuantumKiller-L RC done . . ."
 
@@ -315,10 +315,10 @@
 
     # sendInfo "starting build DeadlyCute-L RC . . ."
 
-    build "DTCoLd60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd71Hz" "" "$chat_group_id" >/dev/null
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
+    build "DTC65Hz" "" "$chat_group_id" >/dev/null
+    build "DTC68Hz" "" "$chat_group_id" >/dev/null
+    build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build DeadlyCute-L RC done . . ."
 
@@ -337,10 +337,10 @@
     chat_id="$chat_group_id"
     # sendInfo "starting build QuantumKiller-uL RC . . ."
 
-    build "DTCoLd60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd71Hz" "" "$chat_group_id" >/dev/null
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
+    build "DTC65Hz" "" "$chat_group_id" >/dev/null
+    build "DTC68Hz" "" "$chat_group_id" >/dev/null
+    build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build QuantumKiller-uL RC done . . ."
 
@@ -356,10 +356,10 @@
 
     # sendInfo "starting build DeadlyCute-uL RC . . ."
 
-    build "DTCoLd60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLd71Hz" "" "$chat_group_id" >/dev/null
+    build "DTC60Hz" "" "$chat_group_id" >/dev/null
+    build "DTC65Hz" "" "$chat_group_id" >/dev/null
+    build "DTC68Hz" "" "$chat_group_id" >/dev/null
+    build "DTC71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build DeadlyCute-uL RC done . . ."
 
@@ -378,10 +378,10 @@
     chat_id="$chat_group_id"
     # sendInfo "starting build EmptyGlory-F Q RC . . ."
 
-    build "DTCoLdQ60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ71Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ68Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build EmptyGlory-F Q RC done . . ."
 
@@ -396,10 +396,10 @@
 
     # sendInfo "starting build EmptyGlory-F P RC . . ."
 
-    build "DTCoLdP60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP71Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP60Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP65Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP68Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build EmptyGlory-F P RC done . . ."
 
@@ -418,10 +418,10 @@
     chat_id="$chat_group_id"
     # sendInfo "starting build EmptyGlory-M Q RC . . ."
 
-    build "DTCoLdQ60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ71Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ68Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build EmptyGlory-M Q RC done . . ."
 
@@ -436,10 +436,10 @@
 
     # sendInfo "starting build EmptyGlory-M P RC . . ."
 
-    build "DTCoLdP60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP71Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP60Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP65Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP68Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build EmptyGlory-M P RC done . . ."
 
@@ -458,10 +458,10 @@
     chat_id="$chat_group_id"
     # sendInfo "starting build EmptyGlory-H Q RC . . ."
 
-    build "DTCoLdQ60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdQ71Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ60Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ65Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ68Hz" "" "$chat_group_id" >/dev/null
+    build "DTCQ71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build EmptyGlory-H Q RC done . . ."
 
@@ -476,10 +476,10 @@
 
     # sendInfo "starting build EmptyGlory-H P RC . . ."
 
-    build "DTCoLdP60Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP65Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP68Hz" "" "$chat_group_id" >/dev/null
-    build "DTCoLdP71Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP60Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP65Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP68Hz" "" "$chat_group_id" >/dev/null
+    build "DTCP71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build EmptyGlory-H P RC done . . ."
 
