@@ -261,7 +261,6 @@ function build(){
     HzNya=${HzNya/"GCC"/""}
     KernelName='"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/arm64/configs/X01BD_defconfig"
-    git add ./arch/arm64/configs/X01BD_defconfig && git commit -s -m "CONFIG_LOCALVERSION=$GetKernelName-$TAGKENEL"
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
