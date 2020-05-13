@@ -12,7 +12,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    CONFIG_HZ="1000"
+    # CONFIG_HZ="1000"
     build "QDTC60Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC"
     build "QDTC65Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC"
     build "QDTC68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" >/dev/null
