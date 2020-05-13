@@ -154,7 +154,7 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit-HZ-1000.zip"
+    ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
         zip -r --password "$3" "$ZipName-protected.zip" $ZipName >/dev/null 2>&1
@@ -211,9 +211,11 @@ function compileNow(){
 function update_file() {
     if [ ! -z "$1" ] && [ ! -z "$2" ] && [ ! -z "$3" ];then
         GetValue="$(cat $3 | grep $1)"
+        GetPath=${3/"."/""}
         [ "$GetValue" != $2 ] && \
         sed -i "s/$1.*/$2/g" "$3" && \
-        git add $3 && \
+        [ ! -z "$(git status | grep "modified" )" ] && \
+        git add "$3" && \
         git commit -s -m "defconfig: update $2"
     fi
 }
@@ -283,7 +285,6 @@ function build(){
         ## revert Makefile changes for DragonTC clang 10
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
-        # update_file "CONFIG_HZ=" "CONFIG_HZ=1000" "./arch/arm64/configs/X01BD_defconfig"
     elif [[ "$1" == *"GCC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "GCC"
         SetClang "GCC"
@@ -295,11 +296,13 @@ function build(){
         ## revert Makefile changes for DragonTC clang 10
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
-        # update_file "CONFIG_HZ=" "CONFIG_HZ=1000" "./arch/arm64/configs/X01BD_defconfig"
     else
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
         SetClang "avalon"
+    fi
+    if [ ! -z "$CONFIG_HZ" ];then
+        update_file "CONFIG_HZ=" "CONFIG_HZ=$CONFIG_HZ" "./arch/arm64/configs/X01BD_defconfig"
     fi
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
