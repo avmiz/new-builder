@@ -5,7 +5,8 @@
     FolderUpload="X01BD/KERNEL/Protected"
     spectrumFile="pk.rc"
     . main-b.sh "get-kernel"
-    Getclang
+    Getclang "dtc"
+    Getclang "GCC"
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
