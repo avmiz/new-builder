@@ -4,7 +4,7 @@
     folder="all"
     FolderUpload="X01BD/KERNEL/QK/STABLE/N"
     spectrumFile="vipn.rc"
-    . main.sh "get-kernel"
+    . main-b.sh "get-kernel"
     Getclang "dtc"
     Getclang "GCC"
 
@@ -12,7 +12,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    CONFIG_HZ="1000"
+    # CONFIG_HZ="1000"
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "DTC60Hz" "" "$chat_group_id"
