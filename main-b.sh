@@ -133,6 +133,7 @@ function makeZip(){
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
         HzNya=${HzNya/"GCC"/""}
+        HzNya=${HzNya/"Proton"/""}
     fi
     if [[ "$1" == *"DTCoLd"* ]];then
         Type="[DTCoLd]"
@@ -144,6 +145,8 @@ function makeZip(){
         Type="[Avalon]"
     elif [[ "$1" == *"GCC"* ]];then
         Type="[GCC]"
+    elif [[ "$1" == *"Proton"* ]];then
+        Type="[Proton]"
     else
         Type=""
     fi
@@ -263,6 +266,7 @@ function build(){
     HzNya=${HzNya/"DTC"/""}
     HzNya=${HzNya/"Avalon"/""}
     HzNya=${HzNya/"GCC"/""}
+    HzNya=${HzNya/"Proton"/""}
     KernelName='"'$GetKernelName'-'$HzNya'-'$TAGKENEL'"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/arm64/configs/X01BD_defconfig"
     if [[ "$1" == *"Avalon"* ]];then
@@ -272,6 +276,10 @@ function build(){
         if [[ "$1" == *"AvalonTest"* ]];then
             SetClang "Avalon-Test"
         fi
+    elif [[ "$1" == *"Proton"* ]];then
+        [ ! -d "GetGcc" ] && Getclang "proton"
+        [ ! -d "Getclang" ] && Getclang "proton"
+        SetClang "proton"
     elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
@@ -332,8 +340,11 @@ function Getclang(){
         setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     elif [ "$1" == "avalon" ];then
         setRemote "https://github.com/Haseo97/Avalon-Clang-11.0.1.git" "avalon" "11.0.1"
+    elif [ "$1" == "proton" ];then
+        setRemote "https://github.com/kdrag0n/proton-clang.git" "proton" "master"
     else
         setRemote "https://github.com/Haseo97/Avalon-Clang-11.0.1.git" "avalon" "11.0.1"
+        setRemote "https://github.com/kdrag0n/proton-clang.git" "proton" "master"
         setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     fi
     cd ..
@@ -342,12 +353,9 @@ function Getclang(){
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
-    elif [ "$1" == "Avalon" ];then
-        setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
     elif [ "$1" == "GCC" ];then
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     else
-        setRemote "https://github.com/milouk/gcc-prebuilt-elf-toolchains.git" "gcc-11-latest" "master"
         setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
@@ -359,20 +367,14 @@ function SetClang(){
         cd Getclang
         git checkout avalon/11.0.1
         cd ..
-        cd GetGcc
-        git checkout gcc-9-latest/master
-        cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
-    elif [ "$1" == "Avalon-Test" ];then
+        gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
+    elif [ "$1" == "proton" ];then
         cd Getclang
-        git checkout avalon/11.0.1
-        cd ..
-        cd GetGcc
-        git checkout gcc-11-latest/master
+        git checkout proton/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/aarch64-linux-elf/bin/aarch64-linux-elf-"
+        gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
     elif [ "$1" == "GCC" ];then
         cd GetGcc
         git fetch gcc-google ndk-r19
