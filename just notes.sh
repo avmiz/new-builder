@@ -19,8 +19,8 @@ git checkout private-uv-rc && git pull . master && \
 git checkout private-uv && git pull . master && \
 git checkout master
 
-git branch -D eg-f eg-f-rc eg-m eg-m-rc eg-h eg-h-rc
-git branch -D qk-n qk-n-rc qk-l qk-l-rc qk-ul qk-ul-rc
+git branch -D eg-f eg-m eg-h eg-f-rc eg-m-rc eg-h-rc
+git branch -D qk-n qk-l qk-ul qk-n-rc qk-l-rc qk-ul-rc
 git branch -D private private-rc private-uv private-uv-rc
 
 git checkout master && git checkout -b eg-f && \
