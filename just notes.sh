@@ -69,3 +69,5 @@ git checkout private-rc && update_file '# source master.sh' "source private-rc.s
 git checkout private-uv && update_file '# source master.sh' "source private-uv.sh" "./.circleci/config.yml" && \
 git checkout private-uv-rc && update_file '# source master.sh' "source private-uv-rc.sh" "./.circleci/config.yml" && \
 git checkout master
+
+trigger build
