@@ -6,7 +6,7 @@
     spectrumFile="m.rc"
     . main-b.sh "get-kernel"
     Getclang "dtc"
-    Getclang "GCC"
+    Getclang "Avalon"
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -42,19 +42,19 @@
 
     clean_build
 
-################################################################################################ EG M GCC
+################################################################################################ EG M Avalon
     change_branch
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    CONFIG_HZ="100"
+    CONFIG_HZ="300"
     # sendInfo "starting build QuantumKiller-N . . ."
 
-    build "QGCC60Hz" "" "$chat_group_id"
-    build "QGCC65Hz" "" "$chat_group_id" >/dev/null
-    build "QGCC68Hz" "" "$chat_group_id" >/dev/null
-    build "QGCC71Hz" "" "$chat_group_id" >/dev/null
+    build "QAvalon60Hz" "" "$chat_group_id"
+    build "QAvalon65Hz" "" "$chat_group_id" >/dev/null
+    build "QAvalon68Hz" "" "$chat_group_id" >/dev/null
+    build "QAvalon71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -69,10 +69,10 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "PGCC60Hz" "" "$chat_group_id" >/dev/null
-    build "PGCC65Hz" "" "$chat_group_id" >/dev/null
-    build "PGCC68Hz" "" "$chat_group_id" >/dev/null
-    build "PGCC71Hz" "" "$chat_group_id" >/dev/null
+    build "PAvalon60Hz" "" "$chat_group_id" >/dev/null
+    build "PAvalon65Hz" "" "$chat_group_id" >/dev/null
+    build "PAvalon68Hz" "" "$chat_group_id" >/dev/null
+    build "PAvalon71Hz" "" "$chat_group_id" >/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
