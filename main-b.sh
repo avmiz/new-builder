@@ -186,27 +186,27 @@ function finerr() {
     exit 1
 }
 function clean_build() {
-    make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
-    make -j$(($GetCore+1)) clean mrproper >/dev/null
+    make -j$(($GetCore)) O=out clean mrproper >/dev/null
+    make -j$(($GetCore)) clean mrproper >/dev/null
     git checkout origin/$branch && git branch -D $branch >/dev/null
 }
 function makeCleanOnly(){
-    make -j$(($GetCore+1)) O=out clean mrproper >/dev/null
-    make -j$(($GetCore+1)) clean mrproper >/dev/null
+    make -j$(($GetCore)) O=out clean mrproper >/dev/null
+    make -j$(($GetCore)) clean mrproper >/dev/null
 }
 function change_branch() {
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch >/dev/null
 }
 function compileNow(){
-    make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
+    make -j$(($GetCore))  O=out ARCH=arm64 X01BD_defconfig
     if [ "$clangFolder" != "" ];then
-        make -j$(($GetCore+1))  O=out \
+        make -j$(($GetCore))  O=out \
                                 ARCH=arm64 \
                                 CROSS_COMPILE=$gccFolder \
                                 CC=$clangFolder \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
-            make -j$(($GetCore+1))  O=out \
+            make -j$(($GetCore))  O=out \
                                 ARCH=arm64 \
                                 CROSS_COMPILE=$gccFolder
     fi
