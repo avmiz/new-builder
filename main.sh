@@ -259,6 +259,9 @@ function build(){
         if [[ "$1" == *"AvalonTest"* ]];then
             SetClang "Avalon-Test"
         fi
+        # remove polly
+        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit
+        git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
     elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
