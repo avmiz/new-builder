@@ -340,8 +340,11 @@ function Getclang(){
         setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     elif [ "$1" == "avalon" ];then
         setRemote "https://github.com/Haseo97/Avalon-Clang-11.0.1.git" "avalon" "11.0.1"
+    elif [ "$1" == "proton" ];then
+        setRemote "https://github.com/kdrag0n/proton-clang.git" "proton" "master"
     else
         setRemote "https://github.com/Haseo97/Avalon-Clang-11.0.1.git" "avalon" "11.0.1"
+        setRemote "https://github.com/kdrag0n/proton-clang.git" "proton" "master"
         setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     fi
     cd ..
@@ -363,6 +366,12 @@ function SetClang(){
     if [ "$1" == "avalon" ];then
         cd Getclang
         git checkout avalon/11.0.1
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
+    elif [ "$1" == "proton" ];then
+        cd Getclang
+        git checkout proton/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
