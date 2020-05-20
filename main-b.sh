@@ -125,7 +125,8 @@ function makeZip(){
     TypeFor=""
     if [ ! -z "$1" ];then
         Type=$1
-        HzNya=${Type/"P"/""}
+        HzNya=${Type/"Proton"/""}
+        HzNya=${HzNya/"P"/""}
         HzNya=${HzNya/"QSAR"/""}
         HzNya=${HzNya/"Q"/""}
         HzNya=${HzNya/"AvalonTest"/""}
@@ -133,7 +134,7 @@ function makeZip(){
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
         HzNya=${HzNya/"GCC"/""}
-        HzNya=${HzNya/"roton"/""}
+        HzNya=${HzNya/"Proton"/""}
         HzNya=${HzNya/"Stormbreaker"/""}
     fi
     if [[ "$1" == *"DTCoLd"* ]];then
@@ -261,7 +262,8 @@ function build(){
     GetCore=$(nproc --all)
     TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
     GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
-    HzNya=${1/"P"/""}
+    HzNya=${Type/"Proton"/""}
+    HzNya=${HzNya/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
     HzNya=${HzNya/"Q"/""}
     HzNya=${HzNya/"AvalonTest"/""}
@@ -269,7 +271,6 @@ function build(){
     HzNya=${HzNya/"DTC"/""}
     HzNya=${HzNya/"Avalon"/""}
     HzNya=${HzNya/"GCC"/""}
-    HzNya=${HzNya/"roton"/""}
     HzNya=${HzNya/"Stormbreaker"/""}
     KernelName='"'$GetKernelName'-'$HzNya'-EOL"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/arm64/configs/X01BD_defconfig"
