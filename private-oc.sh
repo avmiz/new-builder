@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 ################################################################################################ Avalon
-    branch="private/20200313-rc"
+    branch="private/20200313-oc"
     folder="all"
     FolderUpload="X01BD/KERNEL/Protected"
-    spectrumFile="pk.rc"
+    spectrumFile="pk-oc.rc"
     . main-b.sh "get-kernel"
     Getclang
 
