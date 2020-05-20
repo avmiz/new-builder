@@ -15,13 +15,13 @@ git checkout qk-ul && git pull . master && \
 git checkout qk-ul-rc && git pull . master && \
 git checkout private && git pull . master && \
 git checkout private-rc && git pull . master && \
-git checkout private-uv-rc && git pull . master && \
-git checkout private-uv && git pull . master && \
+git checkout private-oc-rc && git pull . master && \
+git checkout private-oc && git pull . master && \
 git checkout master
 
 git branch -D eg-f eg-m eg-h eg-f-rc eg-m-rc eg-h-rc
 git branch -D qk-n qk-l qk-ul qk-n-rc qk-l-rc qk-ul-rc
-git branch -D private private-rc private-uv private-uv-rc
+git branch -D private private-rc private-oc private-oc-rc
 
 git checkout master && git checkout -b eg-f && \
 git checkout master && git checkout -b eg-f-rc && \
@@ -37,8 +37,8 @@ git checkout master && git checkout -b qk-ul && \
 git checkout master && git checkout -b qk-ul-rc && \
 git checkout master && git checkout -b private && \
 git checkout master && git checkout -b private-rc && \
-git checkout master && git checkout -b private-uv && \
-git checkout master && git checkout -b private-uv-rc && \
+git checkout master && git checkout -b private-oc && \
+git checkout master && git checkout -b private-oc-rc && \
 git checkout master
 
 function update_file() {
@@ -66,6 +66,6 @@ git checkout qk-ul && update_file '# source master.sh' "source qk-ul.sh" "./.cir
 git checkout qk-ul-rc && update_file '# source master.sh' "source qk-ul-rc.sh" "./.circleci/config.yml" && \
 git checkout private && update_file '# source master.sh' "source private.sh" "./.circleci/config.yml" && \
 git checkout private-rc && update_file '# source master.sh' "source private-rc.sh" "./.circleci/config.yml" && \
-git checkout private-uv && update_file '# source master.sh' "source private-uv.sh" "./.circleci/config.yml" && \
-git checkout private-uv-rc && update_file '# source master.sh' "source private-uv-rc.sh" "./.circleci/config.yml" && \
+git checkout private-oc && update_file '# source master.sh' "source private-oc.sh" "./.circleci/config.yml" && \
+git checkout private-oc-rc && update_file '# source master.sh' "source private-oc-rc.sh" "./.circleci/config.yml" && \
 git checkout master
