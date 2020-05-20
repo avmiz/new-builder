@@ -133,7 +133,7 @@ function makeZip(){
         HzNya=${HzNya/"DTC"/""}
         HzNya=${HzNya/"Avalon"/""}
         HzNya=${HzNya/"GCC"/""}
-        HzNya=${HzNya/"Proton"/""}
+        HzNya=${HzNya/"roton"/""}
         HzNya=${HzNya/"Stormbreaker"/""}
     fi
     if [[ "$1" == *"DTCoLd"* ]];then
@@ -269,7 +269,7 @@ function build(){
     HzNya=${HzNya/"DTC"/""}
     HzNya=${HzNya/"Avalon"/""}
     HzNya=${HzNya/"GCC"/""}
-    HzNya=${HzNya/"Proton"/""}
+    HzNya=${HzNya/"roton"/""}
     HzNya=${HzNya/"Stormbreaker"/""}
     KernelName='"'$GetKernelName'-'$HzNya'-EOL"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/arm64/configs/X01BD_defconfig"
