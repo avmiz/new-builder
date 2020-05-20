@@ -134,6 +134,7 @@ function makeZip(){
         HzNya=${HzNya/"Avalon"/""}
         HzNya=${HzNya/"GCC"/""}
         HzNya=${HzNya/"Proton"/""}
+        HzNya=${HzNya/"Stormbreaker"/""}
     fi
     if [[ "$1" == *"DTCoLd"* ]];then
         Type="[DTCoLd]"
@@ -147,6 +148,8 @@ function makeZip(){
         Type="[GCC]"
     elif [[ "$1" == *"Proton"* ]];then
         Type="[Proton]"
+    elif [[ "$1" == *"Stormbreaker"* ]];then
+        Type="[Stormbreaker]"
     else
         Type=""
     fi
@@ -267,6 +270,7 @@ function build(){
     HzNya=${HzNya/"Avalon"/""}
     HzNya=${HzNya/"GCC"/""}
     HzNya=${HzNya/"Proton"/""}
+    HzNya=${HzNya/"Stormbreaker"/""}
     KernelName='"'$GetKernelName'-'$HzNya'-'$TAGKENEL'-EOL"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/arm64/configs/X01BD_defconfig"
     if [[ "$1" == *"Avalon"* ]];then
@@ -284,7 +288,7 @@ function build(){
         ## disable polly optimization
         git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "proton"
-    elif [[ "$1" == *"stormbreaker"* ]];then
+    elif [[ "$1" == *"Stormbreaker"* ]];then
         [ ! -d "GetGcc" ] && Getclang "stormbreaker"
         [ ! -d "Getclang" ] && Getclang "stormbreaker"
         ## disable polly optimization
