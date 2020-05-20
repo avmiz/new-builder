@@ -276,9 +276,19 @@ function build(){
         if [[ "$1" == *"AvalonTest"* ]];then
             SetClang "Avalon-Test"
         fi
+        ## disable polly optimization
+        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
     elif [[ "$1" == *"Proton"* ]];then
         [ ! -d "GetGcc" ] && Getclang "proton"
         [ ! -d "Getclang" ] && Getclang "proton"
+        ## disable polly optimization
+        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
+        SetClang "proton"
+    elif [[ "$1" == *"stormbreaker"* ]];then
+        [ ! -d "GetGcc" ] && Getclang "stormbreaker"
+        [ ! -d "Getclang" ] && Getclang "stormbreaker"
+        ## disable polly optimization
+        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "proton"
     elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
@@ -342,10 +352,13 @@ function Getclang(){
         setRemote "https://github.com/Haseo97/Avalon-Clang-11.0.1.git" "avalon" "11.0.1"
     elif [ "$1" == "proton" ];then
         setRemote "https://github.com/kdrag0n/proton-clang.git" "proton" "master"
+    elif [ "$1" == "stormbreaker" ];then
+        setRemote "https://github.com/stormbreaker-project/stormbreaker-clang.git" "stormbreaker" "11.x"
     else
         setRemote "https://github.com/Haseo97/Avalon-Clang-11.0.1.git" "avalon" "11.0.1"
         setRemote "https://github.com/kdrag0n/proton-clang.git" "proton" "master"
         setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
+        setRemote "https://github.com/stormbreaker-project/stormbreaker-clang.git" "stormbreaker" "11.x"
     fi
     cd ..
     [ ! -d "GetGcc" ] && mkdir GetGcc
@@ -372,6 +385,12 @@ function SetClang(){
     elif [ "$1" == "proton" ];then
         cd Getclang
         git checkout proton/master
+        cd ..
+        clangFolder="$(pwd)/Getclang/bin/clang"
+        gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
+    elif [ "$1" == "stormbreaker" ];then
+        cd Getclang
+        git checkout stormbreaker/11.x
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
