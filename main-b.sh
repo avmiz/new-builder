@@ -205,12 +205,14 @@ function compileNow(){
         make -j$(($GetCore))  O=out \
                                 ARCH=arm64 \
                                 CROSS_COMPILE=$gccFolder \
+                                CROSS_COMPILE_ARM32=$gccBFolder \
                                 CC=$clangFolder \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
-            make -j$(($GetCore))  O=out \
+        make -j$(($GetCore))  O=out \
                                 ARCH=arm64 \
-                                CROSS_COMPILE=$gccFolder
+                                CROSS_COMPILE=$gccFolder \
+                                CROSS_COMPILE_ARM32=$gccBFolder
     fi
 }
 function update_file() {
@@ -275,6 +277,7 @@ function build(){
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
+        [ ! -d "GetGccB" ] && Getclang "avalon"
         SetClang "avalon"
         if [[ "$1" == *"AvalonTest"* ]];then
             SetClang "Avalon-Test"
@@ -284,18 +287,21 @@ function build(){
     elif [[ "$1" == *"Proton"* ]];then
         [ ! -d "GetGcc" ] && Getclang "proton"
         [ ! -d "Getclang" ] && Getclang "proton"
+        [ ! -d "GetGccB" ] && Getclang "proton"
         ## disable polly optimization
         git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "proton"
     elif [[ "$1" == *"Stormbreaker"* ]];then
         [ ! -d "GetGcc" ] && Getclang "stormbreaker"
         [ ! -d "Getclang" ] && Getclang "stormbreaker"
+        [ ! -d "GetGccB" ] && Getclang "stormbreaker"
         ## disable polly optimization
         git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "stormbreaker"
     elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
         [ ! -d "Getclang" ] && Getclang "dtc"
+        [ ! -d "GetGccB" ] && Getclang "dtc"
         SetClang "dtc"
         if [[ "$1" == *"DTCoLd"* ]];then
             SetClang "dtc-old"
@@ -322,6 +328,7 @@ function build(){
     else
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
+        [ ! -d "GetGccB" ] && Getclang "avalon"
         SetClang "avalon"
     fi
     if [ ! -z "$CONFIG_HZ" ];then
@@ -377,6 +384,18 @@ function Getclang(){
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     fi
     cd ..
+    [ ! -d "GetGccB" ] && mkdir GetGccB
+    cd GetGccB
+    [ ! -d ".git" ] && git init
+    if [ "$1" == "dtc" ];then
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "ndk-r19"
+    elif [ "$1" == "GCC" ];then
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "ndk-r19"
+    else
+        setRemote "https://github.com/arter97/arm32-gcc" "gcc-9-latest" "master"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "ndk-r19"
+    fi
+    cd ..
 }
 function SetClang(){
     if [ "$1" == "avalon" ];then
@@ -385,25 +404,33 @@ function SetClang(){
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
+        gccBFolder="$(pwd)/Getclang/bin/arm-linux-gnueabi-"
     elif [ "$1" == "proton" ];then
         cd Getclang
         git checkout proton/master
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
+        gccBFolder="$(pwd)/Getclang/bin/arm-linux-gnueabi-"
     elif [ "$1" == "stormbreaker" ];then
         cd Getclang
         git checkout stormbreaker/11.x
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/Getclang/bin/aarch64-linux-gnu-"
+        gccBFolder="$(pwd)/Getclang/bin/arm-linux-gnueabi-"
     elif [ "$1" == "GCC" ];then
         cd GetGcc
         git fetch gcc-google ndk-r19
         git checkout FETCH_HEAD
         cd ..
+        cd GetGccB
+        git fetch gcc-google ndk-r19
+        git checkout FETCH_HEAD
+        cd ..
         clangFolder=""
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
+        gccBFolder="$(pwd)/GetGccB/bin/arm-linux-androideabi-"
     elif [ "$1" == "dtc" ];then
         cd Getclang
         git checkout dtc/dragontc
@@ -411,8 +438,13 @@ function SetClang(){
         cd GetGcc
         git checkout gcc-9-old/gcc9-20190401
         cd ..
+        cd GetGccB
+        git fetch gcc-google ndk-r19
+        git checkout FETCH_HEAD
+        cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
+        gccBFolder="$(pwd)/GetGccB/bin/arm-linux-androideabi-"
     elif [ "$1" == "dtc-old" ];then
         cd Getclang
         git checkout dtc/dragontc
@@ -421,8 +453,13 @@ function SetClang(){
         git fetch gcc-google ndk-r19
         git checkout FETCH_HEAD
         cd ..
+        cd GetGccB
+        git fetch gcc-google ndk-r19
+        git checkout FETCH_HEAD
+        cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
+        gccBFolder="$(pwd)/GetGccB/bin/arm-linux-androideabi-"
     else
         # default use avalon clang
         cd Getclang
@@ -431,8 +468,12 @@ function SetClang(){
         cd GetGcc
         git checkout gcc-9-latest
         cd ..
+        cd GetGccB
+        git checkout gcc-9-latest
+        cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
         gccFolder="$(pwd)/GetGcc/bin/aarch64-elf-"
+        gccBFolder="$(pwd)/GetGccB/bin/arm-eabi-"
     fi
 }
 function setRemote(){
