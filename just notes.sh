@@ -21,7 +21,7 @@ git checkout master
 
 git branch -D eg-f eg-m eg-h eg-f-rc eg-m-rc eg-h-rc
 git branch -D qk-n qk-l qk-ul qk-n-rc qk-l-rc qk-ul-rc
-git branch -D private private-rc private-oc private-oc-rc
+git branch -D private private-oc private-rc private-oc-rc
 
 git checkout master && git checkout -b eg-f && \
 git checkout master && git checkout -b eg-f-rc && \
