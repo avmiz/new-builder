@@ -100,8 +100,6 @@ Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$Fold
     
     if [ "$withPassword" == "YES" ];then
         sendInfo "$Text" "$chat_password_id"
-    else
-        sendInfo "$Text"
     fi
 }
 function makeZip(){
@@ -140,19 +138,19 @@ function makeZip(){
         HzNya=${HzNya/"Stormbreaker"/""}
     fi
     if [[ "$1" == *"DTCoLd"* ]];then
-        Type="[DTCoLd]"
+        Type="[DTC-With-GCC-Google]"
     elif [[ "$1" == *"DTC"* ]];then
-        Type="[DTC]"
+        Type="[DTC-With-GCC-9-and-Google]"
     elif [[ "$1" == *"AvalonTest"* ]];then
-        Type="[AvalonTest]"
+        Type="[Avalon-clang-with-another-gcc]"
     elif [[ "$1" == *"Avalon"* ]];then
-        Type="[Avalon]"
+        Type="[Avalon-clang]"
     elif [[ "$1" == *"GCC"* ]];then
-        Type="[GCC]"
+        Type="[GCC-Only]"
     elif [[ "$1" == *"Proton"* ]];then
-        Type="[Proton]"
+        Type="[Proton-clang]"
     elif [[ "$1" == *"Stormbreaker"* ]];then
-        Type="[Stormbreaker]"
+        Type="[Stormbreaker-clang]"
     else
         Type=""
     fi
@@ -163,8 +161,8 @@ function makeZip(){
     fi
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
-    ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
-    zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  >/dev/null 2>&1
+    ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$GetCommit.zip"
+    zip -r $ZipName ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip  >/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
         zip -r --password "$3" "$ZipName-protected.zip" $ZipName >/dev/null 2>&1
         rm -rf "$ZipName"
@@ -262,7 +260,6 @@ function build(){
             git cherry-pick 62dd986b087c9a1f1b2eca5174db071a99dc11fb
         fi
     fi;
-    GetCommit=$(git log --pretty=format:'%h' -1)
     GetCore=$(nproc --all)
     TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
     GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
@@ -338,6 +335,7 @@ function build(){
     if [ ! -z "$CONFIG_HZ" ];then
         update_file "CONFIG_HZ=" "CONFIG_HZ=$CONFIG_HZ" "./arch/arm64/configs/X01BD_defconfig"
     fi
+    GetCommit=$(git log --pretty=format:'%h' -1)
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
     compileNow
