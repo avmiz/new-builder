@@ -5,7 +5,7 @@
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     spectrumFile="f.rc"
     . main-b.sh "get-kernel"
-    Getclang
+    Getclang 'dtc'
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
@@ -46,3 +46,6 @@
     # sendInfo "build DeadlyCute-N done . . ."
 
     clean_build
+
+cd ..
+rm -rf $folder
