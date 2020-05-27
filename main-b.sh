@@ -99,7 +99,8 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
     fi
     
     if [ "$withPassword" == "YES" ];then
-        sendInfo "$Text" "$chat_password_id"
+        # sendInfo "$Text" "$chat_password_id"
+        sendInfo "$Text" "-1001434683571"
     fi
 }
 function makeZip(){
