@@ -6,7 +6,7 @@
     ProjectId="zyc-files"
     spectrumFile="pk.rc"
     . main-b.sh "get-kernel"
-    Getclang
+    Getclang 'dtc'
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
