@@ -2,7 +2,8 @@
 ################################################################################################ Avalon
     branch="private/20200313-oc"
     folder="all"
-    FolderUpload="X01BD/KERNEL/Protected"
+    FolderUpload="Kernel/X01BD/STABLE/Lnix-oc/"
+    ProjectId="zyc-files"
     spectrumFile="pk-oc.rc"
     . main-b.sh "get-kernel"
     Getclang
