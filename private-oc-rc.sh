@@ -2,7 +2,7 @@
 ################################################################################################ Avalon
     branch="private/20200313-oc-rc"
     folder="all"
-    FolderUpload="Kernel/X01BD/RC/Lnix-oc"
+    FolderUpload="Kernel/X01BD/RC/Lnix-oc/"
     ProjectId="zyc-files"
     spectrumFile="pk-oc.rc"
     . main-b.sh "get-kernel"
