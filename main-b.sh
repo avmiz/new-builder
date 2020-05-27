@@ -507,7 +507,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="circleCi-server"
     IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
-    [ -z "$ProjectId" ] && ProjectName="zyc-kernel"
+    [ -z "$ProjectId" ] && ProjectId="zyc-kernel"
 fi
 echo "include main.sh success"
 ## info builder
