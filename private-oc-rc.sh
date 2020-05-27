@@ -3,9 +3,9 @@
     branch="private/20200313-oc-rc"
     folder="all"
     FolderUpload="Kernel/X01BD/RC/Tercydux-oc/"
-    ProjectId="zyc-files"
     spectrumFile="pk-oc.rc"
     . main-b.sh "get-kernel"
+    ProjectId="zyc-files"
     Getclang 'dtc'
 
     GetCommit=$(git log --pretty=format:'%h' -1)
