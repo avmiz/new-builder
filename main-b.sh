@@ -80,7 +80,7 @@ Using compiler:
 - <code>$(${gccFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${gccBFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     else
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
@@ -95,7 +95,7 @@ Using compiler:
 - <code>$(${gccBFolder}gcc --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 - <code>$(${clangFolder} --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g')</code>
 
-Link Download : <a href='https://sourceforge.net/projects/zyc-kernel/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
+Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     fi
     
     if [ "$withPassword" == "YES" ];then
@@ -506,6 +506,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="circleCi-server"
     IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
+    [ -z "$ProjectId" ] && ProjectName="zyc-kernel"
 fi
 echo "include main.sh success"
 ## info builder
