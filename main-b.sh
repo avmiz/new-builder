@@ -257,7 +257,7 @@ function build(){
         update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-td4310-1080p-video-txd.dtsi"
     fi
     GetCore=$(nproc --all)
-    TAGKENEL="$(git log | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
+    TAGKENEL="$(git log | grep "${SetTag}" | head -n 1 | awk -F '\\'${SetLastTag}'' '{print $1"'${SetLastTag}'"}' | awk -F '\\'${SetTag}'' '{print "'${SetTag}'"$2}')"
     if [ ! -z "$TAGKENEL" ];then
         export KBUILD_BUILD_HOST="CircleCI-server-$TAGKENEL"
     fi
@@ -495,6 +495,8 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     ProjectId="zyc-kernel"
     SetDefconfig="X01BD_defconfig"
     SetArch="arm64"
+    SetTag="LA.UM.8.2.r1"
+    SetLastTag="sdm660.0"
     export ARCH="$SetArch"
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="CircleCI-server"
