@@ -101,10 +101,12 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
     if [ "$withPassword" == "YES" ];then
         # sendInfo "$Text" "$chat_password_id"
         sendInfo "$Text" "-1001270127123"
+    else
+        sendInfo "$Text"
     fi
 }
 function makeZip(){
-    KERNEL_NAME=$(cat "$(pwd)/arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
+    KERNEL_NAME=$(cat "$(pwd)/arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
     ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
     cd AnyKernel || exit 1
     if [ ! -d "spectrum" ];then
@@ -203,17 +205,17 @@ function change_branch() {
     git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch >/dev/null
 }
 function compileNow(){
-    make -j$(($GetCore))  O=out ARCH=arm64 X01BD_defconfig
+    make -j$(($GetCore))  O=out ARCH="$SetArch" "$SetDefconfig"
     if [ "$clangFolder" != "" ];then
         make -j$(($GetCore))  O=out \
-                                ARCH=arm64 \
+                                ARCH="$SetArch" \
                                 CROSS_COMPILE=$gccFolder \
                                 CROSS_COMPILE_ARM32=$gccBFolder \
                                 CC=$clangFolder \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
         make -j$(($GetCore))  O=out \
-                                ARCH=arm64 \
+                                ARCH="$SetArch" \
                                 CROSS_COMPILE=$gccFolder \
                                 CROSS_COMPILE_ARM32=$gccBFolder
     fi
@@ -263,7 +265,7 @@ function build(){
     fi;
     GetCore=$(nproc --all)
     TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
-    GetKernelName="$(cat "./arch/arm64/configs/X01BD_defconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
+    GetKernelName="$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     HzNya=${1/"Proton"/""}
     HzNya=${HzNya/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
@@ -275,7 +277,7 @@ function build(){
     HzNya=${HzNya/"GCC"/""}
     HzNya=${HzNya/"Stormbreaker"/""}
     KernelName='"'$GetKernelName'-'$HzNya'"'
-    update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/arm64/configs/X01BD_defconfig"
+    update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/$SetArch/configs/$SetDefconfig"
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
@@ -334,7 +336,7 @@ function build(){
         SetClang "avalon"
     fi
     if [ ! -z "$CONFIG_HZ" ];then
-        update_file "CONFIG_HZ=" "CONFIG_HZ=$CONFIG_HZ" "./arch/arm64/configs/X01BD_defconfig"
+        update_file "CONFIG_HZ=" "CONFIG_HZ=$CONFIG_HZ" "./arch/$SetArch/configs/$SetDefconfig"
     fi
     GetCommit=$(git log --pretty=format:'%h' -1)
     TANGGAL=$(date +"%m%d")
@@ -343,7 +345,7 @@ function build(){
     if [ ! -f "$IMAGE" ]; then
         finerr
     else
-        cp -af out/arch/arm64/boot/Image.gz-dtb AnyKernel
+        cp -af out/arch/$SetArch/boot/Image.gz-dtb AnyKernel
         END=$(date +"%s")
         DIFF=$(($END - $START))
         withPassword="NO"
@@ -382,7 +384,7 @@ function Getclang(){
     elif [ "$1" == "GCC" ];then
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     else
-        setRemote "https://github.com/arter97/arm64-gcc.git" "gcc-9-latest" "master"
+        setRemote "https://github.com/arter97/$SetArch-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
     fi
@@ -503,11 +505,13 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         git fetch origin master && git checkout origin/master && git branch -D master && git checkout -b master
         cd ..
     fi
-    export ARCH="arm64"
-    export KBUILD_BUILD_USER="ZyCromerZ"
-    export KBUILD_BUILD_HOST="circleCi-server"
-    IMAGE="$(pwd)/out/arch/arm64/boot/Image.gz-dtb"
+    IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
     ProjectId="zyc-kernel"
+    SetDefconfig="X01BD_defconfig"
+    SetArch="arm64"
+    export ARCH="$SetArch"
+    export KBUILD_BUILD_USER="ZyCromerZ"
+    export KBUILD_BUILD_HOST="CircleCI-server"
 fi
 echo "include main.sh success"
 ## info builder
