@@ -100,7 +100,7 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
     
     if [ "$withPassword" == "YES" ];then
         # sendInfo "$Text" "$chat_password_id"
-        sendInfo "$Text" "-1001270127123"
+        sendInfo "$Text" "-1001301538740"
     else
         sendInfo "$Text"
     fi
