@@ -258,6 +258,9 @@ function build(){
     fi
     GetCore=$(nproc --all)
     TAGKENEL="$(git log | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
+    if [ ! -z "$TAGKENEL" ];then
+        export KBUILD_BUILD_HOST="CircleCI-server-$TAGKENEL"
+    fi
     GetKernelName="$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     KernelName='"'$GetKernelName'-'$HzNya'"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/$SetArch/configs/$SetDefconfig"
