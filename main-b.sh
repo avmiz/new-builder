@@ -222,7 +222,7 @@ function compileNow(){
 }
 function update_file() {
     if [ ! -z "$1" ] && [ ! -z "$2" ] && [ ! -z "$3" ];then
-        GetValue="$(cat $3 | grep $1)"
+        GetValue="$(cat $3 | grep "$1")"
         GetPath=${3/"."/""}
         ValOri="$(echo "$GetValue" | awk -F '\\=' '{print $2}')"
         UpdateTo="$(echo "$2" | awk -F '\\=' '{print $2}')"
@@ -230,7 +230,7 @@ function update_file() {
         sed -i "s/$1.*/$2/g" "$3"
         [ ! -z "$(git status | grep "modified" )" ] && \
         git add "$3" && \
-        git commit -s -m "defconfig: update $2"
+        git commit -s -m "$GetPath: '$GetValue' update to '$2'"
     fi
 }
 function build(){
