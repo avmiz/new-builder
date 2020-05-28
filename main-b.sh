@@ -234,38 +234,6 @@ function update_file() {
     fi
 }
 function build(){
-    if [ ! -z "$3" ];then
-        chat_id="$3"
-    fi
-    if [ ! -z "$1" ];then
-        if [[ "$1" == *"65Hz"* ]];then
-            git reset --hard $HeadCommit
-            git cherry-pick 19d101e1867d9258e891ce268d4a2ed4060503bf
-        fi
-        if [[ "$1" == *"66Hz"* ]];then
-            git reset --hard $HeadCommit
-            git cherry-pick d650ba4f383f6ed95eed1d490997017108a49658
-        fi
-        if [[ "$1" == *"67Hz"* ]];then
-            git reset --hard $HeadCommit
-            git cherry-pick f7978179ccab8ede11e6bf43d1c78ec9817d29f9
-        fi
-        if [[ "$1" == *"68Hz"* ]];then
-            git reset --hard $HeadCommit
-            git cherry-pick f454705ba8de74cbdffd9c3282d606fef9f5aec2
-        fi
-        if [[ "$1" == *"69Hz"* ]];then
-            git reset --hard $HeadCommit
-            git cherry-pick d2a0997f1a5ec02a91dcab14014f32ca6ed2daec
-        fi
-        if [[ "$1" == *"71Hz"* ]];then
-            git reset --hard $HeadCommit
-            git cherry-pick 62dd986b087c9a1f1b2eca5174db071a99dc11fb
-        fi
-    fi;
-    GetCore=$(nproc --all)
-    TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
-    GetKernelName="$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     HzNya=${1/"Proton"/""}
     HzNya=${HzNya/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
@@ -276,6 +244,21 @@ function build(){
     HzNya=${HzNya/"Avalon"/""}
     HzNya=${HzNya/"GCC"/""}
     HzNya=${HzNya/"Stormbreaker"/""}
+    GetRefreshRate=${HzNya/"Hz"/""}
+    if [ ! -z "$3" ];then
+        chat_id="$3"
+    fi
+    if [ ! -z "$1" ] && [ "$SetDefconfig" == "X01BD_defconfig" ];then
+        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-auo-ft8716f-5p9-fhd-video.dtsi" && \
+        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-hx83112a-1080p-video-tm.dtsi" && \
+        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672-1080p-video-txd.dtsi" && \
+        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672-1080p-video.dtsi" && \
+        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672ah-1080p-video-kd.dtsi" && \
+        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-td4310-1080p-video-txd.dtsi"
+    fi
+    GetCore=$(nproc --all)
+    TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
+    GetKernelName="$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     KernelName='"'$GetKernelName'-'$HzNya'"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/$SetArch/configs/$SetDefconfig"
     if [[ "$1" == *"Avalon"* ]];then
