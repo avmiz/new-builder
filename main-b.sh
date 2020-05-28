@@ -257,7 +257,7 @@ function build(){
         update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-td4310-1080p-video-txd.dtsi"
     fi
     GetCore=$(nproc --all)
-    TAGKENEL="$(git log --author="Nathan Chancellor" | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
+    TAGKENEL="$(git log | grep "LA.UM.8.2.r1" | head -n 1 | awk -F '\\sdm660.0' '{print $1"sdm660.0"}' | awk -F '\\LA.UM.8.2.r1' '{print "LA.UM.8.2.r1"$2}')"
     GetKernelName="$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     KernelName='"'$GetKernelName'-'$HzNya'"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/$SetArch/configs/$SetDefconfig"
