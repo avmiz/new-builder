@@ -12,7 +12,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    CONFIG_HZ="1000"
+    # CONFIG_HZ="1000"
     build "QDTC60Hz" "" "$chat_group_id"
     build "QDTC65Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "QDTC66Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
@@ -47,7 +47,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    CONFIG_HZ="1000"
+    # CONFIG_HZ="1000"
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "QAvalon60Hz" "" "$chat_group_id"
@@ -95,7 +95,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    CONFIG_HZ="1000"
+    # CONFIG_HZ="1000"
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "QStormbreaker60Hz" "" "$chat_group_id"
