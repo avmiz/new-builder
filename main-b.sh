@@ -491,12 +491,12 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         git fetch origin master && git checkout origin/master && git branch -D master && git checkout -b master
         cd ..
     fi
-    IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
     ProjectId="zyc-kernel"
     SetDefconfig="X01BD_defconfig"
     SetArch="arm64"
     SetTag="LA.UM.8.2.r1"
     SetLastTag="sdm660.0"
+    IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
     export ARCH="$SetArch"
     export KBUILD_BUILD_USER="ZyCromerZ"
     export KBUILD_BUILD_HOST="CircleCI-server"
