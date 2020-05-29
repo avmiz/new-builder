@@ -217,7 +217,7 @@ function finerr() {
         -d chat_id="$chat_id" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="Build kernel from branch : $branch failed -_-" 
+        -d text="Build kernel from branch : $branch  (<code>$1</code>) failed -_-" 
 }
 function clean_build() {
     make -j$(($GetCore)) O=out clean mrproper 
@@ -356,7 +356,7 @@ function build(){
     START=$(date +"%s")
     compileNow
     if [ ! -f "$IMAGE" ]; then
-        finerr
+        finerr "$1"
     else
         cp -af out/arch/$SetArch/boot/Image.gz-dtb AnyKernel
         END=$(date +"%s")
