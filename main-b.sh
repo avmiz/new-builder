@@ -108,7 +108,7 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
 function makeZip(){
     KERNEL_NAME=$(cat "$(pwd)/arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
     ZIP_KERNEL_VERSION="4.4.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
-    cd AnyKernel || exit 1
+    cd AnyKernel
     if [ ! -d "spectrum" ];then
         git clone https://$githubKey@github.com/ZyCromerZ/spectrum.git spectrum
     else
@@ -190,7 +190,6 @@ function finerr() {
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
         -d text="Build kernel from branch : $branch failed -_-" 
-    exit 1
 }
 function clean_build() {
     make -j$(($GetCore)) O=out clean mrproper 
