@@ -15,12 +15,12 @@
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "QDTC60Hz" "" "$chat_group_id"
-    build "QDTC65Hz" "" "$chat_group_id" 
-    build "QDTC66Hz" "" "$chat_group_id" 
-    build "QDTC67Hz" "" "$chat_group_id" 
-    build "QDTC68Hz" "" "$chat_group_id" 
-    build "QDTC69Hz" "" "$chat_group_id" 
-    build "QDTC71Hz" "" "$chat_group_id" 
+    build "QDTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QDTC66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QDTC67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QDTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QDTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QDTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -35,13 +35,13 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "PDTC60Hz" "" "$chat_group_id" 
-    build "PDTC65Hz" "" "$chat_group_id" 
-    build "PDTC66Hz" "" "$chat_group_id" 
-    build "PDTC67Hz" "" "$chat_group_id" 
-    build "PDTC68Hz" "" "$chat_group_id" 
-    build "PDTC69Hz" "" "$chat_group_id" 
-    build "PDTC71Hz" "" "$chat_group_id" 
+    build "PDTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PDTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PDTC66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PDTC67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PDTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PDTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PDTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -56,12 +56,12 @@
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "QAvalon60Hz" "" "$chat_group_id"
-    build "QAvalon65Hz" "" "$chat_group_id" 
-    build "QAvalon66Hz" "" "$chat_group_id" 
-    build "QAvalon67Hz" "" "$chat_group_id" 
-    build "QAvalon68Hz" "" "$chat_group_id" 
-    build "QAvalon69Hz" "" "$chat_group_id" 
-    build "QAvalon71Hz" "" "$chat_group_id" 
+    build "QAvalon65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QAvalon66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QAvalon67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QAvalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QAvalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QAvalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -76,13 +76,13 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "PAvalon60Hz" "" "$chat_group_id" 
-    build "PAvalon65Hz" "" "$chat_group_id" 
-    build "PAvalon66Hz" "" "$chat_group_id" 
-    build "PAvalon67Hz" "" "$chat_group_id" 
-    build "PAvalon68Hz" "" "$chat_group_id" 
-    build "PAvalon69Hz" "" "$chat_group_id" 
-    build "PAvalon71Hz" "" "$chat_group_id" 
+    build "PAvalon60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PAvalon65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PAvalon66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PAvalon67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PAvalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PAvalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PAvalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -96,12 +96,12 @@
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "QStormbreaker60Hz" "" "$chat_group_id"
-    build "QStormbreaker65Hz" "" "$chat_group_id" 
-    build "QStormbreaker66Hz" "" "$chat_group_id" 
-    build "QStormbreaker67Hz" "" "$chat_group_id" 
-    build "QStormbreaker68Hz" "" "$chat_group_id" 
-    build "QStormbreaker69Hz" "" "$chat_group_id" 
-    build "QStormbreaker71Hz" "" "$chat_group_id" 
+    build "QStormbreaker65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QStormbreaker66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QStormbreaker67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QStormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QStormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QStormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -116,13 +116,13 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "PStormbreaker60Hz" "" "$chat_group_id" 
-    build "PStormbreaker65Hz" "" "$chat_group_id" 
-    build "PStormbreaker66Hz" "" "$chat_group_id" 
-    build "PStormbreaker67Hz" "" "$chat_group_id" 
-    build "PStormbreaker68Hz" "" "$chat_group_id" 
-    build "PStormbreaker69Hz" "" "$chat_group_id" 
-    build "PStormbreaker71Hz" "" "$chat_group_id" 
+    build "PStormbreaker60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PStormbreaker65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PStormbreaker66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PStormbreaker67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PStormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PStormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PStormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
