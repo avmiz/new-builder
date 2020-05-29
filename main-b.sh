@@ -261,6 +261,7 @@ function update_file() {
     fi
 }
 function build(){
+    git reset --hard $HeadCommit
     HzNya=${1/"Proton"/""}
     HzNya=${HzNya/"P"/""}
     HzNya=${HzNya/"QSAR"/""}
