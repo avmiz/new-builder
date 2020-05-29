@@ -2,7 +2,7 @@
 ################################################################################################ Avalon
     branch="private/20200313"
     folder="all"
-    FolderUpload="Kernel/X01BD/STABLE/Tercydux/"
+    FolderUpload="Kernel/X01BD/Tercydux/"
     spectrumFile="pk.rc"
     . main-b.sh "get-kernel"
     ProjectId="zyc-files"
