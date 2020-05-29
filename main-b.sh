@@ -1,4 +1,32 @@
 #!/usr/bin/env bash
+if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
+    if [ ! -d $folder ];then
+        git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
+        cd $folder
+    else
+        cd $folder
+        git fetch origin $branch
+        [ ! -z "$(git branch | grep "$branch" )" ] && git branch -D $branch
+        git checkout -b $branch
+    fi
+    git fetch origin rebase-20200313-rename rebase-20200313-SAR
+    if [ ! -d "AnyKernel" ];then
+        git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
+    else
+        cd "AnyKernel"
+        git fetch origin master && git checkout origin/master && git branch -D master && git checkout -b master
+        cd ..
+    fi
+    ProjectId="zyc-kernel"
+    SetDefconfig="X01BD_defconfig"
+    SetArch="arm64"
+    SetTag="LA.UM.8.2.r1"
+    SetLastTag="sdm660.0"
+    IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
+    export ARCH="$SetArch"
+    export KBUILD_BUILD_USER="ZyCromerZ"
+    export KBUILD_BUILD_HOST="CircleCI-server"
+fi
 function sendInfo(){
     if [ ! -z "$2" ];then
         sendTo="$2"
@@ -472,34 +500,6 @@ function setRemote(){
     git remote add $2 $1
     git fetch $2 $3 --depth=1
 }
-if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
-    if [ ! -d $folder ];then
-        git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
-        cd $folder
-    else
-        cd $folder
-        git fetch origin $branch
-        [ ! -z "$(git branch | grep "$branch" )" ] && git branch -D $branch
-        git checkout -b $branch
-    fi
-    git fetch origin rebase-20200313-rename rebase-20200313-SAR
-    if [ ! -d "AnyKernel" ];then
-        git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 AnyKernel
-    else
-        cd "AnyKernel"
-        git fetch origin master && git checkout origin/master && git branch -D master && git checkout -b master
-        cd ..
-    fi
-    ProjectId="zyc-kernel"
-    SetDefconfig="X01BD_defconfig"
-    SetArch="arm64"
-    SetTag="LA.UM.8.2.r1"
-    SetLastTag="sdm660.0"
-    IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
-    export ARCH="$SetArch"
-    export KBUILD_BUILD_USER="ZyCromerZ"
-    export KBUILD_BUILD_HOST="CircleCI-server"
-fi
 echo "include main.sh success"
 ## info builder
 # build A B C
