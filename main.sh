@@ -9,7 +9,7 @@ function sendInfo(){
         -d chat_id="$sendTo" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="$1" 1>/dev/null 2>/dev/null
+        -d text="$1" 
 }
 function sendToTele(){
     echo  "send To tele"
@@ -47,12 +47,12 @@ Using compiler:
         -F chat_id="$chat_id" \
         -F "disable_web_page_preview=true" \
         -F "parse_mode=html" \
-        -F caption="$Text" 1>/dev/null 2>/dev/null
+        -F caption="$Text" 
 }
 function sendToSf(){
     echo "upload to sf"
     Zip_File="$(pwd)/$1"
-    rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" $my_host@frs.sourceforge.net:/home/frs/project/zyc-kernel/$FolderUpload/ 1>/dev/null 2>/dev/null
+    rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" $my_host@frs.sourceforge.net:/home/frs/project/zyc-kernel/$FolderUpload/ 
     createLink=$1
     createLink=${createLink/"["/"%5B"}
     createLink=${createLink/"]"/"%5D"}
@@ -155,9 +155,9 @@ function makeZip(){
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
     ZipName="$TypeFor$Type[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
-    zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip  1>/dev/null 2>/dev/null 2>&1
+    zip -r $ZipName ./ -x /.git/* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/* ./*.zip   2>&1
     if [ "$withPassword" == "YES" ];then
-        zip -r --password "$3" "$ZipName-protected.zip" $ZipName 1>/dev/null 2>/dev/null 2>&1
+        zip -r --password "$3" "$ZipName-protected.zip" $ZipName  2>&1
         rm -rf "$ZipName"
         setName="$ZipName-protected.zip"
         ZipName="$setName"
@@ -179,20 +179,20 @@ function finerr() {
         -d chat_id="$chat_id" \
         -d "disable_web_page_preview=true" \
         -d "parse_mode=html" \
-        -d text="Build kernel from branch : $branch failed -_-" 1>/dev/null 2>/dev/null
+        -d text="Build kernel from branch : $branch failed -_-" 
     exit 1
 }
 function clean_build() {
-    make -j$(($GetCore+1)) O=out clean mrproper 1>/dev/null 2>/dev/null
-    make -j$(($GetCore+1)) clean mrproper 1>/dev/null 2>/dev/null
-    git checkout origin/$branch && git branch -D $branch 1>/dev/null 2>/dev/null
+    make -j$(($GetCore+1)) O=out clean mrproper 
+    make -j$(($GetCore+1)) clean mrproper 
+    git checkout origin/$branch && git branch -D $branch 
 }
 function makeCleanOnly(){
-    make -j$(($GetCore+1)) O=out clean mrproper 1>/dev/null 2>/dev/null
-    make -j$(($GetCore+1)) clean mrproper 1>/dev/null 2>/dev/null
+    make -j$(($GetCore+1)) O=out clean mrproper 
+    make -j$(($GetCore+1)) clean mrproper 
 }
 function change_branch() {
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch 1>/dev/null 2>/dev/null
+    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch 
 }
 function compileNow(){
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig
