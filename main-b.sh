@@ -354,7 +354,7 @@ function build(){
     GetCommit=$(git log --pretty=format:'%h' -1)
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
-    compileNow
+    # compileNow
     if [ ! -f "$IMAGE" ]; then
         finerr "$1"
     else
