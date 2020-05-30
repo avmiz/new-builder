@@ -20,10 +20,7 @@
     build "QDTC68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "QDTC69Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "QDTC71Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
-    build "QDTC72Hz" ""  1>/dev/null 2>/dev/null
-    build "QDTC73Hz" ""  1>/dev/null 2>/dev/null
-    build "QDTC74Hz" ""  1>/dev/null 2>/dev/null
-    build "QDTC75Hz" ""  1>/dev/null 2>/dev/null
+    build "QDTC72Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     git reset --hard $MainCommit
     git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
     git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
@@ -36,10 +33,7 @@
     build "PDTC68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "PDTC69Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "PDTC71Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
-    build "PDTC72Hz" ""  1>/dev/null 2>/dev/null
-    build "PDTC73Hz" ""  1>/dev/null 2>/dev/null
-    build "PDTC74Hz" ""  1>/dev/null 2>/dev/null
-    build "PDTC75Hz" ""  1>/dev/null 2>/dev/null
+    build "PDTC72Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     clean_build
 
     change_branch
@@ -57,10 +51,7 @@
     build "QAvalon68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "QAvalon69Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "QAvalon71Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
-    build "QAvalon72Hz" ""  1>/dev/null 2>/dev/null
-    build "QAvalon73Hz" ""  1>/dev/null 2>/dev/null
-    build "QAvalon74Hz" ""  1>/dev/null 2>/dev/null
-    build "QAvalon75Hz" ""  1>/dev/null 2>/dev/null
+    build "QAvalon72Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -82,10 +73,7 @@
     build "PAvalon68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "PAvalon69Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "PAvalon71Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
-    build "PAvalon72Hz" ""  1>/dev/null 2>/dev/null
-    build "PAvalon73Hz" ""  1>/dev/null 2>/dev/null
-    build "PAvalon74Hz" ""  1>/dev/null 2>/dev/null
-    build "PAvalon75Hz" ""  1>/dev/null 2>/dev/null
+    build "PAvalon72Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -105,10 +93,7 @@
     build "QStormbreaker68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "QStormbreaker69Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "QStormbreaker71Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
-    build "QStormbreaker72Hz" ""  1>/dev/null 2>/dev/null
-    build "QStormbreaker73Hz" ""  1>/dev/null 2>/dev/null
-    build "QStormbreaker74Hz" ""  1>/dev/null 2>/dev/null
-    build "QStormbreaker75Hz" ""  1>/dev/null 2>/dev/null
+    build "QStormbreaker72Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -130,10 +115,7 @@
     build "PStormbreaker68Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "PStormbreaker69Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
     build "PStormbreaker71Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
-    build "PStormbreaker72Hz" ""  1>/dev/null 2>/dev/null
-    build "PStormbreaker73Hz" ""  1>/dev/null 2>/dev/null
-    build "PStormbreaker74Hz" ""  1>/dev/null 2>/dev/null
-    build "PStormbreaker75Hz" ""  1>/dev/null 2>/dev/null
+    build "PStormbreaker72Hz" "" "$chat_group_id" "$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)-ZyC" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
