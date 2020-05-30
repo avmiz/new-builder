@@ -21,6 +21,7 @@
     build "QDTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "QDTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "QDTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QDTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -42,6 +43,7 @@
     build "PDTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "PDTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "PDTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PDTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -62,6 +64,7 @@
     build "QAvalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "QAvalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "QAvalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QAvalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -83,6 +86,7 @@
     build "PAvalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "PAvalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "PAvalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PAvalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -102,6 +106,7 @@
     build "QStormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "QStormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "QStormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "QStormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -123,6 +128,7 @@
     build "PStormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "PStormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "PStormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "PStormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 

@@ -21,6 +21,7 @@
     build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "DTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "DTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -43,6 +44,7 @@
     build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "DTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "DTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -63,6 +65,7 @@
     build "Avalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Avalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Avalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Avalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -85,6 +88,7 @@
     build "Avalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Avalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Avalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Avalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -104,6 +108,7 @@
     build "Stormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Stormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Stormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Stormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -126,6 +131,7 @@
     build "Stormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Stormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
     build "Stormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Stormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
 
     # sendInfo "build DeadlyCute-N done . . ."
 
