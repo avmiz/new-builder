@@ -15,13 +15,13 @@
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "DTC60Hz" "" "$chat_group_id"
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -37,14 +37,14 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "DTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -59,13 +59,13 @@
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "Avalon60Hz" "" "$chat_group_id"
-    build "Avalon65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Avalon65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -81,14 +81,14 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "Avalon60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Avalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Avalon60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Avalon72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -102,13 +102,13 @@
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "Stormbreaker60Hz" "" "$chat_group_id"
-    build "Stormbreaker65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Stormbreaker65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -124,14 +124,14 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "Stormbreaker60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
-    build "Stormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null
+    build "Stormbreaker60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Stormbreaker72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-N done . . ."
 
