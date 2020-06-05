@@ -26,7 +26,7 @@ jobs:
             [ ! -d "builder_kernel" ] && git clone https://$githubKey@github.com/ZyCromerZ/new-builder.git -b master builder_kernel
             cd builder_kernel
             git fetch origin master && git checkout origin/master
-            # source master.sh
+            source qk-l.sh
       - save_cache:
           key: KernelCache-{{ .Branch }}
           paths:
