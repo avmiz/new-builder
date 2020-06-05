@@ -19,6 +19,8 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     fi
     ProjectId="zyc-kernel"
     SetDefconfig="X01BD_defconfig"
+    SetDevices="X01BD"
+    SetDevicesInfo="Asus Max Pro M2"
     SetArch="arm64"
     SetTag="LA.UM.8.2.r1"
     SetLastTag="sdm660.0"
@@ -51,6 +53,7 @@ function sendToTele(){
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
+- Devices : $SetDevices ($SetDevicesInfo)
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -63,6 +66,7 @@ Using compiler:
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
+- Devices : $SetDevices ($SetDevicesInfo)
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -99,6 +103,7 @@ function sendToSf(){
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
+- Devices : $SetDevices ($SetDevicesInfo)
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -113,6 +118,7 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
         Text="New kernel !!
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
+- Devices : $SetDevices ($SetDevicesInfo)
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -276,7 +282,7 @@ function build(){
     if [ ! -z "$3" ];then
         chat_id="$3"
     fi
-    if [ ! -z "$1" ] && [ "$SetDefconfig" == "X01BD_defconfig" ];then
+    if [ ! -z "$1" ] && [ "$SetDevices" == "X01BD" ];then
         update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-auo-ft8716f-5p9-fhd-video.dtsi" && \
         update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-hx83112a-1080p-video-tm.dtsi" && \
         update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672-1080p-video-txd.dtsi" && \
@@ -291,7 +297,7 @@ function build(){
     fi
     GetKernelName="$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/"//g' | sed 's/CONFIG_LOCALVERSION=//g')"
     KernelName='"'$GetKernelName'-'$HzNya'"'
-    update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/$SetArch/configs/$SetDefconfig"
+    [ "$SetDevices" == "X01BD" ] && update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/$SetArch/configs/$SetDefconfig"
     if [[ "$1" == *"Avalon"* ]];then
         [ ! -d "GetGcc" ] && Getclang "avalon"
         [ ! -d "Getclang" ] && Getclang "avalon"
@@ -301,20 +307,20 @@ function build(){
             SetClang "Avalon-Test"
         fi
         ## disable polly optimization
-        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
+        [ "$SetDevices" == "X01BD" ] && git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
     elif [[ "$1" == *"Proton"* ]];then
         [ ! -d "GetGcc" ] && Getclang "proton"
         [ ! -d "Getclang" ] && Getclang "proton"
         [ ! -d "GetGccB" ] && Getclang "proton"
         ## disable polly optimization
-        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
+        [ "$SetDevices" == "X01BD" ] && git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "proton"
     elif [[ "$1" == *"Stormbreaker"* ]];then
         [ ! -d "GetGcc" ] && Getclang "stormbreaker"
         [ ! -d "Getclang" ] && Getclang "stormbreaker"
         [ ! -d "GetGccB" ] && Getclang "stormbreaker"
         ## disable polly optimization
-        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
+        [ "$SetDevices" == "X01BD" ] && git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "stormbreaker"
     elif [[ "$1" == *"DTC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "dtc"
@@ -325,23 +331,23 @@ function build(){
             SetClang "dtc-old"
         fi
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
-        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
-        git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
-        git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
+        [ "$SetDevices" == "X01BD" ] && git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        [ "$SetDevices" == "X01BD" ] && git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        [ "$SetDevices" == "X01BD" ] && git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
+        [ "$SetDevices" == "X01BD" ] && git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
         ## revert Makefile changes for DragonTC clang 10
-        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        [ "$SetDevices" == "X01BD" ] && git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     elif [[ "$1" == *"GCC"* ]];then
         [ ! -d "GetGcc" ] && Getclang "GCC"
         SetClang "GCC"
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
-        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
-        git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
-        git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
+        [ "$SetDevices" == "X01BD" ] && git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        [ "$SetDevices" == "X01BD" ] && git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        [ "$SetDevices" == "X01BD" ] && git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
+        [ "$SetDevices" == "X01BD" ] && git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
         ## revert Makefile changes for DragonTC clang 10
-        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        [ "$SetDevices" == "X01BD" ] && git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     else
         [ ! -d "GetGcc" ] && Getclang "avalon"
