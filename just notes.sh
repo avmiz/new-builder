@@ -1,19 +1,10 @@
 #!/usr/bin/env bash
 # for update builder
 # list branch
-git checkout eg-f && git pull . master && \
-git checkout eg-m && git pull . master && \
-git checkout eg-h && git pull . master && \
-git checkout qk-n && git pull . master && \
-git checkout qk-l && git pull . master && \
-git checkout qk-ul && git pull . master && \
-git checkout private && git pull . master && \
-git checkout private-oc && git pull . master && \
-git checkout master
-
 git branch -D eg-f eg-m eg-h
 git branch -D qk-n qk-l qk-ul
 git branch -D private private-oc
+git branch -D bego bego-oc bego-rc bego-oc-rc
 
 git checkout master && git checkout -b eg-f && \
 git checkout master && git checkout -b eg-m && \
@@ -23,6 +14,10 @@ git checkout master && git checkout -b qk-l && \
 git checkout master && git checkout -b qk-ul && \
 git checkout master && git checkout -b private && \
 git checkout master && git checkout -b private-oc && \
+git checkout master && git checkout -b bego && \
+git checkout master && git checkout -b bego-rc && \
+git checkout master && git checkout -b bego-oc && \
+git checkout master && git checkout -b bego-oc-rc && \
 git checkout master
 
 function update_file() {
@@ -44,4 +39,8 @@ git checkout qk-l && update_file '# source master.sh' "source qk-l.sh" "./.circl
 git checkout qk-ul && update_file '# source master.sh' "source qk-ul.sh" "./.circleci/config.yml" && \
 git checkout private && update_file '# source master.sh' "source private.sh" "./.circleci/config.yml" && \
 git checkout private-oc && update_file '# source master.sh' "source private-oc.sh" "./.circleci/config.yml" && \
+git checkout bego && update_file '# source master.sh' "source bego.sh" "./.circleci/config.yml" && \
+git checkout bego-oc && update_file '# source master.sh' "source bego-oc.sh" "./.circleci/config.yml" && \
+git checkout bego-rc && update_file '# source master.sh' "source bego-rc.sh" "./.circleci/config.yml" && \
+git checkout bego-oc-rc && update_file '# source master.sh' "source bego-oc-rc.sh" "./.circleci/config.yml" && \
 git checkout master

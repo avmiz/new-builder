@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     if [ ! -d $folder ];then
-        git clone https://$githubKey@github.com/ZyCromerZ/X01BD_Kernel.git -b $branch $folder
+        git clone https://$githubKey@github.com/ZyCromerZ/begonia_kernel -b $branch $folder --depth=1
         cd $folder
     else
         cd $folder
@@ -9,7 +9,6 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         [ ! -z "$(git branch | grep "$branch" )" ] && git branch -D $branch
         git checkout -b $branch
     fi
-    git fetch origin rebase-20200313-rename rebase-20200313-SAR
     if [ ! -d "AnyKernel" ];then
         git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 -b master-begonia AnyKernel 
     else
@@ -266,12 +265,12 @@ function SetClang(){
     git checkout gugel-clang/9.0.3-r353983c
     cd ..
     cd GetGcc
-    git checkout gcc-9-old/master
+    git checkout gcc-google/master
     cd ..
-    cd GetGccB
-    git fetch gcc-google ndk-r19
-    git checkout FETCH_HEAD
-    cd ..
+    # cd GetGccB
+    # git fetch gcc-google ndk-r19
+    # git checkout FETCH_HEAD
+    # cd ..
     clangFolder="$(pwd)/Getclang/bin/clang"
     gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
 }
