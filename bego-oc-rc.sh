@@ -14,7 +14,7 @@
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
 
-    build "" "" "$chat_group_id"
+    # build "" "" "$chat_group_id"
     makeCleanOnly
     build "DTC" "" "$chat_group_id"
 
