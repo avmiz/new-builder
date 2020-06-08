@@ -15,8 +15,7 @@
     chat_id="$chat_group_id"
 
     build "" "" "$chat_group_id"
-    clean_build
-    SetClang "dtc"
+    makeCleanOnly
     build "DTC" "" "$chat_group_id"
 
 cd ..
