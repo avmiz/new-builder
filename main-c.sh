@@ -157,7 +157,7 @@ function makeZip(){
     ZipName="[$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     zip -r $ZipName ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip  1>/dev/null 2>/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
-        zip -r --password "$3" "$ZipName-protected.zip" $ZipName 1>/dev/null 2>/dev/null 2>&1
+        zip -r --password "$3" "[$1]$ZipName-protected.zip" $ZipName 1>/dev/null 2>/dev/null 2>&1
         rm -rf "$ZipName"
         setName="$ZipName-protected.zip"
         ZipName="$setName"
@@ -250,6 +250,7 @@ function Getclang(){
     cd Getclang
     [ ! -d ".git" ] && git init
     setRemote "https://github.com/ZyCromerZ/google-clang.git" "gugel-clang" "9.0.3-r353983c"
+    setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     cd ..
     [ ! -d "GetGcc" ] && mkdir GetGcc
     cd GetGcc
@@ -262,7 +263,11 @@ function Getclang(){
 }
 function SetClang(){
     cd Getclang
-    git checkout gugel-clang/9.0.3-r353983c
+    if [ "$1" == "dtc" ];then
+        git checkout dtc/dragontc
+    else
+        git checkout gugel-clang/9.0.3-r353983c
+    fi
     cd ..
     cd GetGcc
     git checkout gcc-google/master
