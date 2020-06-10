@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ Avalon
-    branch="private/20200313-oc"
+    branch="private/20200313-oc-rc"
     folder="all"
     FolderUpload="Kernel/X01BD/Tercydux-oc/"
     spectrumFile="pk-oc.rc"

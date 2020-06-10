@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 ################################################################################################ Avalon
-    branch="private/20200313-oc"
+    branch="private/20200313-rc"
     folder="all"
-    FolderUpload="Kernel/X01BD/Tercydux-oc/"
-    spectrumFile="pk-oc.rc"
+    FolderUpload="Kernel/X01BD/Tercydux/"
+    spectrumFile="pk.rc"
     . main-b.sh "get-kernel"
     ProjectId="zyc-files"
     Getclang 'dtc' && Getclang 'avalon' && Getclang 'stormbreaker'
