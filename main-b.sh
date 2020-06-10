@@ -400,11 +400,10 @@ function Getclang(){
     cd GetGcc
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
-        setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     elif [ "$1" == "GCC" ];then
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     else
-        setRemote "https://github.com/arter97/$SetArch-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     fi
@@ -457,20 +456,6 @@ function SetClang(){
         gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-android-"
         gccBFolder="$(pwd)/GetGccB/bin/arm-linux-androideabi-"
     elif [ "$1" == "dtc" ];then
-        cd Getclang
-        git checkout dtc/dragontc
-        cd ..
-        cd GetGcc
-        git checkout gcc-9-old/gcc9-20190401
-        cd ..
-        cd GetGccB
-        git fetch gcc-google master
-        git checkout FETCH_HEAD
-        cd ..
-        clangFolder="$(pwd)/Getclang/bin/clang"
-        gccFolder="$(pwd)/GetGcc/bin/aarch64-linux-gnu-"
-        gccBFolder="$(pwd)/GetGccB/bin/arm-linux-androideabi-"
-    elif [ "$1" == "dtc-old" ];then
         cd Getclang
         git checkout dtc/dragontc
         cd ..
