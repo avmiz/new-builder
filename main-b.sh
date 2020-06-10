@@ -402,23 +402,23 @@ function Getclang(){
     if [ "$1" == "dtc" ];then
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
     elif [ "$1" == "GCC" ];then
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     else
         setRemote "https://github.com/arter97/$SetArch-gcc.git" "gcc-9-latest" "master"
         setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "ndk-r19"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     fi
     cd ..
     [ ! -d "GetGccB" ] && mkdir GetGccB
     cd GetGccB
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "ndk-r19"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "master"
     elif [ "$1" == "GCC" ];then
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "ndk-r19"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "master"
     else
         setRemote "https://github.com/arter97/arm32-gcc" "gcc-9-latest" "master"
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "ndk-r19"
+        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" "gcc-google" "master"
     fi
     cd ..
 }
@@ -446,11 +446,11 @@ function SetClang(){
         gccBFolder="$(pwd)/Getclang/bin/arm-linux-gnueabi-"
     elif [ "$1" == "GCC" ];then
         cd GetGcc
-        git fetch gcc-google ndk-r19
+        git fetch gcc-google master
         git checkout FETCH_HEAD
         cd ..
         cd GetGccB
-        git fetch gcc-google ndk-r19
+        git fetch gcc-google master
         git checkout FETCH_HEAD
         cd ..
         clangFolder=""
@@ -464,7 +464,7 @@ function SetClang(){
         git checkout gcc-9-old/gcc9-20190401
         cd ..
         cd GetGccB
-        git fetch gcc-google ndk-r19
+        git fetch gcc-google master
         git checkout FETCH_HEAD
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
@@ -475,11 +475,11 @@ function SetClang(){
         git checkout dtc/dragontc
         cd ..
         cd GetGcc
-        git fetch gcc-google ndk-r19
+        git fetch gcc-google master
         git checkout FETCH_HEAD
         cd ..
         cd GetGccB
-        git fetch gcc-google ndk-r19
+        git fetch gcc-google master
         git checkout FETCH_HEAD
         cd ..
         clangFolder="$(pwd)/Getclang/bin/clang"
