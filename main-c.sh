@@ -152,6 +152,7 @@ function makeZip(){
     fi
     if [ -e "spectrum/$spectrumFile" ];then
         cp -af "spectrum/$spectrumFile" init.spectrum.rc
+        update_file "setprop persist.spectrum.kernel" "setprop persist.spectrum.kernel '$KERNEL_NAME'" "$(pwd)/init.spectrum.rc"
     else
         if [ -e "init.spectrum.rc" ];then
             rm -rf init.spectrum.rc
