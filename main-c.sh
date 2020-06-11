@@ -21,6 +21,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     SetDevices="Begonia"
     SetDevicesInfo="Redmi Note 8 pro"
     SetArch="arm64"
+    TypeBuid="Stable"
     IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
     export ARCH="$SetArch"
     export KBUILD_BUILD_USER="ZyCromerZ"
@@ -51,6 +52,7 @@ function sendToTele(){
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Devices : $SetDevices ($SetDevicesInfo)
+- Type : $TypeBuid
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -63,6 +65,7 @@ Using compiler:
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Devices : $SetDevices ($SetDevicesInfo)
+- Type : $TypeBuid
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -99,6 +102,7 @@ function sendToSf(){
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Devices : $SetDevices ($SetDevicesInfo)
+- Type : $TypeBuid
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -113,6 +117,7 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
 Build took $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) second(s).
 
 - Devices : $SetDevices ($SetDevicesInfo)
+- Type : $TypeBuid
 - Kernel name : $2
 - Refreshrate : $RefreshRT
 - Password Protected : $withPassword 
@@ -169,6 +174,9 @@ function makeZip(){
         sendToTele "$ZipName" "$KERNEL_NAME"
     else
         sendToSf "$ZipName" "$KERNEL_NAME"
+    fi
+    if [ "$TypeBuid" != "Stable" ];then
+        sendToTele "$ZipName" "$KERNEL_NAME"
     fi
     rm -rf "$ZipName"
     cd ..
