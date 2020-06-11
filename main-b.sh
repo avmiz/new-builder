@@ -401,7 +401,7 @@ function Getclang(){
     cd GetGcc
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
-        setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
+        setRemote "https://github.com/najahiiii/aarch64-linux-gnu.git" "gcc-9-old" "gcc9-20190401"
     elif [ "$1" == "GCC" ];then
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     else
@@ -461,7 +461,7 @@ function SetClang(){
         git checkout dtc/dragontc
         cd ..
         cd GetGcc
-        git fetch gcc-google master
+        git fetch gcc-9-old gcc9-20190401
         git checkout FETCH_HEAD
         cd ..
         cd GetGccB
