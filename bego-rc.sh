@@ -2,7 +2,7 @@
 ################################################################################################ Memetek
     branch="android-10.0-Tercydux-rc"
     folder="all"
-    FolderUpload="Kernel/Begonia/Tercydux"
+    FolderUpload="Kernel/Begonia/Tercydux-TEST"
     spectrumFile="bego.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-files"
