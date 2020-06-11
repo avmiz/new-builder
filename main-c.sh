@@ -266,7 +266,7 @@ function Getclang(){
 }
 function SetClang(){
     cd Getclang
-    git fetch gugel-clang/9.0.3-r353983c
+    git fetch gugel-clang 9.0.3-r353983c
     git checkout FETCH_HEAD
     # git checkout dtc/dragontc
     cd ..
