@@ -6,6 +6,7 @@
     spectrumFile="bego.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-files"
+    TypeBuid="TEST"
     Getclang
     SetClang
 
