@@ -3,7 +3,7 @@
     branch="android-10.0-Tercydux"
     folder="all"
     FolderUpload="Kernel/Begonia/Tercydux"
-    spectrumFile="None"
+    spectrumFile="bego.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-files"
     Getclang
