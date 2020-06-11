@@ -11,7 +11,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="$chat_group_id"
-    # CONFIG_HZ="1000"
+    CONFIG_HZ="300"
     # sendInfo "starting build QuantumKiller-N . . ."
 
     build "DTC60Hz" "" "$chat_group_id"
