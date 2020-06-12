@@ -137,5 +137,50 @@
 
     clean_build
 
+    clean_build
+    change_branch
+    GetCommit=$(git log --pretty=format:'%h' -1)
+    HeadCommit=$GetCommit
+    MainCommit=$GetCommit
+    chat_id="$chat_group_id"
+    # CONFIG_HZ="1000"
+    # sendInfo "starting build QuantumKiller-N . . ."
+
+    build "Proton60Hz" "" "$chat_group_id"
+    build "Proton65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+
+    # sendInfo "build QuantumKiller-N done . . ."
+
+    ## for pie
+    git reset --hard $MainCommit
+    git cherry-pick 3f7999d7701391724d59ffb478b2f448a50c2172 97a48a19482d88311df54eebcb26ab6da6c8f3c6
+    git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
+    git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
+
+    FolderUpload="X01BD/KERNEL/DC/STABLE/N"
+    GetCommit=$(git log --pretty=format:'%h' -1)
+    HeadCommit=$GetCommit
+
+    # sendInfo "starting build DeadlyCute-N . . ."
+
+    build "Proton60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton66Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton67Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton69Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "Proton72Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+
+    # sendInfo "build DeadlyCute-N done . . ."
+
+    clean_build
+
 cd ..
 rm -rf $folder
