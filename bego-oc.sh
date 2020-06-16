@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ Memetek
-    branch="android-10.0-Tercydux-OC"
+    branch="rebase-pixel-Tercydux-OC"
     folder="all"
     FolderUpload="Kernel/Begonia/Tercydux"
     spectrumFile="bego.rc"
