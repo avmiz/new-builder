@@ -7,13 +7,9 @@ jobs:
       - run:
           command: |
             apt-get -y update && apt-get -y upgrade && apt-get -y install ca-certificates
-      - restore_cache:
-          key: KernelCache-{{ .Branch }}
-          paths:
-            - /builder_kernel/*
       - run:
           command: |
-            export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y upgrade && apt-get -y install tzdata git automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python gcc clang libssl-dev repo rsync flex git-lfs libz3-dev libz3-4 axel 
+            export DEBIAN_FRONTEND=noninteractive && apt-get -y update && apt-get -y upgrade && apt-get -y install tzdata git automake lzop bison gperf build-essential zip curl zlib1g-dev g++-multilib python-networkx libxml2-utils bzip2 libbz2-dev libbz2-1.0 libghc-bzlib-dev squashfs-tools pngcrush schedtool dpkg-dev liblz4-tool make optipng bc libstdc++6 wget python gcc clang libssl-dev repo rsync flex git-lfs libz3-dev libz3-4 axel ccache
             ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
             dpkg-reconfigure --frontend noninteractive tzdata
             git config --global user.name "ZyCromerZ"
@@ -27,10 +23,6 @@ jobs:
             cd builder_kernel
             git fetch origin master && git checkout origin/master
             # source master.sh
-      - save_cache:
-          key: KernelCache-{{ .Branch }}
-          paths:
-            - /builder_kernel/*
 workflows:
   version: 2.1
   cooking:

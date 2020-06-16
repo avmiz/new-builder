@@ -17,7 +17,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
         cd ..
     fi
     ProjectId="zyc-kernel"
-    SetDefconfig="bego_defconfig"
+    SetDefconfig="begonia_user_defconfig"
     SetDevices="Begonia"
     SetDevicesInfo="Redmi Note 8 pro"
     SetArch="arm64"
@@ -212,12 +212,12 @@ function compileNow(){
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
                                 CROSS_COMPILE=$gccFolder \
-                                CC=$clangFolder \
+                                CC="ccache $clangFolder" \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
-                                CROSS_COMPILE=$gccFolder
+                                CROSS_COMPILE="ccache $gccFolder"
     fi
 }
 function update_file() {
