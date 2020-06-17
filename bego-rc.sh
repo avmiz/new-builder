@@ -19,8 +19,7 @@
     TypeKernel="DTC"
     cd Getclang
     setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc" 
-    git fetch dtc dragontc
-    git checkout FETCH_HEAD
+    git checkout dtc/dragontc
     cd ..
     makeCleanOnly
     build "" "" "$chat_group_id"
