@@ -15,6 +15,14 @@
     chat_id="$chat_group_id"
 
     build "" "" "$chat_group_id"
+    TypeKernel="DTC"
+    cd Getclang
+    setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc" 
+    git fetch dtc dragontc
+    git checkout FETCH_HEAD
+    cd ..
+    makeCleanOnly
+    build "" "" "$chat_group_id"
 
 cd ..
 rm -rf $folder
