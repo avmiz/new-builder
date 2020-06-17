@@ -239,9 +239,6 @@ function build(){
     if [ ! -z "$3" ];then
         chat_id="$3"
     fi
-    if [[ "$1" == *"dtc"* ]];then
-        SetClang "dtc"
-    fi
     GetCore=$(nproc --all)
     GetCommit=$(git log --pretty=format:'%h' -1)
     TANGGAL=$(date +"%m%d")
