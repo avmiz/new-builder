@@ -22,7 +22,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     SetDevicesInfo="Redmi Note 8 pro"
     SetArch="arm64"
     TypeBuid="Stable"
-    TypeKernel="GoogleClang9"
+    TypeKernel="DTC"
     IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
     export ARCH="$SetArch"
     export KBUILD_BUILD_USER="ZyCromerZ"
@@ -263,8 +263,8 @@ function Getclang(){
     [ ! -d "Getclang" ] && mkdir Getclang
     cd Getclang
     [ ! -d ".git" ] && git init
-    setRemote "https://github.com/ZyCromerZ/google-clang.git" "gugel-clang" "9.0.3-r353983c"
-    # setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
+    # setRemote "https://github.com/ZyCromerZ/google-clang.git" "gugel-clang" "9.0.3-r353983c"
+    setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     cd ..
     [ ! -d "GetGcc" ] && mkdir GetGcc
     cd GetGcc
@@ -277,9 +277,9 @@ function Getclang(){
 }
 function SetClang(){
     cd Getclang
-    git fetch gugel-clang 9.0.3-r353983c
-    git checkout FETCH_HEAD
-    # git checkout dtc/dragontc
+    # git fetch gugel-clang 9.0.3-r353983c
+    # git checkout FETCH_HEAD
+    git checkout dtc/dragontc
     cd ..
     cd GetGcc
     git fetch gcc-google master
