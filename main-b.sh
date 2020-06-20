@@ -300,9 +300,7 @@ function build(){
     KernelName='"'$GetKernelName'-'$HzNya'"'
     update_file "CONFIG_LOCALVERSION=" "CONFIG_LOCALVERSION=$KernelName" "./arch/$SetArch/configs/$SetDefconfig"
     if [[ "$1" == *"Avalon"* ]];then
-        [ ! -d "GetGcc" ] && Getclang "avalon"
-        [ ! -d "Getclang" ] && Getclang "avalon"
-        [ ! -d "GetGccB" ] && Getclang "avalon"
+        Getclang "avalon"
         SetClang "avalon"
         if [[ "$1" == *"AvalonTest"* ]];then
             SetClang "Avalon-Test"
@@ -310,23 +308,19 @@ function build(){
         ## disable polly optimization
         git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
     elif [[ "$1" == *"Proton"* ]];then
-        [ ! -d "GetGcc" ] && Getclang "proton"
-        [ ! -d "Getclang" ] && Getclang "proton"
-        [ ! -d "GetGccB" ] && Getclang "proton"
+        Getclang "proton"
+        Getclang "proton"
         ## disable polly optimization
         git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "proton"
     elif [[ "$1" == *"Stormbreaker"* ]];then
-        [ ! -d "GetGcc" ] && Getclang "stormbreaker"
-        [ ! -d "Getclang" ] && Getclang "stormbreaker"
-        [ ! -d "GetGccB" ] && Getclang "stormbreaker"
+        Getclang "stormbreaker"
+        Getclang "stormbreaker"
         ## disable polly optimization
         git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "stormbreaker"
     elif [[ "$1" == *"DTC"* ]];then
-        [ ! -d "GetGcc" ] && Getclang "dtc"
-        [ ! -d "Getclang" ] && Getclang "dtc"
-        [ ! -d "GetGccB" ] && Getclang "dtc"
+        Getclang "dtc"
         SetClang "dtc"
         if [[ "$1" == *"DTCoLd"* ]];then
             SetClang "dtc-old"
@@ -340,7 +334,7 @@ function build(){
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     elif [[ "$1" == *"GCC"* ]];then
-        [ ! -d "GetGcc" ] && Getclang "GCC"
+        Getclang "GCC"
         SetClang "GCC"
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
         git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
@@ -351,9 +345,7 @@ function build(){
         git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     else
-        [ ! -d "GetGcc" ] && Getclang "avalon"
-        [ ! -d "Getclang" ] && Getclang "avalon"
-        [ ! -d "GetGccB" ] && Getclang "avalon"
+        Getclang "avalon"
         SetClang "avalon"
     fi
     if [ ! -z "$CONFIG_HZ" ];then
@@ -379,7 +371,7 @@ function build(){
     fi
 }
 function Getclang(){
-    [ ! -d "Getclang" ] && mkdir Getclang
+    mkdir Getclang
     cd Getclang
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
@@ -397,7 +389,7 @@ function Getclang(){
         setRemote "https://github.com/stormbreaker-project/stormbreaker-clang.git" "stormbreaker" "11.x"
     fi
     cd ..
-    [ ! -d "GetGcc" ] && mkdir GetGcc
+    mkdir GetGcc
     cd GetGcc
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
@@ -409,7 +401,7 @@ function Getclang(){
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     fi
     cd ..
-    [ ! -d "GetGccB" ] && mkdir GetGccB
+    mkdir GetGccB
     cd GetGccB
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
