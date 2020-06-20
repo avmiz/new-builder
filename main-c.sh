@@ -162,9 +162,9 @@ function makeZip(){
     cp -af anykernel-real.sh anykernel.sh
     sed -i "s/kernel.string=.*/kernel.string=$KERNEL_NAME-$HeadCommit by ZyCromerZ/g" anykernel.sh
     if  [ "$TypeBuid" != "Stable" ];then
-        ZipName="[$TypeKernel][$TypeBuid][$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
+        ZipName="[$TypeKernel][$TypeBuid][$TANGGAL][$SetDevices]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     else
-        ZipName="[$TypeKernel][$TANGGAL]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
+        ZipName="[$TypeKernel][$TANGGAL][$SetDevices]$ZIP_KERNEL_VERSION-$KERNEL_NAME-$HeadCommit.zip"
     fi
     zip -r $ZipName ./ -x /.git/**\* ./anykernel-real.sh ./.gitignore ./LICENSE ./README.md ./spectrum/**\* ./*.zip  1>/dev/null 2>/dev/null 2>&1
     if [ "$withPassword" == "YES" ];then
