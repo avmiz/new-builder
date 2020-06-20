@@ -13,9 +13,9 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="-1001445939232"
+    chat_id="$chat_group_id"
 
-    build "" "tele" "-1001445939232"
+    build "" "tele" "$chat_group_id"
 
 cd ..
 rm -rf $folder
