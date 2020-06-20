@@ -213,12 +213,12 @@ function compileNow(){
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
                                 CROSS_COMPILE=$gccFolder \
-                                CC="ccache $clangFolder" \
+                                CC="$clangFolder" \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
-                                CROSS_COMPILE="ccache $gccFolder"
+                                CROSS_COMPILE="$gccFolder"
     fi
 }
 function update_file() {

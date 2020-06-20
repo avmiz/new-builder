@@ -245,12 +245,12 @@ function compileNow(){
                                 ARCH="$SetArch" \
                                 CROSS_COMPILE=$gccFolder \
                                 CROSS_COMPILE_ARM32=$gccBFolder \
-                                CC="ccache $clangFolder" \
+                                CC="$clangFolder" \
                                 CLANG_TRIPLE=aarch64-linux-gnu-
     else
         make -j$(($GetCore))  O=out \
                                 ARCH="$SetArch" \
-                                CROSS_COMPILE="ccache $gccFolder" \
+                                CROSS_COMPILE="$gccFolder" \
                                 CROSS_COMPILE_ARM32=$gccBFolder
     fi
 }
