@@ -5,7 +5,7 @@
     FolderUpload="X01BD/KERNEL/EG/STABLE/F"
     spectrumFile="f.rc"
     . main-b.sh "get-kernel"
-    Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'
+    # Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'
 
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
