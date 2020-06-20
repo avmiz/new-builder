@@ -10,13 +10,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build QuantumKiller-N . . ."
 
-    build "GCC60Hz" "" "$chat_group_id"
-    build "GCC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC60Hz" "" "-1001445939232"
+    build "GCC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -32,10 +32,10 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "GCC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -51,13 +51,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build QuantumKiller-L . . ."
 
-    build "GCC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-L done . . ."
 
@@ -73,10 +73,10 @@
 
     # sendInfo "starting build DeadlyCute-L . . ."
 
-    build "GCC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-L done . . ."
 
@@ -92,13 +92,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build QuantumKiller-uL . . ."
 
-    build "GCC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-uL done . . ."
 
@@ -114,10 +114,10 @@
 
     # sendInfo "starting build DeadlyCute-uL . . ."
 
-    build "GCC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-uL done . . ."
 
@@ -133,13 +133,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build EmptyGlory-F Q . . ."
 
-    build "GCCQ60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-F Q done . . ."
 
@@ -154,10 +154,10 @@
 
     # sendInfo "starting build EmptyGlory-F P . . ."
 
-    build "GCCP60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-F P done . . ."
 
@@ -174,13 +174,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build EmptyGlory-M Q . . ."
 
-    build "GCCQ60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-M Q done . . ."
 
@@ -195,10 +195,10 @@
 
     # sendInfo "starting build EmptyGlory-M P . . ."
 
-    build "GCCP60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-M P done . . ."
 
@@ -214,13 +214,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build EmptyGlory-H Q . . ."
 
-    build "GCCQ60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCQ71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCQ71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-H Q done . . ."
 
@@ -235,10 +235,10 @@
 
     # sendInfo "starting build EmptyGlory-H P . . ."
 
-    build "GCCP60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "GCCP71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "GCCP71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-H P done . . ."
 
@@ -253,13 +253,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build QuantumKiller-N . . ."
 
-    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-N done . . ."
 
@@ -275,10 +275,10 @@
 
     # sendInfo "starting build DeadlyCute-N . . ."
 
-    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-N done . . ."
 
@@ -294,13 +294,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build QuantumKiller-L . . ."
 
-    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-L done . . ."
 
@@ -316,10 +316,10 @@
 
     # sendInfo "starting build DeadlyCute-L . . ."
 
-    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-L done . . ."
 
@@ -335,13 +335,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build QuantumKiller-uL . . ."
 
-    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build QuantumKiller-uL done . . ."
 
@@ -357,10 +357,10 @@
 
     # sendInfo "starting build DeadlyCute-uL . . ."
 
-    build "DTC60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTC71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build DeadlyCute-uL done . . ."
 
@@ -376,13 +376,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build EmptyGlory-F Q . . ."
 
-    build "DTCQ60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-F Q done . . ."
 
@@ -397,10 +397,10 @@
 
     # sendInfo "starting build EmptyGlory-F P . . ."
 
-    build "DTCP60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-F P done . . ."
 
@@ -417,13 +417,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build EmptyGlory-M Q . . ."
 
-    build "DTCQ60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-M Q done . . ."
 
@@ -438,10 +438,10 @@
 
     # sendInfo "starting build EmptyGlory-M P . . ."
 
-    build "DTCP60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-M P done . . ."
 
@@ -457,13 +457,13 @@
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
-    chat_id="$chat_group_id"
+    chat_id="-1001445939232"
     # sendInfo "starting build EmptyGlory-H Q . . ."
 
-    build "DTCQ60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCQ71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCQ71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-H Q done . . ."
 
@@ -478,10 +478,10 @@
 
     # sendInfo "starting build EmptyGlory-H P . . ."
 
-    build "DTCP60Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP65Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP68Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
-    build "DTCP71Hz" "" "$chat_group_id" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP65Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP68Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
+    build "DTCP71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
 
     # sendInfo "build EmptyGlory-H P done . . ."
 
