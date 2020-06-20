@@ -5,6 +5,7 @@ git branch -D eg-f eg-m eg-h eg-f-rc eg-m-rc eg-h-rc
 git branch -D qk-n qk-l qk-ul qk-n-rc qk-l-rc qk-ul-rc
 git branch -D private private-oc private-rc private-oc-rc
 git branch -D bego bego-oc bego-rc bego-oc-rc
+git branch -D bego-qk-n bego-qk-l bego-qk-n-rc bego-qk-l-rc
 
 git checkout master && git checkout -b eg-f && \
 git checkout master && git checkout -b eg-f-rc && \
@@ -26,6 +27,10 @@ git checkout master && git checkout -b bego && \
 git checkout master && git checkout -b bego-rc && \
 git checkout master && git checkout -b bego-oc && \
 git checkout master && git checkout -b bego-oc-rc && \
+git checkout master && git checkout -b bego-qk-n && \
+git checkout master && git checkout -b bego-qk-n-rc && \
+git checkout master && git checkout -b bego-qk-l && \
+git checkout master && git checkout -b bego-qk-l-rc && \
 git checkout master
 
 function update_file() {
@@ -59,4 +64,8 @@ git checkout bego && update_file '# source master.sh' "source bego.sh" "./.circl
 git checkout bego-oc && update_file '# source master.sh' "source bego-oc.sh" "./.circleci/config.yml" && \
 git checkout bego-rc && update_file '# source master.sh' "source bego-rc.sh" "./.circleci/config.yml" && \
 git checkout bego-oc-rc && update_file '# source master.sh' "source bego-oc-rc.sh" "./.circleci/config.yml" && \
+git checkout bego-qk-n && update_file '# source master.sh' "source bego-qk-n.sh" "./.circleci/config.yml" && \
+git checkout bego-qk-n-rc && update_file '# source master.sh' "source bego-qk-n-rc.sh" "./.circleci/config.yml" && \
+git checkout bego-qk-l && update_file '# source master.sh' "source bego-qk-l.sh" "./.circleci/config.yml" && \
+git checkout bego-qk-l-rc && update_file '# source master.sh' "source bego-qk-l-rc.sh" "./.circleci/config.yml" && \
 git checkout master
