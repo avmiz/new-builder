@@ -263,7 +263,7 @@ function Getclang(){
     [ ! -d "Getclang" ] && mkdir Getclang
     cd Getclang
     [ ! -d ".git" ] && git init
-    setRemote "https://github.com/ZyCromerZ/google-clang.git" "gugel-clang" "9.0.3-r353983c"
+    setRemote "https://github.com/ZyCromerZ/google-clang.git" "gugel-clang" "9.0.4-r353983d"
     # setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     cd ..
     [ ! -d "GetGcc" ] && mkdir GetGcc
@@ -277,7 +277,7 @@ function Getclang(){
 }
 function SetClang(){
     cd Getclang
-    git fetch gugel-clang 9.0.3-r353983c
+    git fetch gugel-clang 9.0.4-r353983d
     git checkout FETCH_HEAD
     # git checkout dtc/dragontc
     cd ..
