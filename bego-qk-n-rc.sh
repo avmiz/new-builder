@@ -16,6 +16,10 @@
     chat_id="$chat_group_id"
 
     build "" "" "$chat_group_id"
+    Getclang 'dtc'
+    SetClang 'dtc'
+    TypeKernel='DTC'
+    build "" "" "$chat_group_id"
 
 cd ..
 rm -rf $folder
