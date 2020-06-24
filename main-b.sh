@@ -371,7 +371,7 @@ function build(){
     fi
 }
 function Getclang(){
-    mkdir Getclang
+    [ ! -d "$(pwd)/GetGcc" ] && mkdir Getclang
     cd Getclang
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
@@ -389,7 +389,7 @@ function Getclang(){
         setRemote "https://github.com/stormbreaker-project/stormbreaker-clang.git" "stormbreaker" "11.x"
     fi
     cd ..
-    mkdir GetGcc
+    [ ! -d "$(pwd)/GetGcc" ] && mkdir GetGcc
     cd GetGcc
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then
@@ -401,7 +401,7 @@ function Getclang(){
         setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     fi
     cd ..
-    mkdir GetGccB
+    [ ! -d "$(pwd)/GetGccB" ] && mkdir GetGccB
     cd GetGccB
     [ ! -d ".git" ] && git init
     if [ "$1" == "dtc" ];then

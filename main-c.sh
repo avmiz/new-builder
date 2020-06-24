@@ -260,18 +260,18 @@ function build(){
     fi
 }
 function Getclang(){
-    [ ! -d "Getclang" ] && mkdir Getclang
+    [ ! -d "$(pwd)/GetGcc" ] && mkdir Getclang
     cd Getclang
     [ ! -d ".git" ] && git init
     setRemote "https://github.com/ZyCromerZ/google-clang.git" "gugel-clang" "9.0.4-r353983d"
     # setRemote "https://github.com/Bikram557/DragonTC-10.0.git" "dtc" "dragontc"
     cd ..
-    [ ! -d "GetGcc" ] && mkdir GetGcc
+    [ ! -d "$(pwd)/GetGcc" ] && mkdir GetGcc
     cd GetGcc
     [ ! -d ".git" ] && git init
     setRemote "https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" "gcc-google" "master"
     cd ..
-    # [ ! -d "GetGccB" ] && mkdir GetGccB
+    # [ ! -d "$(pwd)/GetGccB" ] && mkdir GetGccB
     # cd GetGccB
     # cd ..
 }
