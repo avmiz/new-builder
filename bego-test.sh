@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 ################################################################################################ Memetek
-    branch="rebase-pixel"
+    branch="android-10.0-re-upstream"
     folder="all"
     FolderUpload="Kernel/Begonia/Tercydux-TEST"
     spectrumFile="bego.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-files"
-    TypeBuid="Stable-RC"
+    TypeBuid="TEST-ORI"
     Getclang
     SetClang
 
