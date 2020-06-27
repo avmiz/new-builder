@@ -176,12 +176,14 @@ function makeZip(){
     else
         SetPassword=""
     fi
+    SendToSfStatus="nope"
     if [ ! -z "$2" ] && [ "$2" == "tele" ];then
         sendToTele "$ZipName" "$KERNEL_NAME"
+        SendToSfStatus="done"
     else
         sendToSf "$ZipName" "$KERNEL_NAME"
     fi
-    if [ "$TypeBuid" != "Stable" ];then
+    if [ "$TypeBuid" != "Stable" ] && [ "$SendToSfStatus" == "nope" ];then
         sendToTele "$ZipName" "$KERNEL_NAME"
     fi
     rm -rf "$ZipName"
