@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ Memetek
-    branch="20200625/qk-l-rc"
+    branch="20200629/qk-l-rc"
     folder="all"
     FolderUpload="Kernel/Begonia/QK-TEST"
     spectrumFile="bego.rc"
