@@ -131,12 +131,12 @@ Using compiler:
 Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$FolderUpload/$createLink/download'>link download $1 ready!!! </a>"
     fi
     
-    if [ "$withPassword" == "YES" ];then
-        # sendInfo "$Text" "$chat_password_id"
-        sendInfo "$Text" "-1001301538740"
-    else
-        sendInfo "$Text"
-    fi
+    # if [ "$withPassword" == "YES" ];then
+    #     # sendInfo "$Text" "$chat_password_id"
+    #     sendInfo "$Text" "-1001301538740"
+    # else
+    #     sendInfo "$Text"
+    # fi
 }
 function makeZip(){
     KERNEL_NAME=$(cat "$(pwd)/arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
