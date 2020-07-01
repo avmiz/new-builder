@@ -2,10 +2,9 @@
 ################################################################################################ Avalon
     branch="private/20200313-rc"
     folder="all"
-    FolderUpload="Kernel/X01BD/Tercydux/"
+    FolderUpload="X01BD/KERNEL/Tercydux/"
     spectrumFile="pk.rc"
     . main-b.sh "get-kernel"
-    ProjectId="zyc-files"
     # Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'
 
     GetCommit=$(git log --pretty=format:'%h' -1)
