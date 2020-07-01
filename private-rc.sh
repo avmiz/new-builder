@@ -2,7 +2,7 @@
 ################################################################################################ Avalon
     branch="private/20200313-rc"
     folder="all"
-    FolderUpload="X01BD/KERNEL/Tercydux/"
+    FolderUpload="X01BD/KERNEL/Tercydux/Release-Candidate/"
     spectrumFile="pk.rc"
     . main-b.sh "get-kernel"
     # Getclang 'dtc' && Getclang 'Avalon' && Getclang 'stormbreaker'
