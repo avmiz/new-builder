@@ -190,13 +190,6 @@ function makeZip(){
     cd ..
 
 }
-function finerr() {
-    curl -s -X POST "https://api.telegram.org/bot$token/sendMessage" \
-        -d chat_id="$chat_id" \
-        -d "disable_web_page_preview=true" \
-        -d "parse_mode=html" \
-        -d text="Build kernel from branch : $branch  (<code>$1</code>) failed -_-" 1>/dev/null 2>/dev/null
-}
 function clean_build() {
     make -j$(($GetCore)) O=out clean mrproper 1>/dev/null 2>/dev/null
     make -j$(($GetCore)) clean mrproper 1>/dev/null 2>/dev/null
@@ -246,19 +239,15 @@ function build(){
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
     compileNow
-    if [ ! -f "$IMAGE" ]; then
-        finerr "$1"
+    cp -af out/arch/$SetArch/boot/Image.gz-dtb AnyKernel
+    END=$(date +"%s")
+    DIFF=$(($END - $START))
+    withPassword="NO"
+    if [ ! -z "$4" ];then
+        withPassword="YES"
+        makeZip "$1" "$2" "$4"
     else
-        cp -af out/arch/$SetArch/boot/Image.gz-dtb AnyKernel
-        END=$(date +"%s")
-        DIFF=$(($END - $START))
-        withPassword="NO"
-        if [ ! -z "$4" ];then
-            withPassword="YES"
-            makeZip "$1" "$2" "$4"
-        else
-            makeZip "$1" "$2"
-        fi
+        makeZip "$1" "$2"
     fi
 }
 function Getclang(){
