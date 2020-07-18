@@ -27,8 +27,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
-    git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
+    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
+    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
 
     # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
@@ -70,8 +70,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
-    git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
+    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
+    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
 
     # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
@@ -112,8 +112,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
-    git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
+    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
+    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
 
     # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
@@ -156,8 +156,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e --no-commit
-    git commit -s -m "revert: ab24c40ba48e47f4543ac9afa9763112a7d3d68e"
+    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
+    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
 
     # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)

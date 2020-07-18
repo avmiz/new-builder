@@ -9,7 +9,7 @@ DeadlyCute-N : 97a48a19482d88311df54eebcb26ab6da6c8f3c6 || babfe8f4448ebd39aaad8
 DeadlyCute-L : ddd3796970a567463c18d0fb29ca67073be6d9cd || ee9fb5762bbf7bc5650bd0a1adadf26e7299aa4c
 
 
-fix wifi pie : revert ab24c40ba48e47f4543ac9afa9763112a7d3d68e
+fix wifi pie : revert a5958117038a83e4ca4f38ac02baaec4a48304c5
 
 65
 19d101e1867d9258e891ce268d4a2ed4060503bf
