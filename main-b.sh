@@ -302,18 +302,18 @@ function build(){
             SetClang "Avalon-Test"
         fi
         ## disable polly optimization
-        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
+        # git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
     elif [[ "$1" == *"Proton"* ]];then
         Getclang "proton"
         Getclang "proton"
         ## disable polly optimization
-        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
+        # git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "proton"
     elif [[ "$1" == *"Stormbreaker"* ]];then
-        Getclang "stormbreaker"
-        Getclang "stormbreaker"
+        # Getclang "stormbreaker"
+        # Getclang "stormbreaker"
         ## disable polly optimization
-        git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
+        # git revert 3af1ebd92122389bd4851f5e8cae6647247d0fe6 --no-commit &&  git commit -s -m "Revert: 3af1ebd92122389bd4851f5e8cae6647247d0fe6"
         SetClang "stormbreaker"
     elif [[ "$1" == *"DTC"* ]];then
         Getclang "dtc"
@@ -322,23 +322,23 @@ function build(){
             SetClang "dtc-old"
         fi
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
-        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
-        git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
-        git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
+        # git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        # git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        # git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
+        # git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
         ## revert Makefile changes for DragonTC clang 10
-        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        # git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     elif [[ "$1" == *"GCC"* ]];then
         Getclang "GCC"
         SetClang "GCC"
         ## revert some fix for gcc 9.x changes for DragonTC clang 10
-        git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
-        git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
-        git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
-        git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
+        # git revert 16de298c372d55c943369ae36a0ad762e1727de1 --no-commit
+        # git commit -s -m "Revert: 16de298c372d55c943369ae36a0ad762e1727de1"
+        # git revert 6b783dff671f34ba67caf11665eb8704be66dfa6 --no-commit
+        # git commit -s -m "Revert: 6b783dff671f34ba67caf11665eb8704be66dfa6"
         ## revert Makefile changes for DragonTC clang 10
-        git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
+        # git cherry-pick 061921ff48ab53ace6cf0214298fe07b5153891e
         ## git cherry-pick 590be66545f2f695de4e3465cca483cc4aa0958b
     else
         Getclang "avalon"
