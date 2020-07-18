@@ -27,8 +27,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
-    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
+    git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
+    git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
     FolderUpload="X01BD/KERNEL/DC/STABLE/L"
     GetCommit=$(git log --pretty=format:'%h' -1)

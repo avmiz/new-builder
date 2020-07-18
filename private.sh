@@ -21,8 +21,8 @@
     build "QDTC71Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
     build "QDTC72Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
     git reset --hard $MainCommit
-    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
-    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
+    git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
+    git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     build "PDTC60Hz" "" "-1001445939232" 1>/dev/null 2>/dev/null && echo "build done . . ."
@@ -56,8 +56,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
-    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
+    git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
+    git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
     # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
@@ -98,8 +98,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
-    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
+    git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
+    git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
     # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
@@ -142,8 +142,8 @@
 
     ## for pie
     git reset --hard $MainCommit
-    git revert a5958117038a83e4ca4f38ac02baaec4a48304c5 --no-commit
-    git commit -s -m "revert: a5958117038a83e4ca4f38ac02baaec4a48304c5"
+    git revert e3f173b6585865b3e1658802c84c52de21ec0502 --no-commit
+    git commit -s -m "revert: e3f173b6585865b3e1658802c84c52de21ec0502"
 
     # FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     GetCommit=$(git log --pretty=format:'%h' -1)
