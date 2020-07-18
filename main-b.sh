@@ -284,12 +284,8 @@ function build(){
         chat_id="$3"
     fi
     if [ ! -z "$1" ];then
-        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-auo-ft8716f-5p9-fhd-video.dtsi" && \
         update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-hx83112a-1080p-video-tm.dtsi" && \
-        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672-1080p-video-txd.dtsi" && \
-        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672-1080p-video.dtsi" && \
-        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672ah-1080p-video-kd.dtsi" && \
-        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-td4310-1080p-video-txd.dtsi"
+        update_file "qcom,mdss-dsi-panel-framerate = " "qcom,mdss-dsi-panel-framerate = <$GetRefreshRate>;" "./arch/arm/boot/dts/qcom/X01BD/dsi-panel-nt36672ah-1080p-video-kd.dtsi"
     fi
     GetCore=$(nproc --all)
     TAGKENEL="$(git log | grep "${SetTag}" | head -n 1 | awk -F '\\'${SetLastTag}'' '{print $1"'${SetLastTag}'"}' | awk -F '\\'${SetTag}'' '{print "'${SetTag}'"$2}')"
