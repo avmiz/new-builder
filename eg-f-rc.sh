@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ EG F DTC
-    branch="eg/20200313/f-rc"
+    branch="eg/20200711/f-rc"
     folder="all"
     FolderUpload="X01BD/KERNEL/EG/Release-Candidate/F"
     spectrumFile="f.rc"

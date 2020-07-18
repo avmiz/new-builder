@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ QK N
-    branch="qk/20200313/n"
+    branch="qk/20200711/n"
     folder="all"
     FolderUpload="X01BD/KERNEL/QK/STABLE/N"
     spectrumFile="vipn.rc"
@@ -43,7 +43,7 @@
 
 ################################################################################################ QK L
 
-    branch="qk/20200313/l"
+    branch="qk/20200711/l"
     FolderUpload="X01BD/KERNEL/QK/STABLE/L"
     spectrumFile="vipl.rc"
     change_branch
@@ -84,7 +84,7 @@
 
 ################################################################################################ QK uL
 
-    branch="qk/20200313/ul"
+    branch="qk/20200711/ul"
     FolderUpload="X01BD/KERNEL/QK/STABLE/uL"
     spectrumFile="ul.rc"
     change_branch
@@ -125,7 +125,7 @@
 
 ################################################################################################ EG F
 
-    branch="eg/20200313/f"
+    branch="eg/20200711/f"
     FolderUpload="X01BD/KERNEL/EG/STABLE/F"
     spectrumFile="f.rc"
     change_branch
@@ -165,7 +165,7 @@
 
 ################################################################################################ EG M
 
-    branch="eg/20200313/m"
+    branch="eg/20200711/m"
     # folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/STABLE/M"
     spectrumFile="m.rc"
@@ -206,7 +206,7 @@
 
 ################################################################################################ EG H
 
-    branch="eg/20200313/h"
+    branch="eg/20200711/h"
     FolderUpload="X01BD/KERNEL/EG/STABLE/H"
     spectrumFile="h.rc"
     change_branch
@@ -245,7 +245,7 @@
     clean_build
 
 ################################################################################################ QK N
-    branch="qk/20200313/n"
+    branch="qk/20200711/n"
     FolderUpload="X01BD/KERNEL/QK/STABLE/N"
     spectrumFile="vipn.rc"
     change_branch
@@ -286,7 +286,7 @@
 
 ################################################################################################ QK L
 
-    branch="qk/20200313/l"
+    branch="qk/20200711/l"
     FolderUpload="X01BD/KERNEL/QK/STABLE/L"
     spectrumFile="vipl.rc"
     change_branch
@@ -327,7 +327,7 @@
 
 ################################################################################################ QK uL
 
-    branch="qk/20200313/ul"
+    branch="qk/20200711/ul"
     FolderUpload="X01BD/KERNEL/QK/STABLE/uL"
     spectrumFile="ul.rc"
     change_branch
@@ -368,7 +368,7 @@
 
 ################################################################################################ EG F
 
-    branch="eg/20200313/f"
+    branch="eg/20200711/f"
     FolderUpload="X01BD/KERNEL/EG/STABLE/F"
     spectrumFile="f.rc"
     change_branch
@@ -408,7 +408,7 @@
 
 ################################################################################################ EG M
 
-    branch="eg/20200313/m"
+    branch="eg/20200711/m"
     # folder="qk_normal"
     FolderUpload="X01BD/KERNEL/EG/STABLE/M"
     spectrumFile="m.rc"
@@ -449,7 +449,7 @@
 
 ################################################################################################ EG H
 
-    branch="eg/20200313/h"
+    branch="eg/20200711/h"
     FolderUpload="X01BD/KERNEL/EG/STABLE/H"
     spectrumFile="h.rc"
     change_branch

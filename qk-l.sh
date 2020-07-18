@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ QK L DTC
-    branch="qk/20200313/l"
+    branch="qk/20200711/l"
     folder="all"
     FolderUpload="X01BD/KERNEL/QK/STABLE/L"
     spectrumFile="vipn.rc"

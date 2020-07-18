@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ QK L DTC
-    branch="qk/20200313/ul"
+    branch="qk/20200711/ul"
     folder="all"
     FolderUpload="X01BD/KERNEL/QK/STABLE/uL"
     spectrumFile="ul.rc"
