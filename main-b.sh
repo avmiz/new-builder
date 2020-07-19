@@ -86,7 +86,7 @@ Using compiler:
 function sendToSf(){
     echo "upload to sf"
     Zip_File="$(pwd)/$1"
-    rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" $my_host@frs.sourceforge.net:/home/frs/project/$ProjectId/$FolderUpload/ 1>/dev/null 2>/dev/null
+    rsync -avP -e "ssh -o StrictHostKeyChecking=no" "$Zip_File" "$my_host@frs.sourceforge.net:/home/frs/project/$ProjectId/$FolderUpload/" 1>/dev/null 2>/dev/null
     createLink=$1
     createLink=${createLink/"["/"%5B"}
     createLink=${createLink/"]"/"%5D"}
