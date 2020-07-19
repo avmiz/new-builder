@@ -16,7 +16,6 @@
     TypeBuid="miui-android-9"
 
     build "" "" "-1001400256602"
-    clean
 
     clean_build
     branch="begonia-q-oss-root"
