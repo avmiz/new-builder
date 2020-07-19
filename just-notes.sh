@@ -6,7 +6,7 @@ git branch -D qk-n qk-l qk-ul qk-n-rc qk-l-rc qk-ul-rc
 git branch -D private private-oc private-rc private-oc-rc
 git branch -D bego bego-oc bego-rc bego-oc-rc
 git branch -D bego-qk-n bego-qk-l bego-qk-n-rc bego-qk-l-rc
-git branch -D bego-test
+git branch -D bego-test bego-stock-p bego-stock-q
 
 git checkout master && git checkout -b eg-f && \
 git checkout master && git checkout -b eg-f-rc && \
