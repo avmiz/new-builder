@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 ################################################################################################ Memetek
-    branch="begonia-q-oss-root"
+    branch="begonia-q-oss"
     folder="all"
     FolderUpload="Kernel/Begonia/STOCK-TEST"
     spectrumFile="bego.rc"
