@@ -2,7 +2,7 @@
 ################################################################################################ Memetek
     branch="begonia-p-oss-root"
     folder="all"
-    FolderUpload="Kernel/Begonia/Tercydux"
+    FolderUpload="Kernel/Begonia/STOCK-TEST"
     spectrumFile="bego.rc"
     . main-d.sh "get-kernel"
     ProjectId="zyc-files"
