@@ -192,7 +192,7 @@ function makeCleanOnly(){
     make -j$(($GetCore+1)) clean mrproper 1>/dev/null 2>/dev/null
 }
 function change_branch() {
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch 1>/dev/null 2>/dev/null
+    git fetch origin $branch && git checkout FETCH_HEAD  && git checkout -b $branch 1>/dev/null 2>/dev/null
 }
 function compileNow(){
     make -j$(($GetCore+1))  O=out ARCH=arm64 X01BD_defconfig

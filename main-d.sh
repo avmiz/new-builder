@@ -215,7 +215,7 @@ function makeCleanOnly(){
     make -j$(($GetCore)) clean mrproper
 }
 function change_branch() {
-    git fetch origin $branch && git checkout origin/$branch  && git checkout -b $branch
+    git fetch origin $branch && git checkout FETCH_HEAD  && git checkout -b $branch
 }
 function compileNow(){
     make -j$(($GetCore))  O=out ARCH="$SetArch" "$SetDefconfig"
