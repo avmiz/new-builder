@@ -13,7 +13,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="-1001400256602"
-    TypeBuid="miui-android-9"
+    TypeBuid="miui-android-10"
 
     build "" "" "-1001400256602"
 

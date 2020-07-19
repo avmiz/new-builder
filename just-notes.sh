@@ -73,6 +73,6 @@ git checkout bego-qk-n-rc && update_file '# source master.sh' "source bego-qk-n-
 git checkout bego-qk-l && update_file '# source master.sh' "source bego-qk-l.sh" "./.circleci/config.yml" && \
 git checkout bego-qk-l-rc && update_file '# source master.sh' "source bego-qk-l-rc.sh" "./.circleci/config.yml" && \
 git checkout bego-test && update_file '# source master.sh' "source bego-test.sh" "./.circleci/config.yml" && \
-git checkout bego-bego-stock-p && update_file '# source master.sh' "source bego-stock-p.sh" "./.circleci/config.yml" && \
-git checkout bego-bego-stock-q && update_file '# source master.sh' "source bego-stock-q.sh" "./.circleci/config.yml" && \
+git checkout bego-stock-p && update_file '# source master.sh' "source bego-stock-p.sh" "./.circleci/config.yml" && \
+git checkout bego-stock-q && update_file '# source master.sh' "source bego-stock-q.sh" "./.circleci/config.yml" && \
 git checkout master
