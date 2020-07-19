@@ -152,9 +152,11 @@ function makeZip(){
         cd ..
     fi
     if [ -e "spectrum/$spectrumFile" ];then
+        echo 'spectrum found . . .'
         cp -af "spectrum/$spectrumFile" init.spectrum.rc
         sed -i "s/persist.spectrum.kernel.*/persist.spectrum.kernel $KERNEL_NAME/g" init.spectrum.rc
     else
+        echo 'spectrum not found . . .'
         if [ -e "init.spectrum.rc" ];then
             rm -rf init.spectrum.rc
         fi
@@ -239,14 +241,17 @@ function build(){
     TANGGAL=$(date +"%m%d")
     START=$(date +"%s")
     compileNow
+    echo "compile done btw . . ."
     cp -af out/arch/$SetArch/boot/Image.gz-dtb AnyKernel
     END=$(date +"%s")
     DIFF=$(($END - $START))
     withPassword="NO"
     if [ ! -z "$4" ];then
+        echo "oo"
         withPassword="YES"
         makeZip "$1" "$2" "$4"
     else
+        echo "kk"
         makeZip "$1" "$2"
     fi
 }
