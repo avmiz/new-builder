@@ -21,7 +21,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     SetDevices="Begonia"
     SetDevicesInfo="Redmi Note 8 pro"
     SetArch="arm64"
-    TypeBuid="Stable (STOCK-KERNEL)"
+    TypeBuid="TEST (STOCK-KERNEL)"
     TypeKernel=""
     IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
     export ARCH="$SetArch"
@@ -139,9 +139,16 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
     # fi
 }
 function makeZip(){
-    KERNEL_NAME=$(cat "$(pwd)/arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
-    ZIP_KERNEL_VERSION="4.14.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
-    cd AnyKernel
+    KERNEL_NAME=$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
+    ZIP_KERNEL_VERSION="4.14.$(cat "./Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
+    if [ ! -d "AnyKernel" ];then
+        git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 -b master-begonia AnyKernel 
+        cd "AnyKernel"
+    else
+        cd "AnyKernel"
+        git fetch origin master-begonia && git checkout origin/master-begonia && git branch -D master-begonia && git checkout -b master-begonia
+    fi
+    echo "to anykernel folder . . ."
     if [ ! -d "spectrum" ];then
         git clone https://$githubKey@github.com/ZyCromerZ/spectrum.git spectrum
     else
@@ -151,6 +158,7 @@ function makeZip(){
         git checkout -b master
         cd ..
     fi
+    echo "created spectrum folder done"
     if [ -e "spectrum/$spectrumFile" ];then
         echo 'spectrum found . . .'
         cp -af "spectrum/$spectrumFile" init.spectrum.rc
@@ -242,7 +250,7 @@ function build(){
     START=$(date +"%s")
     compileNow
     echo "compile done btw . . ."
-    cp -af out/arch/$SetArch/boot/Image.gz-dtb AnyKernel
+    cp -af out/arch/$SetArch/boot/Image.gz-dtb ./AnyKernel
     END=$(date +"%s")
     DIFF=$(($END - $START))
     withPassword="NO"
