@@ -13,7 +13,7 @@
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
     chat_id="-1001400256602"
-    TypeKernel="[miui-android-9]"
+    TypeBuid="[miui-android-9]"
 
     build "" "" "-1001400256602"
     clean
@@ -21,7 +21,7 @@
     clean_build
     branch="begonia-q-oss-root"
     change_branch
-    TypeKernel="[miui-android-10]"
+    TypeBuid="[miui-android-10]"
     GetCommit=$(git log --pretty=format:'%h' -1)
     HeadCommit=$GetCommit
     MainCommit=$GetCommit
