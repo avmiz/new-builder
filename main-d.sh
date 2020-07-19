@@ -139,8 +139,14 @@ Link Download : <a href='https://sourceforge.net/projects/$ProjectId/files/$Fold
     # fi
 }
 function makeZip(){
-    KERNEL_NAME=$(cat "./arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
-    ZIP_KERNEL_VERSION="4.14.$(cat "./Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
+    echo 'get kernel name . . .'
+    if [ ! -z "$(cat "$(pwd)/arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )" ];then
+        KERNEL_NAME=$(cat "$(pwd)/arch/$SetArch/configs/$SetDefconfig" | grep "CONFIG_LOCALVERSION=" | sed 's/CONFIG_LOCALVERSION="-*//g' | sed 's/"*//g' )
+    else
+        KERNEL_NAME=""
+    fi
+    echo 'get kernel version . . .'
+    ZIP_KERNEL_VERSION="4.14.$(cat "$(pwd)/Makefile" | grep "SUBLEVEL =" | sed 's/SUBLEVEL = *//g')$(cat "$(pwd)/Makefile" | grep "EXTRAVERSION =" | sed 's/EXTRAVERSION = *//g')"
     if [ ! -d "AnyKernel" ];then
         git clone --depth=1 https://github.com/ZyCromerZ/AnyKernel3 -b master-begonia AnyKernel 
         cd "AnyKernel"
