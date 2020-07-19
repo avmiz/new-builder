@@ -21,7 +21,7 @@ if [ ! -z "$1" ] && [ "$1" == "get-kernel" ];then
     SetDevices="Begonia"
     SetDevicesInfo="Redmi Note 8 pro"
     SetArch="arm64"
-    TypeBuid="TEST (STOCK-KERNEL)"
+    TypeBuid="Stable"
     TypeKernel=""
     IMAGE="$(pwd)/out/arch/$SetArch/boot/Image.gz-dtb"
     export ARCH="$SetArch"
