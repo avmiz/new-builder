@@ -3,7 +3,7 @@
     branch="20200706/Tercydux-OC"
     folder="all"
     FolderUpload="Kernel/Begonia/Tercydux"
-    spectrumFile="bego.rc"
+    spectrumFile="bego-on.rc"
     . main-c.sh "get-kernel"
     ProjectId="zyc-files"
     Getclang
